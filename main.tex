@@ -1,0 +1,911 @@
+\documentclass[
+sigconf = false, % Style for GECCO proceedings
+review = false, % Shows line number
+screen = true, % Highlights links
+anonymous = true, % Anonymous author information
+format=acmsmall
+]{acmart}
+
+\settopmatter{printacmref=true} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+%\pagestyle{plain} % removes running headers
+
+
+% Jakob: for development; deactivate for submission
+\settopmatter
+{
+printfolios = true,     % page numbers (for review).
+}
+
+\usepackage{mathtools}
+\usepackage{csquotes}
+\usepackage{xspace}
+\usepackage{epsfig}
+
+\usepackage[algo2e,ruled,vlined,linesnumbered]{algorithm2e}
+\DontPrintSemicolon
+
+\usepackage{color}
+\usepackage{url}
+\usepackage{enumitem}
+%\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{wasysym}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage[shortcuts]{extdash}
+\usepackage{balance}
+\usepackage{thm-restate}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{mindmap}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{shadows}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shapes.symbols}
+\usetikzlibrary{shapes.callouts}
+\usetikzlibrary{decorations.pathreplacing,calc,arrows.meta}
+
+
+
+% Math commands
+\newcommand{\IB}{\{0, 1\}}
+\newcommand{\IN}{\mathbb{N}}
+\newcommand{\IR}{\mathbb{R}}
+\newcommand{\EA}{$(\mu + 1)$-EA\xspace}
+\newcommand{\argmax}{\text{arg\,max}}
+\newcommand{\argmin}{\text{arg\,min}}
+\newcommand{\OPT}{\text{OPT}}
+\newcommand{\ones}[1]{|#1|_1}
+%\newcommand{\Prob}[1]{\mathrm{Pr}\left(#1\right)}
+\renewcommand{\Pr}{P}
+\newcommand{\Prob}[1]{P\left(#1\right)}
+\newcommand{\prob}[1]{\Prob{#1}}
+\newcommand{\hv}{\ensuremath{\mathrm{HV}}\xspace} 
+\newcommand{\OMM}{\textsc{OMM}\xspace}
+\newcommand{\COCZ}{\textsc{COCZ}\xspace}
+\newcommand{\LOTZ}{\textsc{LOTZ}\xspace}
+\newcommand{\mLOTZ}{\ensuremath{m}\text{-}\textsc{LOTZ}\xspace}
+\newcommand{\mOMM}{\ensuremath{m}\text{-}\textsc{OMM}\xspace}
+\newcommand{\mCOCZ}{\ensuremath{m}\text{-}\textsc{COCZ}\xspace}
+\newcommand*{\E}{\mathrm{E}}
+
+\DeclareMathOperator{\Unif}{Unif}                         % uniform distribution
+\DeclareMathOperator{\Bin}{Bin}                           % binomial distribution
+\DeclareMathOperator{\Poi}{Poi}     
+
+% Functions
+\newcommand{\ONEMAX}{\textsc{OneMax}\xspace}
+\newcommand{\TRAP}{\textsc{Trap}\xspace}
+\newcommand{\ZEROMAX}{\textsc{ZeroMax}\xspace}
+\newcommand{\JUMPk}{\textsc{Jump}$_k$\xspace}
+\newcommand{\PLATEAU}{\textsc{Plateau}\xspace}
+\newcommand{\LO}{\textsc{LO}\xspace}                      % # of leading zeroes
+\newcommand{\TZ}{\textsc{TZ}\xspace}      
+\newcommand{\INVmax}{\textsc{minINVmax}\xspace}
+\newcommand{\INV}{\textsc{Inv}\xspace}
+\newcommand{\HAM}{\textsc{Ham}\xspace}
+\newcommand{\id}{\text{id}\xspace}
+\newcommand{\aid}{\text{id}^R\xspace}
+\newcommand{\poly}{\text{poly}\xspace}
+\newcommand{\XEA}{\text{(1+1)~EA}\xspace}
+\newcommand{\sh}[2]{\mathord{\mathrm{sh}}\mathord{\left(#1,#2\right)}}
+\newcommand{\inv}[1]{\INV(#1)}
+\newcommand{\mddd}{\mathrm{MDDD}}
+\newcommand{\LOTZFULL}{\textsc{LeadingOnesTrailingZeroes}\xspace}
+\newcommand{\mLOTZFULL}{\ensuremath{m}\text{-}\textsc{LeadingOnesTrailingZeroes}\xspace}
+\newcommand{\mLITZFULL}{\ensuremath{m}\text{-}\textsc{LeadingIntegersTrailingZeros}\xspace}
+\newcommand{\mFRITZFULL}{\ensuremath{m}\text{-}\textsc{FirstRunofIntegersTrailingZeros}\xspace}
+\newcommand{\OMMFULL}{\textsc{OneMinMax}\xspace}
+\newcommand{\COCZFULL}{\textsc{CountingOnesCountingZeros}\xspace}
+\newcommand{\OJZJfull}{\ensuremath{m}\text{-}\textsc{OneJumpZeroJump}\xspace}
+\newcommand{\OJZJk}{$\ensuremath{m}\text{-}\textsc{OJZJ}_k\xspace$}
+\newcommand{\OJZJ}{\ensuremath{m}\text{-}\textsc{OJZJ}\xspace}
+\newcommand{\ojzjk}{$\textsc{OJZJ}_k\xspace$}
+
+% Algorithms
+\newcommand{\QD}{QD\xspace}
+\newcommand{\QDk}{QD({\ensuremath{k}})\xspace}
+\newcommand{\QDGA}{QD\nobreakdash-GA\xspace}
+\newcommand{\noo}[1]{\ensuremath{#1}\nobreakdash-NoO}
+\newcommand{\EAQD}[2]{$(#1+1)$-QD$(#2)$\xspace}
+\newcommand{\EAQDk}[1]{$(#1+1)$-\QDk\xspace}
+\newcommand{\SEMO}{SEMO\xspace}
+\newcommand{\GSEMO}{GSEMO\xspace}
+\newcommand{\mplEA}[2]{$(#1+#2)$-EA\xspace} % (mu + lambda) EA
+\newcommand{\mpoEA}[1]{\mplEA{#1}{1}} % (mu + 1) EA
+\newcommand{\oplEA}[1]{\mplEA{1}{#1}} % (1 + lambda) EA
+\newcommand{\mclEA}[2]{$(#1,#2)$-EA\xspace} % (mu, lambda) EA
+\newcommand{\mcoEA}[1]{\mclEA{#1}{1}} % (mu, 1) EA
+\newcommand{\oclEA}[1]{\mclEA{1}{#1}} % (1, lambda) EA
+\newcommand{\opoEA}[1]{\mplEA{1}{1}} % (1+1) EA
+\newcommand{\ea}{(1+1)~EA\xspace}
+\newcommand{\muea}{($\mu$+1)~EA\xspace}
+\newcommand{\muga}{($\mu$+1)~GA\xspace}
+\newcommand{\oneoneea}{(1+1)~EA\xspace}
+\newcommand{\PAES}{PAES-25\xspace}
+
+% Misc
+\newcommand{\Wlog}{W.\,l.\,o.\,g.\xspace}
+\newcommand{\wrt}{w.\,r.\,t.\xspace}
+\newcommand{\wlo}{w.\,l.\,o.\,g.\xspace}
+\newcommand{\st}{s.\,t.\xspace}
+\newcommand{\ie}{i.\,e.\xspace}
+\newcommand{\eg}{e.\,g.\xspace} 
+
+\newcommand{\ineq}[1]{inequality~\eqref{eq:#1}}
+\newcommand{\ineqs}[2]{inequalities~\eqref{eq:#1} and~\eqref{eq:#2}}
+\newcommand{\ineqss}[3]{inequalities~\eqref{eq:#1},~\eqref{eq:#2}, and~\eqref{eq:#3}}
+
+\newcommand{\td}{d}
+\newcommand{\ntd}{\ones{x_{\mu+1}}-\ones{x_{\mu-1}}}
+\newcommand{\tP}{P^{\cap}}
+\newcommand{\Twomax}{\textsc{TwoMax}\xspace}
+
+\newtheorem{claim}{Claim}
+
+\newenvironment{proofofclaim}{\textsc{Proof of Claim.}}{\hfill\scriptsize\scalebox{1}{$\blacksquare$}}
+
+
+% Hyphenation
+\hyphenation{be-hav-iour-al}
+\hyphenation{Lead-ing-Ones}
+
+
+%% commenting macros
+
+% use this to hide larger blocks of material:
+\newcommand{\hide}[1]{}
+
+\usepackage{xcolor}
+
+%for fancier colors use the following options when defining your document class
+%\documentclass[usenames,dvipsnames]{article}
+%then you can define colors as follows:
+%\colorlet{macolor}{WildStrawberry!100}
+
+\definecolor{todocolor}{rgb}{0.9,0.1,0.1}
+\definecolor{changedcolor}{rgb}{0.42,0.27,0.57}
+\definecolor{addedcolor}{rgb}{0.867,0.176,0.361}
+
+\newcommand{\nbc}[3]{
+		{\colorbox{#3}{\bfseries\sffamily\scriptsize\textcolor{white}{#1}}}
+		{\textcolor{#3}{\sf\small$\blacktriangleright$\textit{#2}$\blacktriangleleft$}}
+}
+	
+\newcommand{\andre}[1]{\nbc{Andre}{#1}{red}}
+\newcommand{\todo}[1]{\nbc{TODO}{#1}{red!70!black}}
+
+\allowdisplaybreaks[3]
+
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+
+\author{Andre~Opris}
+\affiliation{
+    \institution{University of Passau
+    \city{Passau}
+    \country{Germany}
+    }
+}
+
+\title{Runtime Analyses of the PAES-25: An Enhanced Variant of the Pareto Archived Evolution Strategy}
+
+%% Rights management information. 
+\setcopyright{acmlicensed}
+\copyrightyear{2026}
+\acmYear{2026}
+\acmDOI{XXXXXXX.XXXXXXX}
+
+%% These commands are for a JOURNAL article.
+\acmJournal{TELO}
+
+\begin{document}
+
+\renewcommand{\shortauthors}{xxx}
+
+\begin{abstract}
+This paper presents a runtime analysis of \PAES, an enhanced version of the Pareto Archived Evolution Strategy (PAES), to better understand the local-search dynamics of multiobjective evolutionary algorithms on many-objective fitness landscapes. We derive tight expected runtime bounds for \PAES with one-bit mutation on \mLOTZFULL ($m$-LOTZ) until the entire Pareto front is found, for any number of objectives. These bounds improve on the best known upper bound for (G)SEMO on \mLOTZ when $m \ge 4$.
+We further show that archivers such as the Adaptive Grid Archiver (AGA), Hypervolume Archiver (HVA), and Multi-Level Grid Archiver (MGA) efficiently maintain a well-distributed approximation of the Pareto front. For $2$-LOTZ, \PAES with standard bit mutation remains efficient, though with an additional factor of $n$ in the upper bound compared to one-bit mutation.
+In addition, to further understand the underlying dynamics of \PAES, we analyze \PAES on \mLITZFULL ($m$-LITZ) and \mFRITZFULL ($m$-FRITZ), two multiobjective generalizations of \mLOTZ, and obtain similarly favorable runtime results. We also identify limitations of \PAES on \OMMFULL (OMM) and \COCZFULL (COCZ), and propose a simple modification that yields promising runtime guarantees on both benchmarks while preserving the upper runtime bounds established for all other problems considered.
+\end{abstract}
+%%
+%% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
+%% Please copy and paste the code instead of the example below.
+%%
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10003752.10003809.10003716.10011136.10011797.10011799</concept_id>
+<concept_desc>Theory of computation~Evolutionary algorithms</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Theory of computation~Evolutionary algorithms}
+
+%%
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+\keywords{Evolutionary multiobjective optimization, runtime analysis, PAES-25, archiving}
+
+\maketitle
+
+
+\section{Introduction}
+\label{sec:introduction}
+\andre{Add recent papers!}
+In many real-world scenarios, optimization involves handling multiple objectives that often conflict with each other. A common approach to tackle such multi-objective optimization problems is to generate a diverse set of Pareto-optimal solutions. These are solutions where no objective can be improved without degrading at least one other. A decision maker can then select the most suitable trade-off based on their preferences. Owing to their population-based nature, multi-objective evolutionary algorithms (MOEAs) have become essential tools and are widely applied across various domains in practice~\cite{kdeb01,coello2013evolutionary}. 
+
+The mathematical runtime analysis of MOEAs began roughly two decades ago~\cite{LaumannsTZWD02,Giel03,Thierens03}. In recent years, this field has experienced significant growth, with studies focusing on well-known algorithms such as (G)SEMO, NSGA-II, NSGA-III, SMS-EMOA, and SPEA2~\cite{Laumanns2004,DoerrNearTight,UpBian,RenBLQ24,Opris2025,OprisNSGAIII}. Additionally, research has explored how MOEAs can be applied to combinatorial optimization problems like minimum spanning trees~\cite{DBLP:conf/ijcai/CerfDHKW23}, subset selection problems~\cite{MOEASubset} or submodular optimization~\cite{QianYTYZ19}. A useful dichotometry of how to analyze such algorithms theoretically can be found in~\cite{Dang-Levels}.
+
+Another notable MOEA is the \emph{Pareto Archived Evolution Strategy} (PAES) algorithm, originally proposed by~\citet{781913} coming from the study of telecommunication problems. PAES is a (1+1) evolutionary strategy that performs mutation on a single solution, referred to as the \emph{current solution}. To identify non-dominated solutions, the algorithm maintains an archive of previously found non-dominated solutions, enabling it to obtain many different trade-offs. Its size can be limited by a threshold $L$ smaller than the size of the Pareto front. When the archive is full, so-called \emph{archivers} decide whether to accept mutated solutions as the new current solution and which solution to be removed in order to preserve diversity. As this algorithm maintains and mutates a single current solution instead of selecting a solution from a population, it is very simple and particularly well-suited for solving problems relying on multi-objective local search. For instance, in~\cite{PAESFIRST} it is proven that this algorithm using one-bit mutation beats SEMO on a problem called \textsc{Path} by a factor of $n$. A further key advantage of PAES is its potential to scale better to many-objective problems compared to traditional MOEAs. This is primarily because it does not rely on selective pressure, which tends to deteriorate as the number of objectives increases and the Pareto front grows exponentially~\cite{OprisNSGAIII,Zheng_Doerr_2024,Opris2025,DoerrNearTight}. Due to its strong empirical performance across a variety of benchmark problems~\cite{781913}, PAES has gained significant traction (\cite{781913} and~\cite{Knowles2000} together have around~5000 citations). 
+
+However, PAES discards a mutated current solution if the archive already contains such a solution with the same fitness, which leads to some limitations. In~\cite{PAESFIRST} it is rigorously shown that it fails with overwhelming probability to find the entire Pareto front of the \LOTZ benchmark, an easy pseudo-Boolean function. Additionally, it is shown in~\cite{Knowles2025} that it performs empirically poorly on more complex pseudo-Boolean functions like LITZ, sLITZ and FRITZ, alternative multi-objective generalizations of the \LOTZ benchmark. To address these shortcomings, \citet{Knowles2025} proposed an enhanced version of PAES, called \PAES. This updated algorithm has slightly different acceptance criteria. It adds solutions to the archive and accepts mutated current solutions as the new current solution, even if one with the same fitness already exists in the archive which is then  replaced. This enables progress on fitness plateaus. Empirical results by~\citet{Knowles2025} suggest that \PAES not only progresses more quickly towards the Pareto front but also discovers a significantly larger fraction of the front on benchmarks such as \LOTZ, LITZ, sLITZ and FRITZ compared to the standard PAES.
+
+Despite these practical results, a rigorous theoretical understanding of PAES remains limited. Apart from~\cite{PAESFIRST}, no formal runtime analysis existed for either the original PAES or its updated variant \PAES. Consequently, it is still unclear under which conditions \PAES performs well, and what structural features of problems contribute to its success. Addressing these open questions could offer valuable guidance for designing more efficient variants of \PAES and advancing its applicability in practice.
+
+\textbf{Our contribution:} In this paper we make a significant step towards such an understanding and provide the first runtime analysis of \PAES on different benchmark problems. Our three main contributions are detailed as follows.
+
+Firstly, we analyze \PAES with one bit mutation (i.e. a single bit chosen uniformly at random is flipped) on \mLOTZ. We show that if the archive size is sufficiently large, at least equal to the size of the Pareto front and possibly larger depending on the archiving strategy, then the algorithm efficiently discovers all Pareto optimal search points. Specifically, the number of iterations required is $\Theta(n^3)$ for $m = 2$, $ \Theta(n^3 \log^2 n) $ for $m = 4$, and $ \Theta(n \cdot (2n/m)^{m/2} \log(n/m))$ for $m > 4$. The key insight is that the current solution reaches the Pareto front easily and then performs a random walk on the Pareto front which can be described by a suitable random walk on a grid graph, the product graph of the single path graph. All Pareto-optimal solutions are found if all nodes in the grid graph are visited, and estimating the cover time of product graphs is a well-known task (see for example~\cite{JONASSON2000181}). To the best of our knowledge, these are the first known tight runtime bounds in the many-objective setting and surprisingly, if $ m \geq 4$, \PAES achieves a strictly better asymptotic runtime than the best known upper bound of $O(n^{m+1})$ established for SEMO on \mLOTZ. We also show that if the size of the archive is smaller than the size of the Pareto front, the underlying archiver spreads the solutions in the archive well across the Pareto front in many scenarios where many of them are restricted to \LOTZ, the bi-objective variant of \mLOTZ.
+
+Secondly, we investigate \PAES with standard bit mutation and show that if the size of the archive is at least $n+1$, the archive contains every Pareto-optimal search point of \LOTZ after $O(n^4)$ iterations in expectation. This is another novel approach, since, as far as we know, the only rigorously proven runtime bounds of PAES or variants relies on one-bit mutation.
+
+Thirdly, we want to demonstrate also some limitations of \PAES and rigorously prove that, even if the archive size is $\Omega(n)$, the algorithm can only find $o(n)$ different Pareto-optimal solutions of \OMM and \COCZ after $2^{\Omega(n)}$ iterations. To achieve this, we will use the negative drift theorem from~\cite{Lengler2020Drift}.
+
+\textbf{Related work:} The mathematical runtime analysis of MOEAs began around 20 years ago. Initial work focused on simple algorithms like the simple evolutionary multi-objective optimizer (SEMO)~\cite{LaumannsTZWD02} or the global SEMO (GSEMO)~\cite{Giel03}. Since then, the field has steadily advanced. The foundational runtime results for (G)SEMO were presented in~\cite{LaumannsTZ04}, the journal version of~\cite{LaumannsTZWD02}, analyzing pseudo-Boolean functions like \mLOTZ and \mCOCZ. There it was shown that (G)SEMO can find the entire Pareto front of \mCOCZ (the $m$-objective analogues of the classic \COCZ benchmark) and \mLOTZ in an expected number of $O(n^{m+1})$ fitness evaluations, for an even number of objectives. The upper bound for \LOTZ naturally extends to more than two objectives while the bi-objective \COCZ guarantees a runtime of $O(n^2 \log(n))$. Subsequent work by~\citet{BianQT18ijcaigeneral} improved the results for \mCOCZ to $O(n^m)$ for $m > 4$ and to $O(n^3\log n)$ in the special case $m = 4$. These results were further refined by~\cite{DoerrNearTight}, who showed that for \mCOCZ and \mLOTZ the runtime depends only linearly in the size of the largest set of incomparable solutions, aside from small polynomial factors in the number $m$ of objectives and $n$. That work also analyzed (G)SEMO on the $m$-\OMM and \OJZJk~benchmarks (the $m$-objective variants of the bi-objective \OMM and \ojzjk). Most recently,~\citet{Doerr_Krejca_Rudolph_2025} presented the first runtime analysis of (G)SEMO on integer-valued search spaces and there are even lower runtime bounds of GSEMO on \COCZ,  \OMM and \ojzjk~\cite{doerr2025tightruntimeguaranteesunderstanding}. 
+
+These insights motivated the rigorous analysis of more sophisticated MOEAs that are commonly used in practice. The most prominent among them is NSGA-II~\cite{DebPAM02} which has received over~50000 citations. The first rigorous runtime analysis of this algorithm was conducted by~\citet{ZhengLuiDoerrAAAI22} on classical benchmark problems. This was followed by a series of results investigating its performance on a multimodal problem~\cite{Qu2022PPSN}, approximation qualities in covering the Pareto front~\citep{DoerrApprox}, robustness to noisy environments~\cite{DaOp2023}, lower bounds~\cite{DoerrQu2023a}, the usefulness of crossover~\citep{Dang2024,DoerrQu2022}, trap functions~\cite{DangEfficient2024} and stochastic population update~\cite{UpBian}. NSGA-II has also been studied in the context of combinatorial optimization problems, including the minimum spanning tree~\cite{DBLP:conf/ijcai/CerfDHKW23} and the subset selection problem~\cite{MOEASubset}. Despite these successes, NSGA-II's performance is very limited to the bi-objective setting as shown in~\cite{Zheng2023Inefficiency}. This limitations has recently led to the runtime analysis of other prominent MOEAs designed for many-objectives, such as NSGA-III~\cite{WiethegerD23,OprisNSGAIII,Opris2025,opris2025multimodal}, SMS-EMOA~\cite{Zheng_Doerr_2024}, SPEA-2~\cite{RenBLQ24} and a modified version of NSGA-II with a simple tie-breaking rule~\cite{Krejca2025b}. All of these algorithms are population based and, in each iteration, select parents for mutation uniformly at random in contrast to PAES and \PAES. An additional property of \PAES is that it uses an archive to store non-dominated solutions. The study of the effects of such archives in multiobjective optimization was initiated only recently by \citet{ArchiveMOEAs}. They introduced an unbounded archive to drastically reduce the required population size of MOEAs for efficiently optimizing classical benchmark problems, resulting in significant speedups. Their analysis leverages crossover at boundary points to effectively cover the entire Pareto front. 
+
+However, for the archive-based algorithm PAES, to the best of our knowledge only one rigorous runtime analysis is known~\cite{PAESFIRST}. In that work, the pseudo-Boolean function \textsc{Path} is introduced, where PAES with one-bit mutation has an expected runtime bound of $\Theta(n^2)$ which outperforms SEMO by a factor of $n$. However, it is also shown that PAES fails to find the complete Pareto front of the \LOTZ benchmark with overwhelming probability. We are not aware of any other rigorous runtime results for the standard PAES or its variant \PAES. In this paper we show that \PAES is, in fact, able to find the Pareto front of \LOTZ very efficiently. 
+
+\section{Preliminaries}
+
+\emph{Notation:} For a finite set $A$ we denote by $\vert{A}\vert$ its cardinality. %For two random variables $X$ and $Y$ on $\mathbb{N}_0$ we say that $Y$ stochastically dominates $X$ if $P(Y \leq c) \leq P(X \leq c)$ for every $c \geq 0$.
+Let $\log$ be the logarithm to base $e$ and $[k]:=\{1, \ldots , k\}$ for $k \in \mathbb{N}$. The number of ones in a bit string $x$ is denoted by $\ones{x}$. The number of leading ones in $x$, denoted by $\LO(x)$, is the length of the longest prefix of $x$ which contains only ones, and the number of trailing zeros in $x$, denoted by $\TZ(x)$, the length of the longest suffix of $x$ containing only zeros respectively. For example, if $x=1110101100000$, then $\LO(x)=3$ and $\TZ(x)=5$. %The \emph{Hamming distance} between two search points $x$ and $y$ is $H(x,y):=\sum_{i=1}^n |x_i-y_i|$ and the Hamming distance between $x$ and a set $A \subset \{0,1\}^n$ is $H(x,A):=\min_{y \in A} H(x,y)$. 
+This paper is about many-objective optimisation, particularly the maximisation of a discrete $m$-objective function $f(x):=(f_1(x), \ldots , f_m(x))$ where $f_i:\{0,1\}^n \to \mathbb{N}_0$ for each $i \in [m]$. When $m=2$, the function is also called \emph{bi-objective}. Denote by $f_{\max}$ the maximum possible value of $f$ in one objective, i.e. $f_{\max}:=\max\{f_i(x) \mid x \in \{0,1\}^n, i \in [m]\}$. %For $N \subseteq \{0,1\}^n$ let $f(N):=\{f(x) \mid x \in N\}$.  
+Given two search points $x, y \in \{0, 1\}^n$, $x$ \emph{weakly dominates} $y$, denoted by $x \succeq y$,
+if $f_{i}(x) \geq f_{i}(y)$ for all $i \in [m]$, and $x$ \emph{(strictly) dominates} $y$, denoted by $x \succ y$, if one inequality is strict; if neither $x \succeq y$ nor $y \succeq x$ then $x$ and $y$ are \emph{incomparable}. A set $S \subseteq \{0,1\}^n$ is a \emph{set of mutually incomparable solutions} with respect to $f$ if all search points in $S$ are incomparable. Each solution not dominated by any other in $\{0, 1\}^n$ is called \emph{Pareto-optimal}. A mutually incomparable set of these solutions that covers all possible non-dominated fitness values is called a \emph{Pareto(-optimal) set} of $f$. %We also say that a vector $v \in \mathbb{N}_0^m$ \emph{weakly dominates} a vector $w \in \mathbb{N}_0$ if $w_i \leq v_i$ for each $i \in [m]$. If additionally $w_i < v_i$ for at least one $i \in [m]$, we say that $v$ \emph{(strictly) dominates} $w$. 
+
+We also need the following Theorem from~\cite{kötzing2024theorystochasticdrift} to describe the hitting time of unbiased random walks on the line, with one barrier. We will use this result for describing the dynamics of \PAES with standard bit mutation on \LOTZ below.
+
+\begin{theorem}[Theorem 4.2 in~\cite{kötzing2024theorystochasticdrift}]
+\label{thm:unbiased-random-walk}
+    Let $n \in \mathbb{N}$ and let $(X_t)_{t \in \mathbb{N}}$ be an integrable random process over $\{0, \ldots , n\}$, and let $T:=\inf\{t \in \mathbb{N} \mid X_t = n\}$. Suppose that there is a $\delta \in \mathbb{R}^+$ such that, for all $t<T$, we have the following conditions (variance, drift).
+    \begin{itemize}
+        \item[(1)]
+        $\text{Var}(X_{t+1}-X_t \mid X_0, \ldots , X_t) \geq \delta$.
+        \item[(2)]
+        $\E(X_{t+1}-X_t \mid X_0, \ldots , X_t) \geq 0$.
+    \end{itemize}
+Then $E(T) \leq (n^2-E(X_0^2))/\delta$.
+\end{theorem}
+\andre{Improvement compared to the conference version!}
+
+\emph{Algorithm:} The \PAES~\cite{Knowles2025}, a modification of PAES~\cite{781913,Knowles2000} is displayed in Algorithm~\ref{alg:PAES25}. Initially, a search point $s$ from $\{0,1\}^n$ is sampled uniformly at random, and the archive $A_0$ is set to $\{s\}$. Then, as long as the termination criterion is not met, a copy $s'$ of $s$ is created and mutation is applied on $s'$ (i.e. each bit is flipped uniformly at random with probability $1/n$ in case of standard bit mutation and one bit is flipped chosen uniformly at random in case of one-bit mutation) to generate a new solution $c$. The solution $s$ is referred to as the \emph{current solution}, and $c$ as the \emph{candidate solution}. Then, if the candidate solution $c$ weakly dominates a point in the archive $A_t$, all points weakly dominated by $c$ are removed from $A_t$ and $c$ is added to $A_t$. This stands in strict contrast to the standard PAES which adds $c$ only to the archive and accepts it as a new current solution if it is neither weakly dominated by $s$ nor by any point in the archive. The current solution for the next iteration then becomes $c$. Conversely, if $c$ is dominated by a member of the archive, it is discarded. If $c$ is not weakly dominated by any search point $x$ in the archive $A_t$ (that is, it is incomparable to all search points in $A_t$), it is added to $A_t$ if the archive size is smaller than $L$. Otherwise, if the archive is full, an \emph{archiver} is responsible for deciding whether $c$ will be accepted into $A_t$ and becomes the new current solution. The archiver's primary role is to maintain \emph{diversity} in the archive~\cite{Knowles2025}. If the archiver rejects $c$, the archive $A_t$ remains unchanged, and $c$ is discarded. Otherwise, $c$ is added to the archive, becomes the new current solution $s$ for the next iteration, and another point $y \in A_t$, selected by the archiver, is removed from the archive. Note that the archive always contains pairwise incomparable search points and if $A_t=P$ for a Pareto-optimal set in one iteration, then $A_t=P$ for all future iterations. In this paper we examine three archivers which are also discussed in~\citet{Knowles2025}, but with minor modifications to enable progress on fitness plateaus even when the archive is full. Other archivers, such as \emph{crowding distance} archiver (NSGA-II archiver), the SPEA2 archiver or the $\varepsilon$-dominance archiver, exhibit behavior that closely resembles that of one of the three considered in this paper (see for example~\cite{Archiver2011}).
+
+\begin{algorithm2e}[t]
+\caption{\PAES with archive size $L$ and archiver $X$ for maximizing $f:\{0,1\}^n \to \mathbb{N}_0^m$}\label{alg:PAES25}
+Initialize $s \sim \Unif(\{0,1\}^n)$\;
+Set $t=0$ and create set $A_0=\{s\}$ as an \emph{archive}\;
+\While{termination criterion not met}{
+    Create $s'$ as a copy of $s$\;
+    Create $c$ by mutation on $s'$\;
+    \uIf{$c$ weakly dominates any element in $A_t$}
+    {
+        Remove all $x \in A_{t+1}$ weakly dominated by $c$ \;
+        $A_{t+1}=A_t \cup \{c\}$, $s=c$}
+    \uElseIf{there is $x \in A_t$ dominating $c$}{
+        $A_{t+1}=A_t$\;
+    }
+    \Else{
+        \If{$|A_t| < L$}{
+        $A_{t+1}=A_t \cup \{c\}$, $s=c$\;
+        }
+        \Else{
+        \If{$c$ is accepted by the archiver $X$~\label{line:algo-15}}
+        {
+        Choose $y \in A_t$ according to $X$~\label{line:algo-16}\;
+        $A_{t+1}=(A_t \setminus \{y\}) \cup \{c\}$, $s=c$
+        }
+    }
+}
+$t=t+1$ 
+}
+\DontPrintSemicolon
+\end{algorithm2e}     
+
+\textbf{Adaptive Grid Archiver~(AGA)}~\cite{Knowles2000}: It covers the search space with a \emph{grid} and associates solutions from the archive to \emph{cells} as follows. Let the values $a \geq f_{\max}$ and $\ell \in \mathbb{N}$ be given. By bisecting the interval $[0,a]$ of each objective axis $\ell$ times into disjoint intervals $[0,a/2^{\ell}), \ldots , [(2^{\ell}-2)a/2^{\ell},(2^{\ell}-1)a/2^{\ell}), [(2^{\ell}-1)a/2^{\ell},a]$, the hypercube $[0,a]^m$ is divided into $2^{\ell \cdot m}$ cells. The location of an objective vector $v=(v_1, \ldots , v_m) \in [0,a]^m$ in the objective space is then described by a binary string of length $2^{\ell \cdot m}$, where the decimal value $0 \leq k<2^\ell-1$ of the $j$-th block of $2^\ell$ elements from the left indicates the interval $I=[ka/2^\ell,(k+1)a/2^\ell) \subset [0,a]$ such that $v_j \in I$. If $k=2^\ell-1$ then $I=[ka/2^\ell,(k+1)a/2^\ell]$. Two solutions $x,y$ belong to the same cell if their corresponding objective values $f(x)$ and $f(y)$ are represented by the same binary string of length $2^{\ell \cdot m}$. The entire grid is formed by these cells. %A map of the grid is maintained to track the number of solutions in each cell and to identify which solutions are assigned to each cell. 
+This archiver always accepts the candidate solution $c$ in Line~\ref{line:algo-15} in Algorithm~\ref{alg:PAES25} (i.e. if $c$ is incomparable to all points $x \in A_t$ and $A_t$ is full). Then, a solution distinct from $c$ from a grid cell containing the most search points is selected uniformly at random and removed from $A_t$ (in Line~\ref{line:algo-15} in Algorithm~\ref{alg:PAES25}). Ties with respect to such cells are broken uniformly at random.
+
+\textbf{Hypervolume Archiver~(HVA)}~\cite{10.1109/TEVC.2003.810755, KnowlesPhD}: For a set $P \subset \{0,1\}^n$, the \emph{hypervolume} with respect to a fitness function $f\colon \{0,1\}^n \rightarrow \mathbb{R}^m$ and a reference point $h \in \mathbb{R}^m$ (preset by the user at the beginning) is defined as
+\begin{align*}
+\hv(P) \coloneqq \mathcal{L}\left(\bigcup_{x\in P} \left\{v\in\mathbb{R}^m\mid \text{for all } i \in [m]: h_i \leq v_i \wedge v_i \leq f_i(x)\right\}\right)
+\end{align*}
+where $\mathcal{L}$ denotes the Lebesgue measure. The \emph{hypervolume contribution} of a point $x \in A_t \cup \{c\}$ is the value $\hv(A_t \cup \{c\}) - \hv((A_t \cup \{c\}) \setminus \{x\})$ (see for example~\cite{AUGER201275,ZitzlerPhD} for theoretical investigations of the hypervolume or~\cite{HYPERALGO} for an efficient algorithm to compute minimal hypervolume contributions for subsets of $\{0,1\}^n$). If $c$ contributes smallest to $\hv(A_t \cup \{c\})$ as the only point from $A_t \cup \{c\}$, it is not accepted. Otherwise, it is added to $A_t$, and a different point with the smallest hypervolume contribution to $\hv(A_t \cup \{c\})$ is removed from $A_t$ where ties are broken randomly.
+
+\textbf{Multi-Level Grid Archiver~(MGA)}~\cite{LAUMANNS2011414, LAUMANNS2011415}: 
+The multi-level grid archiver (MGA) can be considered as a hybrid approach, combining elements from both the adaptive grid archiver (AGA) and the $\varepsilon$-Pareto archiver (see, for example,~\cite{Archiver2011} for the latter). %Experimental results in that work demonstrate that adaptively selecting an appropriate level of grid coarseness for comparisons helps prevent the use of excessively large $\varepsilon$ values when evaluating different solutions within the archiver. 
+The MGA uses a hierarchical family of \emph{boxes} with respect to a \emph{coarseness level $b \geq 0$} over the objective space. For an objective vector $v:=(v_1,\ldots , v_m)$ we define the \emph{box index vector} at coarseness level $b$ as $v^{\text{box}}:=(v_1^{\text{box}}, \ldots , v_n^{\text{box}})$ where $v_i^{\text{box}}:=\lfloor{v_i \cdot 2^{-b}}\rfloor$. Then, when a candidate solution $c$ is created, the smallest level $b$ is determined such that two box index vectors of solutions from $A_t \cup \{c\}$ are comparable. The candidate solution $c$ is rejected if its corresponding box index vector is the only one that is weakly dominated by another element from $A_t$ at this level $b$. Otherwise, $c$ is added to $A_t$, and an arbitrary solution $x$ from $A_t$ distinct from $c$ that is weakly dominated by another element from $(A_t \setminus \{x\}) \cup \{c\}$ at level $b$ is removed.
+
+In all three schemes, in case of a tie between the candidate solution $c$ and another solution $z \in A_t$ in the archiver (e.g., when they have the same smallest hypervolume contribution in case of HVA), the candidate solution $c$ is always accepted becoming the new current solution. This approach reflects a common strategy and is useful for exploring plateaus. It is a minor difference to some versions displayed in~\cite{10.1109/TEVC.2003.810755}, where a solution $x$ is not necessarily added to $A_t$ if there is already a point in $A_t$ with the same fitness as $x$. In such a case the candidate solution is rejected.
+%\andre{Should we relax this strictness and sometimes allow to remove also the current solution?}
+
+A major difference to the classical MOEAs studied before where a parent is chosen according to some probability distribution from a \emph{population} is that only the current solution is selected for mutation and this solution is either the current solution of the previous iteration if the candidate solution was rejected, or the solution which is added to the archive becoming the new current solution if the candidate solution was accepted in the previous iteration. 
+
+\section{Runtime Analysis of \PAES with One-Bit Mutation on \mLOTZ}
+
+We recall the $\mLOTZFULL$ benchmark ($\mLOTZ$ for short) for many objectives. In $\mLOTZ(x)$, we divide $x$ in $m/2$ many blocks $x^j$ of equal length such that $x=(x^1, \ldots , x^{m/2})$ and in each block we count the $\LO$-value and the $\TZ$-value. This can be formalized as follows.
+\begin{definition}[\citet{Laumanns2004}]
+\label{def:mLOTZ}
+Let $m$ be divisible by $2$ and let the problem size be a multiple of $m/2$. Then the $m$-objective function \mLOTZ is defined by
+$\mLOTZ: \{0,1\}^n \to \mathbb{N}_0^m$ as 
+\[
+\mLOTZ(x) = (f_1(x), f_2(x), \ldots ,f_m(x))
+\]
+with 
+\[
+f_k(x)=
+\begin{cases}
+    \sum_{i=1}^{2n/m} \prod_{j=1}^i x_{j+n(k-1)/m}, & \text{ if $k$ is odd,} \\
+    \sum_{i=1}^{2n/m} \prod_{j=i}^{2n/m} (1-x_{j+n(k-2)/m}), & \text{ else,}
+\end{cases}
+\]
+for all $x=(x_1, \ldots ,x_n) \in \{0,1\}^n$.
+\end{definition}
+
+A Pareto-optimal set of \mLOTZ is
+\[
+\{1^{i_1}0^{2n/m-i_1} \ldots 1^{i_{m/2}}0^{2n/m-i_{m/2}} \mid i_1, \ldots , i_{m/2} \in \{0, \ldots , 2n/m\}\}
+\]
+which we denote by $P$ which coincides with its set of Pareto-optimal search points. The cardinality of this set is $(2n/m+1)^{m/2}$. In~\cite{OprisNSGAIII} it is shown that the size of a set of mutually incomparable solutions of \mLOTZ is at most $(2n/m+1)^{m-1}$. In the next lemma it is shown that the size of this set can be indeed asymptotically larger than the size of the Pareto front for a wide range of values $m$. For reasons of space, its proof is presented in the appendix. 
+
+\begin{restatable}{lemma}{lemfitnessvectors}
+\label{lem:fitnessvectors-non-dom-LOTZ}
+    Let $S$ be a maximum cardinality set of mutually incomparable solutions for $f:=\mLOTZ$. Then $|S| = n+1$ if $m=2$ and 
+    $$\frac{(2n/m + 1)^{m-1}}{4(m-2)^{m/2-1}} \leq \lvert{S}\rvert \leq (2n/m+1)^{m-1}$$
+    if $m \geq 4$.
+\end{restatable}
+
+%For $m=2$ it is easy to see that $S=\{1^j0^{n-j} \mid j \in \{0, \ldots , n\}\}$ is a set of mutually incomparable solutions with maximum cardinality \todo{could cite a result}. 
+%Let
+%\[
+%N:=\{v \in \{0, \ldots , 2n/m\}^m \mid v_{2i-1} + v_{2i} \leq 2n/m, \text{ for } i \in \{1,\ldots,m/2\}\}.
+%\]
+%\dirk{I replaced $k$ with $2n/m$, please check.}
+%Then $f(\{0,1\}^n) = N$\dirk{This notation should be defined.} since $0 \leq f_{2i-1}+f_{2i} \leq 2n/m$ for each $i \in \{1,\ldots,m/2\}$. Define $V:=\{f(x) \mid x \in S\} \subset N$. Then %$V$ is a set of non-dominated fitness vectors for \mLOTZ \todo{define this} with
+%$\lvert{V}\rvert = \lvert{S}\rvert$ (since for $x,y \in S$ we have that $f(x) \neq f(y)$ due to incomparability). %and with maximum cardinality.
+
+In this section we analyze \PAES with one-bit mutation on \mLOTZ and establish tight bounds on the expected runtime to fill the archive with the full Pareto set $P$. A key part of the analysis involves proving that the potential function $W_t:=\sum_{i=1}^{m/2} (\LO(s^i) + \TZ(s^i))$, where $s$ denotes the current solution in iteration $t$, is non-decreasing. Observe that $0 \leq W_t \leq n$, and $s$ is Pareto-optimal if and only if $W_t=n$. Consequently, once a Pareto-optimal solution is found, it remains Pareto-optimal in all subsequent iterations. This monotonicity of the potential function $W_t$ also enables the derivation of an expected runtime bound for reaching the Pareto front.
+
+\begin{lemma}
+    \label{lem:approach-Pareto-current-solution-plus-pareto}
+    Consider \PAES with one-bit mutation and any archiver optimizing \mLOTZ for any $m \leq n$ divisible by $2$ and archive size at least one. Let $W_t:=\sum_{i=1}^{m/2} (\LO(s^i) + \TZ(s^i))$. Then $W_{t+1} \geq W_t$. Furthermore, the expected number of iterations until the current solution is Pareto-optimal is $O(n^2)$. 
+\end{lemma}
+
+\begin{proof}
+    The current solution $s$ either remains unchanged if the candidate solution $c$ is rejected or it is updated if the candidate solution is accepted. Suppose we flip bit $i \in [2n/m]$ in block $\ell$. If $i \in \{1, \ldots , \LO(s^\ell)\}$, then $\LO(c^\ell) < \LO(s^\ell)$ and all $\LO$- and $\TZ$-values of all other blocks remain unchanged. Similarly, if $i \in \{2n/m-\TZ(s^\ell)+1, \ldots , 2n/m\}$, then $\TZ(c^\ell) < \TZ(s^\ell)$, and again, all $\LO$- and $\TZ$-values of all other blocks remain unchanged. In both cases, $c$ is dominated by $s$ and $c$ is therefore discarded which implies that $s$ remains unchanged yielding $W_{t+1}=W_t$. Further, suppose that $i \in \{\LO(s^\ell)+2, \ldots , 2n/m-\TZ(s^\ell)-1\}$. Then all $\LO$- and $\TZ$-values remain unchanged and hence $W_{t+1}=W_t$ no matter if $s$ is updated. If $i = \LO(s^\ell)+1$ a zero is flipped to one and if $i=2n/m-\TZ(s^\ell)$ a one is flipped to zero. Hence, in the first case, $\LO(c^{\ell}) > \LO(s^\ell)$ while $\TZ(s^\ell)$ decreases only by at most one. In the second case $\TZ(s^\ell)>\TZ(c^\ell)$ while $\LO(s^\ell)$ decreases only by at most one. Hence, the current solution is updated yielding $W_{t+1} \geq W_t$, particularly $W_{t+1} > W_t$ if $s$ is not Pareto-optimal. All these cases together show $W_{t+1} \geq W_t$. Flipping one specific bit requires $O(n)$ iteration in expectation. Repeating this at most $n$ times (as long as $W_t < n$), derives the desired runtime bound concluding the proof.
+\end{proof}
+
+%Now we are able to determine the expected time until the current solution reaches the Pareto front.
+
+%\begin{lemma}
+%    \label{lem:time-to-Pareto-front}
+%    Consider \PAES with one-bit mutation optimizing \mLOTZ for any $m \leq n$ divisible by $2$. Then the expected number of iterations until the current solution is Pareto-optimal is $O(n^2)$. \andre{Untere Schranke möglich? For $m=const.$ yes, but this is not necessary!}
+%\end{lemma}
+
+%\begin{proof}
+%    Since in iteration $t$, we always have $V_{t+1} \geq V_t$, and the current solution is Pareto-optimal when $V_{t+1}=n$, it suffices to increase $V_t$ at most $n$ times. If $V_t<n$ there is a block $j$ with $\LO(x^j) + \TZ(x^j)<2n/m$ (implying $\LO(x^j) + \TZ(x^j) \leq 2n/m-2$) where $x:=c_t$. Hence, the $(\LO(x^j)+1)$-th bit in block $j$ is a zero not contributing to the $\TZ$-value. To increase $V_t$, it suffices to flip this bit in block $j$ which happens with probability $1/n$. 
+%\end{proof}
+
+We now analyze how the current solution explores the Pareto front. When the current solution generates a new Pareto-optimal candidate $c$, it is accepted as the new current solution and added to the archive $A_t$ if $L$ is sufficiently high. If there already exists a solution $y \in A$ with $f(y)=f(c)$, then $y$ is replaced by $c$ in the archive. In both scenarios, the candidate $c$ becomes the current solution for the next iteration. This mechanism enables the current solution to perform a random walk on the Pareto front $P$. We will demonstrate that this walk can be modeled as a specific type of random walk on an \emph{$m$-dimensional grid graph}. % whose time to visit all nodes is asymptotically the same as the \emph{simple random walk} in this grid graph. 
+
+To this end, we need some more notation. For an undirected connected graph $G$, a \emph{simple random walk} on $G=(V,E)$ is a random process in which, at each step, an edge is chosen uniformly at random from the set of edges incident to the current node, and the walk transitions to the next node along that edge. We denote by $T_{G,v}$ the time it takes for the simple random walk on $G$ to visit all nodes, starting at $v$. The \emph{cover time $\E(T_{G,v})$ with respect to $v \in V$} is the expected time it takes for the simple random walk on $G$ to visit all nodes, starting at $v$. %The \emph{cover time} $T$ of $G$ is $T=\max_{v \in V} T_{G,v}$, the largest possible cover time $T_{G,v}$ with respect to a node $v \in V$.
+
+For two undirected graphs $G:=(V_1,E_1)$ and $H:=(V_2,E_2)$, the \emph{product graph} $G \times H$ is the graph with node set $V_1 \times V_2$ and edge set $E$ where $\{(u_1,u_2),(v_1,v_2)\} \in E$ if and only if $u_1=v_1$ and $(u_2,v_2) \in E_2$ or $u_2 = v_2$ and $(u_1,v_1) \in E_1$. We write $G^2:=G \times G$ and inductively $G^k:=G \times G^{k-1}$ for $k \geq 3$. For example, if $G$ is a \emph{path graph}, that is its vertices can be labeled as $v_1, \ldots , v_n$ with edges $\{v_i,v_{i+1}\}$ for $i \in [n-1]$, then the product graph $G^k$ is the \emph{grid graph} $(V^k,E^k)$ of dimension $k$ and length $n$. Hereby, two $u,w \in V^k$ are adjacent if and only if there are $j,\ell \in [k]$ such that $w_j=v_\ell$ and $u_j \in \{v_{\ell-1},v_{\ell+1}\}$, and $u_i=w_i$ for all $i \in \{1,\ldots , n\} \setminus \{j\}$. We need the following result from~\citet{JONASSON2000181} about the cover time of the product graph $G^k$. Surprisingly, this depends only asymptotically on the \emph{average degree} $d_G:=2|E|/n$ of the underlying graph $G$ and the number of nodes in $G^k$, and not even on the choice of the starting node $v \in G^k$.
+
+\begin{theorem}[\cite{JONASSON2000181}, Theorem~1.2]
+Let $G=(V,E)$ be a connected graph with $n$ vertices and average degree $d_G$. Then the cover time $\E(T_{G,v})$ for a simple random walk on $G^k$ is $\Theta(d_G n^2 \log^2(n))$ if $k=2$ and $\Theta(d_G n^k \log(n^k))$ otherwise for every $v \in G^k$.  
+\end{theorem}
+
+For the remainder of this section, we mention the cover time without referring to the starting node, by convention. If $G$ is the path graph as mentioned above, then $d_G=2(n-1)/n \in \Theta(1)$ and hence, the cover time on $G^k$ is $\Theta(n^2 \log^2(n))$ if $k=2$ and $\Theta(n^k \log(n^k))$ for $k>2$. Now we are ready to prove the desired runtime bound of \PAES with 1-bit mutation on \mLOTZ.
+
+\begin{theorem}
+\label{thm:spreading-Pareto-front-Local}
+Consider \PAES with one-bit mutation, an arbitrary archiver and archive size $L \geq (2n/m+1)^{m-1}$, or with the AGA and archive size $L \geq (2n/m+1)^{m/2}$, optimizing \mLOTZ for any $m \leq n$ where $m$ is divisible by $2$. Then the expected number of iterations until $A_t = P$ is $\Theta(n^3)$ if $m=2$, $\Theta(n^3\log^2(n))$ if $m = 4$ and $\Theta(n \cdot (2n/m)^{m/2}(\log(n/m)))$ if $m>4$.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:approach-Pareto-current-solution-plus-pareto} the first Pareto-optimal search point is created in expected $O(n^2)$ iterations. From this time on, the current solution always maintains Pareto-optimality by Lemma~\ref{lem:approach-Pareto-current-solution-plus-pareto}. At first we assume that the archiver is arbitrary and hence, $L \geq (2n/m+1)^{m-1}$. The candidate solution $c$ is always added to $A_t$ becoming the new current solution $s$ while possibly removing another point from $A_t$: If $A_t$ is not full or there is already an $x \in A_t$ with the same fitness as $c$, then it is obvious. Otherwise, $c$ dominates another $x \in A$ (since $L \geq |S|$ by Lemma~\ref{lem:fitnessvectors-non-dom-LOTZ} where $S$ is a maximum set of incomparable solutions) and $x$ is removed from $A_t$. Hence, we have to compute the expected time until $s$ attained all Pareto-optimal search points. To this end, we define the following graph $G=(V,E)$ and model the trajectory of $s$ by a random walk on $G$. Let $V:=\{(v_1, \ldots , v_{m/2}) \mid v_i \in \{0, \ldots , 2n/m\} \text{ for every } i \in [m/2]\}$ and $E:=\{\{v,w\} \mid v,w \in V, |v-w|=1\}$ where $|.|$ denotes the Euclidean distance in the objective space. Then $G = \tilde{G}^{m/2}$ where $\tilde{G}$ is the path graph with $2n/m+1$ nodes. Then the current solution $s=(s^1, \ldots , s^{m/2})$ visits $v:=(v_1, \ldots ,v_{m/2})$ if it is Pareto-optimal and for each $i \in [m/2]$ we have that $\LO(s^i) = v_i$. The transition probability between two adjacent nodes in the graph $\tilde{G}^{m/2}$ is $1/n$, as for a specific block $i$ the $\LO(s^i)$ increases or decreases by one with probability $1/n$, while the $\LO(s^j)$-values for $j \neq i$ remain unchanged. The probability that the node $v$ is not left is $1-|\text{adj}(v)|/n$ where $\text{adj}(v)$ is the number of adjacent nodes to $v$. %Then the Pareto-optimal fitness vector $w:=(w_1, \ldots , w_m)$ corresponds to the node $v:=(v_1, \ldots , v_{m/2})$ with $v_i = w_{2i-1}$ for every $i \in [m/2]$ and a current solution $c$ with $f(c)=w$ in iteration $t \geq T_0$ corresponds to a visit of $v$ in step $t-T_0$ of the random walk. 
+Let $t_0$ be the first iteration when $s$ is Pareto-optimal. In iteration $t_0$, the random walk begins at $v \in V$, where $\LO(s^i)=v_i$ for each $i \in [m/2]$. A mutation of $s$ into $c$ corresponds to a transition from the node $v=(\LO(s^1), \ldots , \LO(s^{m/2}))$ to 
+$w=(\LO(c^1), \ldots , \LO(c^{m/2}))$ if $c$ is also Pareto-optimal. 
+%increases with $f(s)=(w_1, \ldots ,w_{2\ell-1},w_{2\ell}, \ldots, w_m)$ to $y$ with $f(y)=(w_1, \ldots ,w_{2\ell-1}+1,w_{2\ell}-1, \ldots , w_m)$ for an $\ell \in [m/2]$ with $w_{2\ell+1} \in [2n/m-1]$ corresponds to the transition of the walk from a node $u=(u_1, \ldots , u_{m/2})$ to $v=(v_1, \ldots , v_{m/2})$ with $u_\ell-v_\ell=1$ and $u_i=v_i$ for $i \in [m/2] \setminus \{\ell\}$. 
+%This mutation flips the first zero from the right to increase the $\LO$-value by one in block $i$ while the $\TZ$-value is decreased. 
+%Similarly, a mutation of $x$ with $f(x)=(w_1, \ldots ,w_{2\ell-1},w_{2\ell}, \ldots, w_m)$ to $y$ with $f(y)=(w_1, \ldots ,w_{2\ell-1}-1,w_{2\ell}+1, \ldots , w_m)$ (which increases the $\TZ$-value in block $\ell$ while decreasing the $\LO$-value) corresponds to the transition of the walk from a node $u=(u_1, \ldots , u_{m/2})$ to $v=(v_1, \ldots , v_{m/2})$ with $u_\ell-v_\ell=-1$ and $u_i=v_i$ for $i \in [m/2] \setminus \{\ell\}$.
+The time (from iteration $t_0$) to obtain $A=P$ corresponds to the time $T$ of the random walk on $G=\tilde{G}^{m/2}$ described above to visit all nodes, starting at $v$. Note that the random walk is not simple, as for every node $v$ there is a certain probability to stay at $v$. We asymptotically determine $\E(T)$. Let $M \leq T$ be the number of moves the walk makes on $\tilde{G}^{m/2}$ to visit all nodes (i.e. idle steps where nodes are not left are ignored in $M$). Then $M$ is also the number of steps a \emph{simple random walk} has to make on the grid graph $\tilde{G}^{m/2}$ to visit all nodes. Denote by $X$ the waiting time to leave a node with the most neighbors and by $Y$ the waiting time to leave a node with the least ones. Then $\E(X) = n/(2m)$ and $\E(Y) = n/m$ as $\text{adj}(v) \in \{m, \ldots , 2m\}$. Note that $M$ can be regarded as independent to $X$ and $Y$ and therefore $\E(X) \cdot \E(M) \leq E(T) \leq \E(Y) \cdot \E(M)$ which implies (since the number of nodes in $\tilde{G}^{m/2}$ is $(2n/m+1)^{m/2}$) 
+\begin{align*}
+\E(T) &= \Theta(n/m \cdot (2n/m+1)^{m/2}\log((2n/m+1)^{m/2})) \\
+&= \Theta(n \cdot (2n/m)^{m/2}(\log(n/m)))
+\end{align*}
+if $m \geq 6$ and
+\begin{align*}
+\E(T) &= \Theta(n/m \cdot (2n/m+1)^{m/2}\log^2(2n/m+1)) \\
+&= \Theta(n^3 \log^2(n))
+\end{align*}
+if $m = 4$. If $m=2$ we have that $\tilde{G}^{m/2}$ is a path graph and therefore $\E(X)=\E(Y)= \Theta(1/n)$ and $\E(T) = \Theta(n^3)$  since $\E(M)=\Theta(n^2)$ (by Theorem~1 in \cite{IKEDA200994}). This concludes the proof for arbitrary archivers with size $L$ of at least $(2n/m+1)^{m-1}$. In the case of AGA, any solution that is incomparable to all solutions in $A_t$ is always accepted as the new candidate solution. Consequently, once the Pareto front has been reached, the same random walk performed by the current solution as above eliminates any non Pareto-optimal search points from the archive by visiting all Pareto-optimal solutions. In a second phase of visiting all nodes again, if necessary, it fills the archive with Pareto-optimal solutions. This shows that the stated expected tight runtime bound also holds in this case since every Pareto-optimal search point needs to be visited by the current solution at most twice, but at least once.
+\end{proof}
+
+For other MOEAS like (G)SEMO only an upper bound of $O(n^{m+1})$ is shown on \mLOTZ (see~\cite{Laumanns2004,DoerrNearTight}). Theorem~\ref{thm:spreading-Pareto-front-Local} shows that we beat this upper runtime bound by a factor of $n^2/\log^2(n)$ if $m=4$ and $(nm/2)^{m/2}/(\log(n/m))$ if $m>4$. To the best of our knowledge, these are the first tight runtime bounds of an MOEA in the many-objective setting.
+
+For the remainder of this section we show that \PAES with one-bit mutation can efficiently create a well-distributed archive on the Pareto front of \mLOTZ when using AGA, HVA and MGA, assuming that the archive size $L$ is smaller than the size of the Pareto front. In the case of HVA and MGA, we restrict our analysis to the bi-objective setting.
+
+\textbf{AGA:} \PAES with AGA efficiently distributes all solutions in $A_t$ very evenly
+across the cells that contain Pareto-optimal search points, stated as follows.
+
+\begin{lemma}
+\label{lem:spreading-Pareto-front-1-Bit-Mutation-AGA}
+Consider \PAES with one-bit mutation, AGA and archive size $L < (2n/m+1)^{m/2}$ optimizing \mLOTZ for any $m \leq n$ where $m$ is divisible by $2$. Then after expected $O(n^3)$ iterations if $m=2$, $O(n^3\log^2(n))$ iterations if $m = 4$ and $O(n \cdot (2n/m)^{m/2}(\log(n/m)))$ iterations if $m>4$ we obtain the following distribution of solutions from $A_t$ across all cells that contain Pareto-optimal search points. For any cell containing $k$ Pareto-optimal solutions from $A_t$, the following holds: 
+\begin{itemize}
+    \item[(1)] Every other cell containing at least $k$ distinct Pareto-optimal solutions from $\{0,1\}^n$ contains at least $k-1$ Pareto-optimal solutions from $A_t$.
+    \item[(2)] Every cell containing $\ell \leq k-1$ Pareto-optimal solutions from $\{0,1\}^n$ contains $\ell$ Pareto-optimal solutions from $A_t$.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+With Lemma~\ref{lem:approach-Pareto-current-solution-plus-pareto} we can assume that $A_t \subset P$. The current solution performs the same random walk as in the proof of Theorem~\ref{thm:spreading-Pareto-front-Local}. Hence after $\Theta(n^3)$ iterations if $m=2$, $\Theta(n^3\log^2(n))$ iterations if $m = 4$ and $\Theta(n \cdot (2n/m)^{m/2}(\log(n/m)))$ iterations if $m>4$ in expectation, the current solution has visited all Pareto-optimal fitness vectors. From this time on, $A_t$ consists only of Pareto-optimal solutions since dominated solutions are removed from $A_t$ (see Algorithm~\ref{alg:PAES25}). Finally, to fill and spread $A_t$ on the Pareto front, we repeat the process a second time to visit all Pareto-optimal fitness vectors again. Suppose that after the final iteration in this second phase there exists a cell $C$ containing $k$ Pareto-optimal solutions from $A_t$, and another cell $C'$ that contains at most $\ell \leq k-2$ Pareto-optimal solutions from $A_t$, but at least $\ell+1$ Pareto-optimal solutions from $P$. Then, during an earlier iteration, at least one solution from $P \cap C'$ must have been removed from $A_t$ when cell $C'$ had exactly $\ell + 1$ Pareto-optimal solutions from $A_t$ (since all Pareto-optimal solutions have been visited after the second phase). At this time $t$, $A_t$ was full and every other cell (including $C$) contained at most $\ell +1<k$ solutions from $A_t$. But AGA always removes Pareto-optimal solutions from $A_t$ contained in cells with the largest number of Pareto-optimal solutions from $A_t$. Hence, for any iteration $t' \geq t$, once a cell is filled with an $(\ell+2)$-th Pareto optimal search point from $A_t$, one of these $(\ell+2)$ points is removed. Consequently, each cell contains at most $\ell + 1 < k$ solutions from $A_{t'}$ after iteration $t'$ which is a contradiction proving properties (1) and (2).      
+\end{proof}
+\textbf{HVA:} We show that \PAES with HVA and reference point $h=(-1,-1)$ efficiently distributes the archive $A_t$ across the Pareto front, resulting in a high hypervolume. We restrict our analysis to the case $m=2$, as for $m > 2$, there may be non-dominated points in $A_t$ which are not Pareto-optimal even if a Pareto-optimal point is already found. This complicates the analysis since non Pareto-optimal points in $A_t$ may have a greater hypervolume contribution than newly generated Pareto-optimal points from the random walk, potentially causing the algorithm to reject new Pareto-optimal solutions. At first we establish some basic properties and compute the hypervolume of $A_t$ under the assumption that all points in $A_t$ are Pareto-optimal and there are no \emph{holes}, meaning that for each $x,y \in A_t$ and $z \in P$ with $\LO(x) < \LO(z) < \LO(y)$, we also have $z \in A_t$. We also derive a formula for the case $A_t=P$, which is the maximum possible hypervolume for an archive $A_t$. 
+
+\begin{lemma}
+\label{lem:hypervolume-basic-properties}
+  Let $A_t \subset P$ be without a hole. Let $a:=\min\{\LO(x) \mid x \in A_t\}$ and $b:=\max\{\LO(x) \mid x \in A_t\}$. Then we have 
+  \begin{align*}
+    \hv(A_t) = (n+1)(b+1) - \frac{a(a+1)}{2}  - \frac{b(b+1)}{2}
+  \end{align*}
+  with respect to the reference point $h=(-1,-1)$. If $d:=b-a$ is fixed then the minimum hypervolume is attained when $a=0$ or $b=n$ which is $\hv(A_t) = (d+1)(n+1-d/2)$.
+\end{lemma}
+
+\begin{proof}
+Note that $f(x)=(a,n-a)$ for a Pareto-optimum $x$ with $\LO(x)=a$ and hence, $x$ dominates all $y$ with $-1 \leq f_1(y) \leq a$ and $-1 \leq f_2(y) \leq n-a$ which contribute $(a+1)(n-a+1)$ to $\hv(A_t)$. For $a < i \leq b$ all search points $z$ with $i-1 < f_1(z) \leq i$ and $-1 \leq f_2(z) \leq n-i$ are dominated by a search point $x \in A_t$ with $\LO(x)=i>a$ (since $\TZ(x) = n-i$), but not by a search point $y \in A_t$ with $\LO(y)<i$. This contributes $n-i+1$ to $\hv(A_t)$. Therefore, we obtain
+\begin{align*}
+& \hv(A_t) = (a+1)(n-a+1) + \sum_{i=a+1}^b (n-i + 1)\\
+& = (a+1)(n-a+1) + \sum_{i=0}^{b} (n-i + 1)  - \sum_{i=0}^a (n-i + 1)\\
+& = (a+1)(n-a+1) + (n+1)(b-a) + \sum_{i=1}^{a} i  - \sum_{i=1}^{b} i\\
+& = (n+1)b-a(a+1)+n + 1 + \frac{a(a+1)}{2}  - \frac{b(b+1)}{2}
+\end{align*}
+proving the first formula. Now suppose that $d=b-a$ is fixed. If $a$ increases by one then $b$ also increases by one. Therefore, $\hv(A_t)$ increases by
+\begin{align*}
+&(n+1)(b+2) - \frac{(a+1)(a+2)}{2}  - \frac{(b+1)(b+2)}{2} \\
+&- (n+1)(b+1) + \frac{a(a+1)}{2}  + \frac{b(b+1)}{2} \\ 
+&= n+1-(a+1)-(b+1) = n-a-b-1.
+\end{align*}
+Hence, if $b \geq n-a$ the hypervolume is smallest if $b=n$ and $a=n-d$ which is 
+\begin{align*}
+& (n+1)^2 - \frac{(n-d)(n-d+1)}{2} - \frac{n(n+1)}{2} \\ 
+&= (n+1)^2 - \frac{(n-d)(n+1)}{2} + \frac{d(n+1-d-1)}{2} - \frac{n(n+1)}{2} \\ 
+&= (n+1)\left(n+1-\frac{n-d}{2}+\frac{d}{2}-\frac{n}{2}\right) - \frac{d(d+1)}{2} \\ 
+&= (n+1)(d+1)-\frac{d(d+1)}{2} = (d+1)\left(n+1-\frac{d}{2}\right).
+\end{align*}
+Similarly, if $a$ decreases by one then $b$ decreases also by one and the hypervolume increases by $a+b-n-1$. If $b < n-a$ then the hypervolume is smallest if $a=0$ and $b=d$ which is
+\begin{align*}
+(n+1)(d+1)-\frac{d(d+1)}{2} = (d+1)\left(n+1-\frac{d}{2}\right)
+\end{align*}
+proving the result.
+\end{proof}
+
+We now show that \PAES with HVA and one-bit mutation on \LOTZ effectively distributes the archive across the Pareto front. To this end, we set $a_t:=\min\{\LO(x) \mid x \in A_t\}$, $b_t:=\max\{\LO(x) \mid x \in A_t\}$ and $d_t:=b_t-a_t$. Call a Pareto-optimal $z$ \emph{hole} if $a_t<\LO(z)<b_t$ and $z \notin A_t$.
+
+\begin{lemma}
+\label{lem:spreading-Pareto-front-1-Bit-Mutation-HVA}
+Consider \PAES with one-bit mutation, HVA with $h=(-1,-1)$, and archive size $L < n+1$ optimizing \LOTZ. Then after expected $O(n^3)$ iterations the following holds.
+\begin{itemize}
+    \item[(1)] For any given archive size $L$ with $L+\lceil{L/2}\rceil \leq n+2$, all solutions in $A_t$ are distributed such that $d_t = L+\lceil{L/2}\rceil-2$. Furthermore, there are $\lceil{L/2}\rceil-1$ holes and two of them are not neighbored.
+    \item[(2)] For any given archive size $L$ with $L+\lceil{L/2}\rceil \leq n+2$, a hypervolume of at least
+    $$(L+\lceil{L/2}\rceil-1) \cdot \left(n+1-\frac{L+\lceil{L/2}\rceil-2}{2}\right) -\lceil{L/2}\rceil+1$$
+    is attained. If $L=cn$ for some $0<c\leq 1$ this corresponds to at least a fraction of $3c(1-3c/4)(1 - o(1))$ of the total hypervolume $\hv(P)$. If instead $L+\lceil{L/2}\rceil > n+2$, then a hypervolume of $(n+2)(n+1)/2 - \max\{n+1-L,0\}$ is achieved which is also the maximum possible in this case. 
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+With Lemma~\ref{lem:approach-Pareto-current-solution-plus-pareto} we can assume that $A_t \subset P$. For $L=1$ the lemma holds since $\hv(A_t) \geq n+1$. Suppose that $L \geq 2$. As long as solutions $x,y,z \in A_t$ with $\LO(x)=\ell$, $\LO(y)=\ell+1$, and $\LO(z)=\ell+2$ exist, the solution $y$ contributes a hypervolume of one which is smallest possible. Therefore, if the candidate solution $c$ is incomparable to all solutions in $A_t$, its contribution cannot be smaller than that of $y$, and it is added to $A_t$. As long as there are fewer than $\lfloor{(d_t+1)/3}\rfloor$ holes, such $x,y,z$ can be found, and the current solution conducts the same random walk as in the proof of Theorem~\ref{thm:spreading-Pareto-front-Local} and a new created Pareto-optimal solution is always added to $A_t$ (possibly replacing another solution with the same fitness). Hence, after $O(n^3)$ iterations in expectation, the current solution will have visited all Pareto-optimal points if it does not get stuck. The latter can only happen if the archive is full and there are at least $\lfloor{(d_t+1)/3}\rfloor$ holes. The latter implies $L \leq (d_t+1) - \lfloor{(d_t+1)/3}\rfloor$ yielding
+\begin{align*}
+L +\lceil{L/2}\rceil-2 &\leq \frac{3L}{2}-\frac{3}{2} \leq \frac{3(d_t+1)}{2} - \frac{3\lfloor{(d_t+1)/3}\rfloor}{2}-\frac{3}{2} \\
+& \leq \frac{3(d_t+1)}{2} - \frac{3((d_t+1)/3-2/3)}{2}- \frac{3}{2} \\
+&= \frac{3(d_t+1)-(d_t+1)+2}{2} - \frac{3}{2} = d_t+\frac{1}{2}
+\end{align*}
+and therefore $L +\lceil{L/2}\rceil-2 \leq d_t$. 
+
+Suppose that $L+\lceil{L/2}\rceil \leq n+2$. Then in $O(n^3)$ iterations in expectation an iteration $t^*$ is reached when $A_{t^*}$ is full and $L +\lceil{L/2}\rceil-2 = d_{t^*} = b_{t^*}-a_{t^*}$ since $L+\lceil{L/2}\rceil-2 > d_t$ for all iterations $t$ before $t^*$. The number of search points $x$ in $P$ with $a_{t^*} \leq \LO(x) \leq b_{t^*}$ is $d_{t^*}+1$ and hence, there are $d_{t^*}+1-L=\lceil{L/2}\rceil-1$ holes. Note that in all iterations $t$ before $t^*$ only solutions from $A_t$ are removed which have a hypervolume contribution of at most one to $\hv(A_t)$ (since there is $\ell \in \{0, \ldots , n-2\}$ and $x,y,z$ with $\LO(x)=\ell$, $\LO(y)=\ell+1$ and $\LO(z)=\ell+2$) and hence, two holes in $A_{t^*}$ are never neighbored. This proves property~(1). By Lemma~\ref{lem:hypervolume-basic-properties} we see at iteration $t:=t^*$ 
+\[
+\hv(A_t) \geq (L +\lceil{L/2}\rceil-1)\left(n+1-\frac{L +\lceil{L/2}\rceil-2}{2}\right) - \lceil{L/2}\rceil+1
+\]
+since plugging a hole with an additional search point would increase $\hv(A_t)$ by one. If $L=cn$ for some $0<c<1$ this is at least a fraction of
+\begin{align*}
+&\frac{(cn+\lceil{cn/2}\rceil-1) \cdot \left(n+1-\frac{cn+\lceil{cn/2}\rceil-2}{2}\right) -\lceil{L/2}\rceil+1}{{(n+2)(n+1)/2}}\\
+\geq & \frac{(3cn/2-1) \cdot (n+3/2-3cn/4) -\lceil{L/2}\rceil+1}{{(n+2)(n+1)/2}}\\
+\geq &\frac{3c/2 \cdot (1-3c/4)n^2(1-o(1))}{(n+2)(n+1)/2} = 3c(1-3c/4)(1 - o(1)).
+\end{align*}
+Suppose $L+\lceil{L/2}\rceil > n+2$. This implies $L + L/2 + 0.5 \geq n+3$ and hence $L \geq 2(n+2.5)/3=2n/3+5/3$. The number of holes is at most $d+1-L \leq d+1-(2n/3+5/3) \leq d+1-(2d/3+5/3) = d/3-2/3 < \lfloor{(d+1)/3}\rfloor$. Hence, $c_t$ performs the same random walk as in the proof of Theorem~\ref{thm:spreading-Pareto-front-Local} where only search points with hypervolume contribution of one to $\hv(A_t)$ are removed from $A_t$. Hence, after $O(n^3)$ iterations in expectation we have $a=0$, $b=n$ and there are $k:=\max\{n+1-L,0\}$ holes. Plugging such a hole with an additional search point increases $\hv(A_t)$ by one, and hence, we see with Lemma~\ref{lem:hypervolume-basic-properties}
+\begin{align*}
+\hv(A_t) &= (n+1)\left(n+1-\frac{n}{2}\right) - k = \frac{(n+1)(n+2)}{2}-k
+\end{align*}
+proving the result.  
+\end{proof}
+
+For instance, Lemma~\ref{lem:spreading-Pareto-front-1-Bit-Mutation-HVA} shows that when $h=(-1,-1)$, a fraction of approximately $15/16$ of the total hypervolume of $P$ can be attained by $A_t$, if its size is $n/2$, since $3/2 \cdot (1-3/8)(1-o(1)) \approx 15/16$.
+
+\textbf{MGA:} We also show that \PAES with MGA efficiently creates an archive $A_t$, in which any two points $x,y \in A_t$ have different box index vectors with respect to a certain level $b>0$, where the level $b$ depends on the archive size. The smaller the archive size, the larger the corresponding level $b$. A higher level $b$ leads to a finer distribution of solutions across the Pareto front. As for HVA, we restrict our analysis to the bi-objective case, since in higher dimensions, non Pareto-optimal vectors may dominate Pareto-optimal ones at level $b>0$. This can result in a newly discovered Pareto-optimal solution not being added to $A_t$ if the archive is full, thereby complicating the analysis. We start with some elementary properties.
+
+\begin{lemma}
+\label{lem:different-coarseness-properties}
+Let $n=2^k \cdot \ell-1$ where $k \in \mathbb{N}_0$ and $\ell$ is odd. Then the following holds:
+\begin{itemize}
+\item[(1)] Two distinct solutions $x,y \in P$ either have identical or mutually incomparable box index vectors at coarseness level $j \in \{0, \ldots , k\}$.
+\item[(2)] There are exactly $(\ell+1)/2$ incomparable box index vectors at coarseness level $k+1$ and exactly $2^{k-j}\ell$ incomparable box index vectors at coarseness level $j \in \{0, \ldots , k\}$.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+(1): Let $x \in P$ be a Pareto-optimal solution. We find $a \in \{0, \ldots , 2^{k-j} \cdot \ell-1\}$ and $b \in \{0, \ldots , 2^j-1\}$ with 
+  \begin{align*}
+  \LOTZ(x)&=(2^j \cdot a + b,n-2^j \cdot a-b) \\
+  &= (2^j \cdot a + b,2^k \ell-2^j \cdot a-(b+1)).
+  \end{align*}
+The corresponding box index vector at level $j$ is $(a,2^{k-j}\ell-a-1)$. These are identical for the same $a$, but incomparable for different $a$.
+
+(2): The components of a box index vector at coarseness level $k+1$ have a range of $\{0, \ldots , (\ell-1)/2\}$  and the box index vectors of search points $x$ with $(\LO(x),\TZ(x)) \in \{(0,n), (2^{k+1},n-2^{k+1}), \ldots, (\ell-1)/2 \cdot 2^{k+1},n-(\ell-1)/2 \cdot 2^{k+1})$ at coarseness level $k+1$ are $\{(0,(\ell-1)/2),(1,(\ell-1)/2-1), \ldots , ((\ell-1)/2,0)\}$ and therefore, pairwise incomparable. The components of a box index vector at coarseness level $j \in \{0, \ldots , k\}$ have a range of $\{0, \ldots , 2^{k-j}\ell-1\}$ and the box index vectors of search points $x$ with $(\LO(x),\TZ(x)) \in \{(0,n), (2^j,n-2^j), \ldots, (2^k\ell - 2^j, n - (2^k\ell - 2^j))\}$ at coarseness level $j$ are $\{(0,2^{k-j} \cdot \ell-1),(1,2^{k-j} \cdot \ell-2), \ldots , (2^{k-j} \cdot \ell-1,0)\}$ and therefore, pairwise incomparable.
+\end{proof}
+
+\begin{lemma}
+\label{lem:spreading-Pareto-front-1-Bit-Mutation-MGA}
+Consider \PAES with one-bit mutation and archive size $L \leq n$ optimizing \LOTZ. Let $n=2^k \cdot \ell-1$ where $k \in \mathbb{N}_0$ and $\ell$ is odd. Then after expected $O(n^3)$ iterations the following holds. If $L \leq (\ell+1)/2$, all solutions in $A_t$ have mutually incomparable box index vectors at coarseness level $k+1$. If $(\ell+1)/2 < L \leq \ell$, all solutions in $A_t$ have mutually incomparable box index vectors at coarseness level $k$ and if $2^{j-1}\ell < L \leq 2^j \ell$ for $j \in [k]$ all solutions in $A_t$ have mutually incomparable box index vectors at coarseness level $k-j$.
+\end{lemma}
+
+\begin{proof}
+With Lemma~\ref{lem:approach-Pareto-current-solution-plus-pareto} we can assume that $A_t \subset P$. Then, Lemma~\ref{lem:different-coarseness-properties}~(1) shows that the current solution $s$ is always added to $A_t$ if Algorithm~\ref{alg:PAES25} makes a decision at coarseness level $j$. It is also added if Algorithm~\ref{alg:PAES25} makes a decision at coarseness level $k+1$ and there is a solution $x \in A_t$ whose box index vector is weakly dominated by the box index vector of a solution from $A_t \cup \{c\}$ at coarseness level $k+1$. Here $c$ is the candidate solution created from $s$ by mutation. As long as one of these two happens, the current solution $s$ performs the same random walk as in the proof of Theorem~\ref{thm:spreading-Pareto-front-standard}. Suppose that $L \leq (\ell+1)/2$. Note that there are at least $L$ many search points with pairwise incomparable box index vectors at coarseness level $k+1$ by Lemma~\ref{lem:spreading-Pareto-front-1-Bit-Mutation-MGA}. These are found by the random walk after expected $O(n^3)$ iterations since it is sufficient that the current solution visits all Pareto-optimal points. The same happens if $(\ell+1)/2 < L \leq \ell$ with coarseness level $k$ instead of $k+1$ and if $2^{j-1} \ell < L \leq 2^j \ell$ with coarseness level $k-j$ instead of $k+1$ for $j \in [k-1]$. This concludes the proof.
+\end{proof}
+
+\section{Runtime Analysis of \PAES with Standard Bit Mutation on \LOTZ}
+
+In this section, we investigate the performance of \PAES on the bi-objective \LOTZ benchmark using standard bitwise mutation. The experimental results reported in~\cite{Knowles2025} indicate that \PAES with standard bit mutation requires more time to discover a constant fraction of Pareto-front than \PAES with one-bit mutation. This slower progress arises because the current solution may not remain Pareto-optimal even after a point on the Pareto front has been found. For instance, a two-bit flip can transform a Pareto-optimal solution into a new, non-dominated one (with respect to the archive $A_t$) by simultaneously increasing the \LO-value and decreasing the \TZ-value by more than one. As a result, the search dynamics under standard bit mutation are more complex than under one-bit mutation, and the resulting random walk may involve non-Pareto-optimal solutions. Rather than analyzing this random walk in detail, we instead focus on the hypervolume $\hv(A_t)$ of the archive $A_t$. We show that $\hv(A_t)$ cannot decrease in any iteration of \PAES with respect to any reference point $h$ satisfying $h_i \leq 0$ for each $i \in [m]$. To maintain generality, we present our result for an arbitrary fitness function $f:\{0,1\}^n \to \mathbb{N}_0^m$. 
+
+\begin{lemma}
+\label{lem:hypervolume-not-decrease}
+Let $f:\{0,1\}^n \to \mathbb{N}_0^m$ be a fitness function and $S$ be a maximum set of mutually incomparable solutions with respect to $f$. Let $t$ be any iteration of \PAES with current archive $A_t$ with size of at least $|S|$ on $f$. Then $\hv(A_{t+1}) \geq \hv(A_t)$ with respect to any reference point $h$ with $h_i \leq 0$ for all $i \in [m]$. Particularly, if the candidate solution $c$ dominates an $x \in A_t$, $\hv(A_{t+1}) > \hv(A_t)$. 
+\end{lemma}
+
+\begin{proof}
+Note that a search point will only be removed from $A_t$ if a candidate solution $c$ is generated that is added to $A_t$. If $A_t$ is full and the candidate solution $c$ is added to $A_t$, $c$ weakly dominates an $x \in A_t$ (since $|A_t| \geq |S|$). If there is $x \in A_t$ with $f(x)=f(c)$ then $\hv(A_{t+1})=\hv(A_t)$. Suppose not and let $B \subset A_t$ be the set of search points dominated by $c$. Then $\hv(A_{t+1}) = \hv((A_t \setminus B) \cup \{c\}) = \hv(A_t \cup \{c\})$. Let $v:=f(c)$. Since any search point $z$ with $v_i-1/2 \leq f_i(z) \leq v_i$ for every $i \in [m]$ is weakly dominated by $c$, but not weakly dominated by any $y \in A_t$, we have that $\hv(A_t \cup \{c\}) > \hv(A_t)$. 
+\end{proof}
+
+Using the maximum possible hypervolume of an archive $A_t$ with respect to the reference point $h=(-1,-1)$, we can estimate the expected number of iterations required for the current solution to reach the Pareto front when \PAES optimizes \LOTZ.   
+
+\begin{lemma}
+\label{lem:Reach-Pareto-First-Time}
+Consider \PAES with standard bit mutation optimizing $m$-\LOTZ for $m = 2$. Then for every possible $A_t$ the current solution $s$ is Pareto-optimal in expected $O(n^3)$ iterations. 
+\end{lemma}
+
+\begin{proof}
+  Suppose that $c \notin P$. By flipping one specific bit to increase the $\LO$ or $\TZ$ value of $s$ while the other bits remain unchanged (happening with probability at least $1/(en)$) one can create a solution $c$ which (strictly) dominates $s$. Since $A_t$ contains no solution dominating $s$, and dominance is transitive, $c$ is not weakly dominated by any solution in $A_t$, and is therefore added to $A_t$ which becomes the current solution for the next iteration. By Lemma~\ref{lem:hypervolume-not-decrease} the hypervolume $\hv(A_t)$ increases. By Lemma~\ref{lem:hypervolume-basic-properties} we obtain (for $a=0$ and $b=n$) $\hv(P) = (n+2)(n+1)/2 = O(n^2)$ and $\hv(A_t)$ cannot decrease by Lemma~\ref{lem:hypervolume-not-decrease}. Hence, the expected number of iterations until the current solution is Pareto-optimal is $O(n^3)$.
+\end{proof}
+
+We will also show that, in $O(n^3)$ expected time, a new Pareto-optimal search point is added to the archive, even when a Pareto-optimum already exists in $A_t$. However, establishing this result requires a different proof technique than used in Lemma~\ref{lem:Reach-Pareto-First-Time}, as the current solution may be also Pareto-optimal. This insight is key to deriving the overall runtime of \PAES on \LOTZ.
+
+\begin{theorem}
+\label{thm:spreading-Pareto-front-standard}
+Consider \PAES with standard bit mutation and archive size at least $n+1$ optimizing \mLOTZ for $m = 2$. Then the expected number of iterations until some Pareto-optimal search point $x$ with $x \notin A_t$ is added to $A_t$ is $O(n^3)$. This implies that the expected number of iterations until $A_t=P$ is at most $O(n^4)$.
+\end{theorem}
+
+\begin{proof}
+    By Lemma~\ref{lem:Reach-Pareto-First-Time} the expected number of iterations until $s \in P$ is $O(n^3)$. Now suppose that $s \in P$ and not the complete set $P$ of Pareto-optimal individuals is contained in $A_t$. Consider $b^{\text{left}}:=b^{\text{left}}(s):=\sup\{\ell \in \{0, \ldots , n-1\} \mid \ell < \LO(s) \text{ and there is no }x \in A_t \cap P \text{ with } \LO(x)=\ell\}$ and $b^{\text{right}}:=b^{\text{right}}(s):=\inf\{\ell \in \{1, \ldots , n\} \mid \LO(s) < \ell \text{ and there is no }x \in A_t \cap P \text{ with } \LO(x)=\ell\}$. Then $b^{\text{left}}$ denotes the largest $\LO$ value among the individuals from $P \setminus A_t$ that have a smaller $\LO$ value than $s$. If all such individuals with a smaller $\LO$ value than $s$ are already present in $A_t$, we have $b^{\text{left}} = -\infty$.
+    
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{PAES-25-LOTZ.pdf}
+    \caption{Illustration of $b^{\text{left}}$ and $b^{\text{right}}$ for the case $b^{\text{left}} \neq -\infty$ and $b^{\text{right}} \neq \infty$. The current solution $s$ quite in the middle is depicted in red and the other Pareto-optimal points from the archive $A_t$ are represented by the remaining filled points in blue. The white points with black outlines are the holes.}
+    \label{fig:borders}
+\end{figure}
+    
+    Similarly, $b^{\text{right}}$ denotes the smallest $\LO$ value among the individuals from $P \setminus A_t$ that have a larger $\LO$ value than $s$ (see also Figure~\ref{fig:borders}). If there is no such individual with a larger $\LO$ value than $s$, then $b^{\text{right}} = \infty$. As long as $b^{\text{left}}+1 \leq \LO(s) \leq b^{\text{right}}-1$, the current solution $s$ remains Pareto-optimal (since a solution $y$ with $b^{\text{left}}+1 \leq \LO(y) \leq b^{\text{right}}-1$ is dominated by the Pareto-optimal $z \in P_t$ with $\LO(z)=\LO(y)$) and the $\LO(s)$-value of the current solution $s$ performs a random walk on the discrete interval $[b^{\text{left}}+1,b^{\text{right}}-1] \cap \{0, \ldots , n\}$. 
+    
+    Since $s$ remains Pareto-optimal during this process, it is updated in each iteration when the candidate solution $c$ is also Pareto-optimal. Note also that $b^{\text{left}} \neq -\infty$ or $b^{\text{right}} \neq \infty$ since $A_t \neq P$.
+    
+    Denote an iteration as a \emph{failure} if one of the following two conditions is met. 
+    \begin{itemize}
+        \item[(1)]
+        The value of $\LO(s)$ changes by at least four.
+        \item[(2)]
+        The value $\LO(s)$ exits $I:=[b^{\text{left}} + 1, b^{\text{right}} - 1]$, without resulting in a Pareto-optimal individual $x$ with $x \notin A_t$.
+    \end{itemize}
+    In the following we show that in $O(n^3)$ iterations in expectation a failure occurs or a Pareto-optimal search point $x$ with $x \notin A_t$ is added to $A_t$. To this end, it is sufficient to show that in expected $O(n^3)$ iterations the value $\LO(s)$ exits $I$ or a failure occurs. The aim is to apply Theorem~\ref{thm:unbiased-random-walk}. However, there may be a negative drift away from the borders of $I$ as the example $b^{\text{right}} = \infty$, $b^{\text{left}}=0$ and $s=10^{n-1}$ shows: Creating $c=0^n$ happens with the same probability as creating $c=1^20^{n-2}$ and we have a positive probability of creating $c=1^j 0^{n-j}$ for $j \geq 3$. Hence, this theorem is not straightforwardly applicable. However, this negative drift vanishes, if no failure occurs and $s \in [b^{\text{left}} +4,b^{\text{right}} - 4]$, allowing the theorem to apply for proving the following claim. 
+
+    \begin{claim}
+    \label{cl:exit-smaller-interval}
+    After $O(n^3)$ iterations in expectation a failure occurs, or $\LO(s) \notin [b^{\text{left}} +4,b^{\text{right}} - 4]$ is satisfied for every possible $b^{\text{left}}<b^{\text{right}}$ with $b^{\text{left}} \neq -\infty$ or $b^{\text{right}} \neq \infty$, and for every possible Pareto-optimal starting point $s_0$ with $\LO(s_0) \in [b^{\text{left}} +4,b^{\text{right}} - 4]$.
+    \end{claim}
+    
+    \begin{proofofclaim}
+    We may assume that no failure occurs, as any failure would only accelerate the achievement of the goal outlined in this claim. Without loss of generality assume that $\LO(s) \in [b^{\text{left}} +4,b^{\text{right}} - 4]$ for all $0 \leq t \leq T$ where $T:=\inf\{t \geq 0 \mid \LO(s) \notin [b^{\text{left}} +4,b^{\text{right}} - 4]\}$. For $j \in \{-3, \ldots , 3\}$ denote by $p_j$ the probability that $\LO(s)$ changes by $j$ (which also means that $s$ stays Pareto-optimal). Then $p_{-j} = p_j$ and $p_j = \Theta(1/n^j)$ since it is required to flip $j$ specific bits. Let $X_t:=\LO(s)$ where $s$ denotes the current solution in iteration $t$. We consider three cases.
+
+    \textbf{Case 1:} Suppose that $b^{\text{right}} \neq \infty$ and $b^{\text{left}} \neq -\infty$ and let $d:=(b^{\text{right}}+b^{\text{left}})/2$. Let $Y_t:=|X_t-d|$. Then we have
+    \begin{align*}
+    &\E(Y_{t+1}-Y_t \mid X_0, \ldots , X_t) = \E(|X_{t+1}-d|-|X_t-d| \mid X_0, \ldots , X_t).\\
+    \intertext{If $X_t \geq d$ we obtain}
+    &= \E(|X_{t+1}-d|-X_t+d \mid X_0, \ldots , X_t)\\
+    &\geq \E(X_{t+1}-d-X_t+d \mid X_0, \ldots , X_t) \\
+    &= \E(X_{t+1}-X_t \mid X_0, \ldots , X_t)  = \sum_{j=-3}^3 j \cdot p_j = 0.\\
+    \intertext{On the other hand, if $X_t < d$,}
+    & \E(|X_{t+1}-d|-|X_t-d| \mid X_0, \ldots , X_t) \\ 
+    &\geq \E(|X_{t+1}-d| +X_t-d \mid X_0, \ldots , X_t)\\
+    & \geq \E(-X_{t+1}+d +X_t-d \mid X_0, \ldots , X_t) \\
+    &= \E(X_t-X_{t+1} \mid X_0, \ldots , X_t) = 0.
+    \end{align*}
+    Further, 
+    \begin{align*}
+    \text{Var}(Y_{t+1}-Y_t \mid Y_0, \ldots , Y_t) \geq \E((Y_{t+1}-Y_t)^2 \mid Y_0, \ldots , Y_t) \geq \delta
+    \end{align*}
+    for $\delta:= 1/(en)$ since flipping a specific bit (the first zero from the left if $X_t \geq d$ to increase $X_t$ and otherwise the first one from the right to decrease $X_t$) changes $Y_t$ by one. This happens with probability at least $(1-1/n)^{n-1} \cdot 1/n \geq 1/(en)$. So both conditions of Theorem~\ref{thm:unbiased-random-walk} are satisfied and we obtain $\E(T') \leq n^2/\delta = O(n^3)$ for 
+    $$T':=\inf \left\{t \geq 0 \mid Y_t > \frac{b^{\text{right}}-b^{\text{left}}}{2} - 4 \right\}:$$
+    We see that $b^{\text{left}}+4 \leq X_t \leq b^{\text{right}}-4$ iff $(b^{\text{left}}-b^{\text{right}})/2+4 \leq X_t - d \leq (b^{\text{right}}-b^{\text{left}})/2-4$ iff $Y_t \leq (b^{\text{right}}-b^{\text{left}})/2-4$. This also yields $T=T'$.  
+
+    \textbf{Case 2:} Suppose that $b^{\text{right}} \neq \infty$ and $b^{\text{left}} = -\infty$. Then we have $T= \inf\{t \geq 0 \mid X_t > b^{\text{right}} - 4\}$. If $X_t \geq 3$ we obtain $\E(X_{t+1}-X_t \mid X_0, \ldots , X_t) = \sum_{j=-3}^3 j \cdot p_j = 0$ since $3 \leq X_t \leq b^{\text{right}}-4$. Further, if $X_t = j$ for $j \in \{0,1,2\}$, then $X_t$ cannot decrease by more than $j$ and we obtain
+    $\E(X_{t+1}-X_t \mid X_0, \ldots , X_t) = \sum_{i=-j}^j i \cdot p_i + \sum_{i=j+1}^3 i \cdot p_i > 0.$
+    As above, $\delta:=\text{Var}(X_{t+1}-X_t \mid X_0, \ldots , X_t) = \Omega(1/n)$. So with Theorem~\ref{thm:unbiased-random-walk} we obtain $\E(T) \leq n^2/\delta = O(n^3)$
+    since $b^{\text{right}}-4 \in O(n)$.
+
+    \textbf{Case 3:} Suppose that $b^{\text{right}} = \infty$ and $b^{\text{left}} \neq -\infty$. Let $Y_t:=n-X_t$. Then $T=\inf\{t \geq 0 \mid X_t < b^{\text{left}}-4\} = \inf\{t \geq 0 \mid Y_t > n-b^{\text{left}}+4\}$, and similar as in Case~2, $\E(Y_{t+1}-Y_t \mid Y_0, \ldots , Y_t) \geq 0$ and $\text{Var}(Y_{t+1}-Y_t \mid Y_0, \ldots , Y_t) = \Omega(1/n)$. Therefore, $\E(T) = O(n^3)$ with Theorem~\ref{thm:unbiased-random-walk}. All the above cases conclude the proof of Claim~\ref{cl:exit-smaller-interval}.
+    \end{proofofclaim}
+
+   We show in the next claim that $\LO(s)$ even exits $I:=[b^{\text{left}} +1,b^{\text{right}} - 1]$ in expected $O(n^3)$ iterations if no failure occurs. This is because, if $\LO(s) \notin [b^{\text{left}} +4,b^{\text{right}} - 4]$, then $\LO(s)$ only needs to be changed by three specific one-bit flips in the next three iterations when the fitness of $s$ changes. %which happens with probability $\Omega(1)$ in $O(n)$ iterations, as with probability $\Omega(1)$, a specific one-bit flip occurs whenever the fitness of $s_t \in [b^{\text{left}} +1,b^{\text{right}} - 1]$ changes. 
+    
+    \begin{claim}
+    \label{cl:exit-larger-interval}
+    After $O(n^3)$ iterations in expectation a failure occurs or $\LO(s) \notin [b^{\text{left}} +1,b^{\text{right}} - 1]$ is satisfied for every possible $b^{\text{left}}<b^{\text{right}}$ with $b^{\text{left}} \neq -\infty$ or $b^{\text{right}} \neq \infty$, and for every possible starting point $s_0$ with $\LO(s_0) \in [b^{\text{left}} +1,b^{\text{right}} - 1]$.
+    \end{claim}
+
+    \begin{proofofclaim}
+    As in the proof of the claim before, we may assume that no failure occurs. Denote an iteration as \emph{profitable} if a candidate solution $c$ is created with $\LO(c) = \LO(s)+1$ if $\LO(s) > b^{\text{right}} - 4$ or with $\LO(c)=\LO(s)-1$ if $\LO(s) < b^{\text{left}} + 4$. Note that if $\LO(s) \notin [b^{\text{left}} +4,b^{\text{right}} - 4]$, then also $\LO(c) \notin [b^{\text{left}} +4,b^{\text{right}} - 4]$ if $t$ is profitable.
+    With Claim~\ref{cl:exit-smaller-interval} we can assume that $\LO(s) \notin [b^{\text{left}} +4,b^{\text{right}} - 4]$. Suppose that $\LO(s) > b^{\text{right}} - 4$ (i.e. $b^{\text{right}} \neq \infty$). To exit the interval $[b^{\text{left}}+1,b^{\text{right}} - 1]$, it is sufficient that the next $j = b^{\text{right}} - \LO(s) \leq 3$ iterations where the fitness of $s$ changes (i.e. the candidate solution $c$ with $f(c) \neq f(s)$ becomes the current solution for the next iteration) are profitable. In the following we estimate the probability that an iteration where the fitness of $s$ changes is profitable. The probability that the fitness of $s$ changes is at most $2/n$  since it is required to either flip the first zero from the left (to increase $\LO(s)$ but decrease $\TZ(s)$) or the last one from the left (to decrease $\LO(s)$ but increase $\TZ(s)$). The probability to perform a specific one-bit flip is $1/n \cdot (1-1/n)^{n-1} \geq 1/(en)$. Hence, as long as $s \in [b^{\text{left}} +1,b^{\text{right}} - 1]$, an iteration where the fitness changes is profitable with probability at least $1/(en) \cdot 1/(2/n) = 1/(2e) = \Omega(1)$ and hence, the next $j \leq 3$ iterations where the fitness changes are profitable with probability $\Omega(1)$. If this happens, $s$ exits $I$. By symmetry, the same also holds if $\LO(s) < b^{\text{left}} + 4$.
+    
+    Denote the next $j$ iterations during which the fitness of $s$ changes, as a \emph{trial}, and call the trial \emph{successful} if the interval $[b^{\text{left}} +1,b^{\text{right}} - 1]$ is exited by $s$. Note that the expected number of iterations until $s$ exits $I$ is $O(n)$ if the first trial is successful since the expected waiting time for a fitness change of $s$ is $O(n)$. If the first trial is not successful, we repeat the arguments above (possibly those included in Claim~\ref{cl:exit-smaller-interval}). Since the probability that the first trial is successful is $\Omega(1)$, we see that the expected number of repetitions until a successful trial occurs is $O(1)$. This proves Claim~\ref{cl:exit-larger-interval}. 
+    \end{proofofclaim}
+
+    Claim~\ref{cl:exit-larger-interval} also shows that in expected $O(n^3)$ iterations a Pareto-optimal search point $x$ with $x \notin A_t$ is added to $A_t$ or a failure occurs. Now we estimate the probability that within $O(n^3)$ iterations a failure occurs. The probability that $\LO(s)$ changes by at least four if $s$ is Pareto-optimal is $O(1/n^4)$ since it is required to flip a specific block of four ones or four zeros. By a union bound, the probability is $o(1)$ that such a change occurs in $O(n^3)$ iterations. Further, we argue that a new Pareto-optimal solution is created with probability $\Omega(1)$ when $\LO(s)$ exits the interval $[b^{\text{left}}+1,b^{\text{right}}-1]$. Let $j$ be the smallest possible Hamming distance between $s$ and a Pareto-optimal solution $x$ not already in $A_t$. Then the probability that $c=x$ is at least $1/(en^j)$ while $s$ exits the interval with probability at most $2/n^j$ since it is required to either increase $\LO(s)$ by at least $j$ or decrease $\LO(s)$ by at least $j$. Otherwise, $s$ remains Pareto-optimal. Hence, with probability $\Omega(1)$ the candidate solution $c$ is a new Pareto-optimal solution if $s$ exits $I$. This yields that a failure does not occur with probability $\Omega(1)$ by a union bound on both possible failures within the $O(n^3)$ iterations from Claim~\ref{cl:exit-larger-interval} above. If a failure occurs within these $O(n^3)$ iterations we repeat the above arguments, including those that $s$ reaches the Pareto front and then exiting the interval $[b^{\text{left}}-1,b^{\text{right}}+1]$. The expected number of repetitions is $O(1)$ concluding the proof. 
+\end{proof}
+
+%The analysis of the influence of the archiver if the archive size $L$ is at most $n$ is more complicated as in the one-bit mutation case since there may be non-dominated solutions which are not Pareto-optimal and hence, Pareto-optimal solutions may be removed from $A_t$ even if non Pareto-optimal solutions are added to $A_t$. 
+
+\section{Runtime Analysis of \PAES on $m$-LITZ and $m$-FRITZ}
+To deepen the understanding of the dynamics of \PAES, we also analyze its runtime on alternative benchmark functions such as $m$-LITZ (the $m$-objective “Leading Integers Trailing Zeros” benchmark) and $m$-FRITZ (the $m$-objective “First Run of Integers Trailing Zeros” benchmark) introduced in~\cite{Knowles2025}. For $x \in \{0,1\}^\ell$ denote by $\text{bin}(x)$ the integer represented by $x$ with respect to base 10. Then $m$-LITZ is defined as follows. 
+
+\begin{definition}[Definition~2 in~\cite{Knowles2025}]
+\label{def:LeadingIntegersTrailingZeros}
+Suppose that the number $m$ of objectives is at least $8$ and a power of two, in particular $m = 2^p$ for $p \in \mathbb{N}$ with $p \geq 3$. Suppose that the problem size $n$ is divisible by $p$. Let $x=(x^1, \ldots , x^{n/p})$ where $x^j \in \{0,1\}^p$. Then, for $k \in [m-1]$, the $k$-th objective $\text{LITZ}_k(x)$ is defined as $\text{LITZ}_k(x) := \sum_{i=1}^{n/p} \prod_{j=1}^i I_k(\text{bin}(x^j))$ where $I_k:[2^p] \to \{0,1\}$, $I_k(\ell) = 1$ if $\ell=k$ and $0$ otherwise. The $m$-th objective is defined as $\text{LITZ}_m(x) := \sum_{i=1}^{n/p} \prod_{j=i}^{n/p} I_0(\text{bin}(x^j))$.
+\end{definition}
+
+\andre{Add a sketch about that benchmark and explain it!}
+
+\andre{Motivate why this benchmark should be studied!}
+
+\andre{write how the analysis differs compared to LOTZ!} 
+
+\andre{Think about the question if we are able to generalize the results to arbitrary mutation operators under certain assumptions.} 
+
+
+Note that $2$-LITZ corresponds to $2$-LOTZ, but there are significant differences between $m$-LITZ and $m$-LOTZ, since in the former case, the trailing zeros only occur in one objective. Also note that in $m$-LITZ, all solutions $x$ have at most two different objectives distinct from zero. The following lemma is straightforward. 
+
+\begin{lemma}
+
+The Pareto front $V$ of $f:=$ $m$-LITZ is given by 
+$$V:=\{v \in \mathbb{N}_0^m \mid \text{there is } i \in [m-1] \text{ with } v_i + v_m = n/p \text{ while } v_j = 0 \text{ for } j \in [m-1] \setminus \{i\}\}$$
+\end{lemma}
+
+\begin{proof}
+Note that $m-2$ objectives out of $m-1$ are zero, since if $\text{binom}(x^1)=k$ then $f_1(x) = \ldots = f_{k-1}(x) = f_{k+1}(x) = \ldots = f_{m-1}(x)=0$. Further, the sum of the other two objectives cannot exceed $n/p$, since $I_k(\text{bin}(x^j)) \in \{0,1\}$, and if $I_k(\text{bin}(x^j)) =1$ then $I_\ell(\text{bin}(x^j))=0$ for $\ell \neq k$. So $V$ consists only of non-dominated fitness vectors. It suffices to show $V \subset f(\{0,1\}^n)$, proving the result. Let $v \in V$ and fix $i \in [m-1]$ with $v_i+v_m=n/p$. Consider $x=(x^1, \ldots ,x^p)$ with $\text{binom}(x^1) = \ldots = \text{binom}(x^{v_i}) = i$ and $\text{binom}(x^{v_i+1}) = \ldots = \text{binom}(x^m) = 0$. Then obviously $f(x)=v$. 
+\end{proof}
+
+Note that \PAES with one-bit mutation may be not able to optimize $m$-LITZ, as one can see if one considers $m=4$ and the current solution $x=1^{2 \lfloor{n/4}\rfloor}0^{n-2 \lfloor{n/4}\rfloor}$, while $A=\{y^{\ell}0^{n-2 \lfloor{n/4}\rfloor} \mid y \in \{00,01,10,11\}, \ell \in [\lfloor{n/4}\rfloor]\}$. Then flipping any bit in $x$ would result in a solution $y$ dominated by a solution $z$ from $A$, and hence, would not enter the archive $A$. So any mutant is discarded. However, \PAES with standard bit mutation shows that the whole Pareto front of $f := m$-LITZ can be found in polynomial time if $m=O(1)$. We will not use the hypervolume contribution, since $m-2$ objectives of each search point have value zero and hence, $\text{hv}(A_t)=0$ for each possible $A_t$. Instead, we define $N_t:=|\{f(x) \mid x \text{ is dominated by a point from } A_t\}|$. Note that $N_{t+1} \geq N_t$ and $1 \leq N_t \leq (m-1) \cdot (\sum_{i=1}^{n+1} i) = (m-1)(n+2)(n+1)/2$, since for a given $\ell \in \{0, \ldots , n\}$ there are $\ell+1$ different $\ell_1,\ell_2 \in \mathbb{N}_0$ with $\ell=\ell_1+\ell_2$.     
+
+\begin{lemma}
+\label{lem:LITZ-steps-current-solution-below}
+Consider \PAES with standard bit mutation and archive size at least $n+1$ optimizing $m$-LITZ. Then the expected number of iterations until the current solution reaches the Pareto front is $O(mn^{3+\log(p)})$.
+\end{lemma}
+
+\begin{proof}
+Suppose that the current solution $s$ is not Pareto optimal. Fix a set $Z \subset [m-1]$ of $m-2$ objectives with $f_j(s)=0$ for all $j \in Z$. Note that $v_k+v_m < n/p$ for $k \in [m-1] \setminus Z$. Then, there is no search point $z \in A_t$ dominating $c$, meaning that $f_j(z)=0$ for all $j \in Z$ and $f_{i_1}(z)+f_{i_2}(z) > v_{i_1}+v_{i_2}$. This means that $N_t$ increases by either increasing $\sum_{i=1}^{n/p} \prod_{j=i}^{n/p} I_0(\text{bin}(s^j))$ or $\sum_{i=1}^{n/p} \prod_{j=1}^i I_k(\text{bin}(s^j))$. This happens by flipping at most $p$ bits in block $i_1:=f_k(z)+1$ (to create the binary value of $k$ there) and in block $i_2:=n/p-f_m(z)$ while not changing the corresponding bits in the remaining blocks which happens with probability at least $(1/n)^p \cdot (1-1/n)^{n-1} \geq 1/(en^p)$. So the expected number of iterations when the current solution is not Pareto optimal is $O(en^p \cdot m n^3) = O(mn^{3+\log(p)})$. \andre{$\log$ is with respect base $2$.} 
+\end{proof}
+
+We can now determine the expected time until \PAES covers the entire Pareto front of $m$-LITZ in a manner similar to the \LOTZ case. A key difficulty is that, on $m$-LITZ, \PAES can frequently change the non-zero objective among the first $m-1$ objectives by modifying the first block, thereby creating a different binary number in that block. \andre{Add a roadmap here about the proof!}
+
+\begin{lemma}
+\label{lem:LITZ-Pareto-Front-Covering}
+Consider \PAES with standard bit mutation and archive size at least $n+1$ optimizing $m$-LITZ. Then the expected number of iterations to evolve a new Pareto optimal search point is $O(mn^{3+\log(p)})$. 
+\end{lemma}
+
+\begin{proof}
+Note that each Pareto-optimal search point $y$ has the form $y=b^{\ell}(0^p)^{n/p-\ell}$ where $b \in \{0,1\}^\ell$. 
+So one may generate a new Pareto-optimal search point by creating $0^n$ in the first step as a current solution $s$, and finally to create the desired $y$ by successively increasing the number of blocks $b$. %Let the current solution $s$ be $s=a^{\ell^*}(0^p)^{n/p-\ell^*}$ for a given $\ell^* \in [n/p]$. Then we may assume that all Pareto optimal search points of the form $a^{j}(0^p)^{n/p-j}$ for $j < \ell^*$ and $b^{i}(0^p)^{n/p-j}$ for $i < \ell^*$ have already been found, since otherwise, the path the current solution has to put back to evolve a Pareto optimal solution only becomes smaller, and all the arguments below can be directly applied to this shorter path. \andre{besser: Mit oder argumentieren?}
+Let $k$ be the binary value of $b$. We determine the desired expected runtime by proving several claims in a row. Further, we assume that $f_m$ does only change by at most three in one iteration. \andre{define precisely what a failure is!} 
+
+\begin{claim}
+    \label{cl:reachalmostzero}
+    Suppose that $f_m(s_{t_0})=n/p-\ell$ for $\ell \in [n/p]$ at an iteration $t_0$. After $O(\ell n/p \cdot n^p)$ iterations in expectation, the current solution $s_t$ becomes non Pareto-optimal, or $f_k(s_t) \geq n/p-2$ holds. 
+\end{claim}
+    
+\begin{proofofclaim}
+	Denote by $B_t$ the event that a failure occurs in iteration $t$ and let $T:=\inf\{t \geq 0 \mid B_t \text{ occurs or } f_m(s_t) = n/p\}$. For $j \in \{-3, \ldots , 3\}$ denote by $p_j$ the probability that $f_k(s_t)$ changes by $j$ if $s_t$ stays on the Pareto front. Then $p_{-j} \leq p_j$, and if $\ell < n/p-2$ then $p_{-j} = p_j$. Further, $p_j = \Omega(1/n^{pj})$ since it is required to flip at most $jp$ specific bits to decrease $f_k(s_t)$ by $j$, while not changing the remaining bits. Let $X_t:=f_k(s_t)$ where $s_t$ denotes the current solution in iteration $t$. Note that $E(X_{t_0}) = (n/p-\ell)^2$, and $T=\inf\{t \geq 0 \mid B_t \text{ occurs or } X_t \geq n/p - 3\}$. We also see $\E(X_{t+1}-X_t \mid \bar{B}_0, \ldots \bar{B}_t,X_0, \ldots , X_t) = \sum_{j=-3}^3 j p_j \geq 0$, as $f_m(s_t)$ changes by at most $3$, and $\text{Var}(X_{t+1}-X_t \mid \bar{B}_0, \ldots \bar{B}_t, X_0, \ldots , X_t) \geq \E((X_{t+1}-X_t)^2 \mid \bar{B}_0, \ldots \bar{B}_t, X_0, \ldots , X_t) = \sum_{j=1}^3 j^2 p_j =:\delta$. Note that $\delta = \Omega(1/n^p)$. Therefore, $\E(T) \leq (n^2/p^2-E(X_{t_0}^2))/\delta = 2 \ell n/(\delta p)-\ell^2/\delta = O(\ell n/(\delta p)) = O(\ell n/p \cdot n^p)$ with Theorem~\ref{thm:unbiased-random-walk}, concluding the proof. 
+\end{proofofclaim}
+
+\andre{Add explanations!}
+
+\begin{claim}
+    \label{cl:reachzero}
+    Suppose that $f_m(s_{t_0})=n/p-\ell$ for $\ell \in [2]$ at an iteration $t_0$. After $O(n/p \cdot n^p)$ iterations in expectation, the current solution $s_t$ is non Pareto-optimal, or satisfies $f_m(s_t) = n/p$, which means that $s_t=0^n$. 
+\end{claim}
+    
+\begin{proofofclaim}
+    As in the proof of the claim before, we may assume that always a Pareto optimal solution is created. Denote an iteration $t$ as \emph{profitable} if a candidate solution $c_t$ is created with $f_m(c_t)>f_m(s_t)$. To create $s_t=0^n$, it is sufficient that the next $n/p - f_m(s_t) \leq 3$ iterations where the fitness of $s_t$ changes are profitable. We estimate the probability that an iteration where the fitness of $s_t$ changes is profitable. Let $q^*$ be the probability that one creates $0^{n/p}$ from $b \in \{0,1\}^{n/p}$ via standard bit mutation. Note that this also corresponds to the probability to create $b$ from $0^p$, and that $1/n^p \leq q^* \leq 1/n$. Then the probability that the fitness of $s_t$ changes is at most $2/n^p$ since it is required to either flip the first block $b$ from the right to $0^p$ (to increase $f_m(s_t)$ but decrease $f_k(s_t)$) or the first block $0^n$ from the left (to decrease $f_m(s_t)$ but increase $f_k(s_t)$). The probability 
+    to change this leftmost block $b$ to $0^{n/p}$ while keeping the other blocks unchanged is at least $(1-1/n)^{n-p} \cdot p^* \geq p^*/e$ (to push $s_t$ towards $0^n$). Hence, an iteration where the fitness changes is profitable with probability at least $1/(2e) = \Omega(1)$. So the  next $j \leq 3$ iterations where the fitness changes are profitable with probability $\Omega(1)$. If this happens, $s_t=0^n$. The expected waiting time for a fitness change is $O(1/q^*)$. So in time $O(1/q^*)$, either $s_t=0^n$, or one of the first $n/p-f_m(s_t)$ iterations where the fitness changes is non-profitable (happening with probability $1-O(1)$). If the latter occurs, we repeat all the arguments from above, including that from Claim~\ref{cl:reachalmostzero} for $\ell<6$ (as $f_m$ cannot change by at most three). The expected number of repetitions is $O(1)$, leading to an expected runtime of $O(n/p \cdot n^p + 1/p^*) = O(n/p \cdot n^p)$. This proves Claim~\ref{cl:reachzero}. 
+\end{proofofclaim}
+
+\andre{add more explanations!}\\
+\andre{exchange $b$ above by a different variable!}
+
+\begin{claim}
+	\label{cl:reachfirsttwo-b-remaining-zero}
+	Suppose that $f_m(s_{t_0}) =0^n$. After $O((n+m) \cdot 2^p)$ iterations in expectation, the current solution $s_t$ is non Pareto-optimal, or satisfies $f_m(s_t) = n/p-1$ and $f_k(s_t)=1$ which means that $s_t=b0^{n-p}$. 
+\end{claim}
+
+\begin{proofofclaim}
+	As in the proof of the claims before, we may assume that always a Pareto optimal solution is created. At first we show that after $2n$ iterations, the probability that $(s_t)_i=1$ , unless a Pareto optimal solution $z$ is created with $z=a^\ell0^{n/p-\ell}$ with $a \in \{0,1\}^p$ and $\ell \in \{2, \ldots , n/p\}$. Then the first block in $s_t$ changes randomly, as only solutions of the form $c0^{n-p}$ for $c \in \{0,1\}^p$ are created, and also accepted. For a bit position $i \in [p]$, and $t \geq t_0$ denote by $q_i^{(t)}$ the probability that $(s_t)_i=1$. Then $q_i^{(t)}=(1-1/n) \cdot q_i^{{(t-1)}} + (1-q_i^{(t-1)})/n = 1/n + (1-2/n)q_i^{(t-1)}$ since flipping one specific bit happens with probability $1/n$. Note that this recursive equation has its equilibrium at $\hat{q}_i= 1/2$. By an easy induction, one sees that $q_i^{(t)} = 1/2 \cdot (1-(1-2/n)^t)$ (since $q_i^{(t_0)}=0$, and for $t>0$ we have $q_i^{(t)} = 1/n + (1-2/n)q_i^{(t-1)} = 1/n + (1-2/n) \cdot 1/2 \cdot (1-(1-2/n)^t) = 1/n + (1-2/n) \cdot 1/2 \cdot (1-(1-2/n)^t) = 1/n + (1-2/n)/2 - (1-2/n)^{t+1}/2 = 1/2-(1-2/n)^{t+1}/2 = 1/2(1-(1-2/n)^{t+1})$). So one sees that $q_i^{(t)} \in [0,1/2]$ and strictly monotone decreasing. For $t=t_0+n^2$ we have $q_i^{(t)} = 1/2(1-(1-2/n)^{n^2}) \geq 1/2(1-1/e^{2n}) \geq 1/2-1/(2e^{2n})$ due to $1+x \leq e^x$. Since we can consider all first $p$ bit positions as independent, and after $n$ iterations we see that $p_i^{(t)} \geq 1/2-1/(2e^{2n})$, we see that after $e(n^2+2^p) = e(n+m^2)$ iterations (provided that the second position does not coincide with the first) we created the desired $z=b0^{n-p}$.      
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	Denote an iteration $t$ as \emph{profitable} if a candidate solution $c_t$ is created with $f_m(c_t)>f_m(s_t)$. To create $s_t=0^n$, it is sufficient that the next $n/p - f_m(s_t) \leq 3$ iterations where the fitness of $s_t$ changes are profitable. We estimate the probability that an iteration where the fitness of $s_t$ changes is profitable. Let $q^*$ be the probability that one creates $0^{n/p}$ from $b \in \{0,1\}^{n/p}$ via standard bit mutation. Note that this also corresponds to the probability to create $b$ from $0^p$, and that $1/n^p \leq q^* \leq 1/n$. Then the probability that the fitness of $s_t$ changes is at most $2/n^p$ since it is required to either flip the first block $b$ from the left to $0^p$ (to increase $f_m(s_t)$ but decrease $f_k(s_t)$) or the last one from the left (to decrease $f_m(s_t)$ but increase $f_k(s_t)$). The probability 
+	to change the rightmost block $b$ to $0^{n/p}$ while keeping the other blocks unchanged is at least $(1-1/n)^{n-p} \cdot p^* \geq p^*/e$ (to push $s_t$ towards $0^n$). Hence, an iteration where the fitness changes is profitable with probability at least $1/(2e) = \Omega(1)$. So the  next $j \leq 3$ iterations where the fitness changes are profitable with probability $\Omega(1)$. If this happens, $s_t=0^n$. The expected waiting time for a fitness change is $O(1/q^*)$. So in time $O(1/q^*)$, either $s_t=0^n$, or one of the first $n/p-f_m(s_t)$ iterations where the fitness changes is non-profitable (happening with probability $1-O(1)$). If the latter occurs, we repeat all the arguments from above, including those from Claim~\ref{cl:reachalmostzero}. The expected number of repetitions is $O(1)$, leading to an expected runtime of $O(n/p \cdot n^p + 1/p^*) = O(n/p \cdot n^p)$. This proves Claim~\ref{cl:reachfirsttwo-b-remaining-zero}. 
+\end{proofofclaim}
+
+\end{proof}
+
+
+\section{\PAES Fails on \OMM and \COCZ}
+
+In this section, we demonstrate that \PAES using either one-bit mutation or standard bit mutation performs poorly on other pseudo-Boolean benchmarks such as \OMM or \COCZ. This inefficiency arises from the update mechanism. The current solution is replaced by a candidate solution $s$ whenever $s$ is added to the archive $A_t$ and $A_t$ is not full. Our theoretical results and proofs naturally extend to the many-objective setting if the number of objectives is constant. Recall that \OMM~\cite{Giel2010} is defined as $\OMM(x)=(\sum_{i=1}^n x_i,\sum_{i=1}^n (1-x_i))$, where the first component counts the number of ones in $x$, and the second counts the number of zeros. The function \COCZ~\cite{Laumanns2004} is defined as $\COCZ(x)=(\sum_{i=1}^n x_i,\sum_{i=1}^{n/2} x_i + \sum_{i=n/2+1}^n (1-x_i))$. Here, the first component again counts the number of ones, while the second component counts the number of ones in the first half and the number of zeros in the second half of the bit string.
+
+\begin{theorem}
+\label{thm:spreading-Pareto-front-omm}
+    Consider \PAES with standard bit mutation or one-bit mutation and archive size at least $n+1$ optimizing \OMM. Let $0 < \alpha \leq 1/2$ be a constant. Then there is a constant $\beta>0$ such that with probability $1-e^{-\Omega(n)}$ the value $\ones{s}$ where $s$ is the current solution does not exit the interval $[n/2-\alpha n,n/2+\alpha n]$ within $2^{\beta n}$ iterations. Hence, with probability $1-e^{-\Omega(n)}$ the fraction of the Pareto front contained in $A_t$ is $o(n)$ after $2^{\Omega(n)}$ iterations. 
+\end{theorem}
+
+\begin{proof}
+    By a classical Chernoff bound, we have that $n/2-\alpha n/2 \leq s \leq n/2+\alpha n/2$ with probability $1-e^{-\Omega(n)}$ in the first iteration. Suppose that this happens. Note that a new created candidate solution is either non-dominated or has the same fitness value as a solution $x \in A_t$. In both cases it is added to $A_t$. Hence, the current solution is updated in each iteration no matter how many bits in $s$ are flipped. Denote by $X_t$ the number of ones in $s$ in iteration $t$. Then we obtain $\E(X_t-X_{t+1} \mid X_0, \ldots , X_t; a < X_t < b) \leq b/n - (n-b)/n   = -(n-2b)/n = -\alpha$ for $a:=n/2-\alpha n$ and $b:=n/2-\alpha n/2$.
+    Hence by the negative drift theorem (see for example Theorem 2.4.9 in~\cite{Lengler2020}) there is a constant $\beta>0$ such that $X_t<a$ within the next $2^{\beta n}$ iterations with probability $e^{-\Omega(n)}$. By changing the roles of ones and zeros we also see that $X_t > n/2+\alpha n$ within $2^{\beta n}$ iterations with probability $e^{-\Omega(n)}$. By a union bound we obtain that $n/2 - \alpha n \leq X_t \leq n/2+\alpha n$ within the next $2^{\beta n}$ iterations with probability $1-e^{-\Omega(n)}$.
+\end{proof}
+
+This negative result directly transfers to \ojzjk \, for $2 \leq k \leq n/2-cn$ for a constant $0<c<1/2$ since it coincides with \OMM if $n/2-cn \leq \ones{s} \leq n/2+c n$ up to the additive vector $(k,k)$. We formulate a similar result for \COCZ. For a bit string $x \in \{0,1\}^n$ denote by $x^1$ its first half and by $x^2$ its second if $2$ divides $n$.
+
+\begin{theorem}
+\label{thm:spreading-Pareto-front-cocz}
+    Suppose that $2$ divides $n$. Consider \PAES with standard bit mutation or one-bit mutation and archive size at least $n/2+1$ optimizing \COCZ. Let $0 < \alpha \leq 1/4$ be a constant. Then there is a constant $\beta>0$ such that $\ones{s^2}$ does not exit the interval $[n/4-\alpha n,n/4+\alpha n]$ within $2^{\beta n}$ iterations with probability $1-e^{-\Omega(n)}$. Hence, with probability $1-e^{-\Omega(n)}$ the fraction of the Pareto front contained in $A_t$ is $o(n)$ after $2^{\Omega(n)}$ iterations. 
+\end{theorem}
+
+\begin{proof}
+We can assume that $\alpha<1/4$ since $\ones{s^2}$ never exits the interval $[0,n/2]$. By a classical Chernoff bound, we have that $n/4-\alpha n/2 \leq \ones{s^2} \leq n/4+\alpha n/2$ with probability $1-e^{-\Omega(n)}$. Suppose that this happens. Let $B$ be the event that no bit is flipped in the first half of the bit string during mutation. If $B$ occurs, a new created candidate solution is either non-dominated or has the same fitness value as a solution $x \in A_t$ and we are in the same situation as in the proof of Theorem~\ref{thm:spreading-Pareto-front-omm}. Denote by $X_t$ the number of ones in the second half of the current solution in iteration $t$. Then we obtain for $a:=n/4-\alpha n$ and $b:=n/4-\alpha n/2$ also 
+    $\E(X_t-X_{t+1} \mid X_0, \ldots , X_t; a < X_t < b;B) \leq b/n - (n/2-b)/n = -\alpha.$
+    Further we obtain 
+    $\E(X_t-X_{t+1} \mid X_0, \ldots , X_t; a < X_t < b;\bar{B}) \leq n^{-\Omega(n)}$: If the offspring was not accepted then the latter becomes zero. Suppose that $s$ is accepted by either flipping $k$ ones and $\ell$ zeros or flipping $\ell$ ones and $k$ zeros for $k,\ell \leq n/4-\alpha n$ with $k<\ell$ in the second half. The probability for the first event is larger than the second and hence, conditioned on the union of both events yields 
+    $\E(X_t-X_{t+1} \mid X_0, \ldots , X_t; a < X_t < b;\bar{B}) \leq 0$.
+    Hence, by the law of total probability, $\E(X_t-X_{t+1} \mid X_0, \ldots , X_t; a < X_t < b;\bar{B}) \leq 0$ if at most $n/4-\alpha n$ many ones and zeros are flipped. Note that the probability to flip more than $n/4-\alpha n$ ones or zeros is $n^{-\Omega(n)}$ (since $n/4-\alpha n = \Omega(n)$) which can increase $X_t$ by at most $n/2-a=n/4+\alpha n/2 = O(n)$. Hence, in total again by the law of total probability   
+    $\E(X_t-X_{t+1} \mid X_0, \ldots , X_t; a < X_t < b;\bar{B}) \leq n^{-\Omega(n)}.$
+    Again, applying the law of total probability yields
+    $\E(X_t-X_{t+1} \mid X_0, \ldots , X_t; a < X_t < b)
+    \leq \E(X_t-X_{t+1} \mid X_0, \ldots , X_t; a < X_t < b;B) \Pr(B) + n^{-\Omega(n)} \leq -\alpha/(2e)$
+    due to $\Pr(B) = (1-1/n)^{n/2} \geq 1/e$ for $n$ sufficiently large. Hence, again by the negative drift theorem, there is a constant $\beta>0$ such that $X_t<a$ within the next $2^{\beta n}$ iterations with probability $e^{-\Omega(n)}$. By changing the roles of ones and zeros we also see that $X_t > n/4+\alpha n$ within $2^{\beta n}$ iterations with probability $e^{-\Omega(n)}$. By a union bound we obtain that $n/4 - \alpha n \leq X_t \leq n/4+\alpha n$ within the next $2^{\beta n}$ iterations with probability $1-e^{-\Omega(n)}$.
+\end{proof}
+
+\section{Conclusions}
+In this paper, we rigorously analyzed the performance of \PAES on the classical benchmark functions \mLOTZ, \COCZ, and \OMM. Notably, \PAES with one-bit mutation performs surprisingly well on \mLOTZ, and we were able to derive tight runtime bounds in the many-objective setting. To the best of our knowledge, these are the first tight bounds established for an MOEA on a classical benchmark problem. Further, our analysis reveals new insights into the behavior of local search-based algorithms on classical pseudo-Boolean benchmarks. In particular, we showed that the time of \PAES with one-bit mutation finding the Pareto front of \mLOTZ is, up to a factor of $n/m$, asymptotically the same as the cover time of a simple random walk on an $m/2$-dimensional grid graph with $(2n/m)^{m/2}$ nodes, where the latter is well known. Further, \PAES with one-bit mutation achieves a good distribution of the archive across the Pareto front when the Adaptive Grid Archiver (AGA) is used, even when the archive size is smaller than the size of the Pareto front. In the bi-objective setting, good distributions for small archive sizes are also achieved when \PAES uses the Hypervolume based Archiver (HVA) or the Multi-level Grid Archiver (MGA). A further contribution is that we derived upper runtime bounds for \PAES on \LOTZ for standard bit mutation. A major challenge in this analysis is that the current solution does not necessarily remain on the Pareto front. We also demonstrated that \PAES has still some limitations. It does not perform well on \COCZ and \OMM, since it covers only a sublinear fraction of the Pareto front in $e^{\Omega(n)}$ iterations with probaility $1-e^{\Omega(n)}$.
+
+We hope that the techniques developed mark a significant step forward in understanding the behavior of \PAES, while also shedding light on its strengths and limitations. We are confident that our analysis carries over to other MOEAs with similar working principles as the PAES-25 like only mutating a current solution instead of choosing a parent uniformly at random. To deepen this understanding, future work could focus on more variants of \PAES which follow a $(\mu+\lambda)$ or $(\mu,\lambda)$ scheme to possibly overcome the difficulties with \OMM or \COCZ. Another research direction is to extend our analysis to more complex benchmark problems, such as FRITZ, LITZ or sLITZ proposed in~\cite{Knowles2025}, where \PAES has also been shown to perform empirically well. We also hope that the gained deeper theoretical insights into the dynamic of \PAES will provide valuable guidance for practitioners, helping to develop refined versions of the algorithm, especially for problems with non-flat fitness landscapes or featuring many local optima.
+
+\balance
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references,alles_ea_master,ich_master,aaai25}
+
+\cleardoublepage
+\appendix
+\onecolumn
+
+\section*{Supplementary Material for the paper''Runtime Analyses of the PAES-25: An Enhanced Variant of
+the Pareto Archived Evolution Strategy''}
+
+This document contains the proofs that we omitted in the main paper, due to space restrictions.
+
+\lemfitnessvectors*
+
+\begin{proof}
+
+Let $V:=f(S)$. We only show $\lvert{V}\rvert \geq k^{m-1}/(4(m-2)^{m/2-1})$ where $k:=2n/m+1$ as the upper bound is Lemma~4.2 in~\cite{OprisNSGAIII}. For $m=2$ a set $S$ with $f(S)=\{(n,0),(1,n-1), \ldots , (0,n)\}$ and cardinality $n+1$ is a set of mutually incomparable solutions. Suppose that $m \geq 4$. We construct a set $V' \subset \mathbb{N}_0^m$ with $\lvert{V'}\rvert \geq k^{m-1}/(4(m-2)^{m/2-1})$ such that there is a set $S'$ of mutually incomparable solutions with $f(S') = V'$ (which implies $\lvert{S'}\rvert = \lvert{V'}\rvert$ since $f(x) \neq f(y)$ for two distinct $x,y \in S'$, and $\lvert{S}\rvert \geq \lvert{S'}\rvert$ as $S$ has maximum possible cardinality). At first define for $w:=(w_1, \ldots , w_{m/2}) \in \{0, \ldots , k\}^{m/2}$
+\[
+M_w:=\{v \in \{0, \ldots, k\}^m \mid v_{2i-1}+v_{2i} = w_i \text{ for }i \in \{1, \ldots ,m/2\}\}.
+\]
+Then two search points $x,y$ with $f(x)=u$, $f(y)=v$ for $u,v \in M_w$ with $u \neq v$ are incomparable: Fix $i \in \{1, \ldots, m\}$ with $u_i \neq v_i$. If $u_i < v_i$, then $u_{i-1} > v_{i-1}$ if $i$ is even and $u_{i+1} > v_{i+1}$ if $i$ is odd. If $u_i > v_i$, then $u_{i-1} < v_{i-1}$ if $i$ is even and $u_{i+1} < v_{i+1}$ if $i$ is odd. 
+
+For $w \in \{0, \ldots, k\}^{m/2}$ we have that $\lvert{M_w}\rvert = \prod_{i=1}^{m/2} (w_i+1)$ (since $v_{2i-1}+v_{2i}=w_i$ is possible for $i \in \{1, \ldots , m\}$ if and only if $(v_{2i-1},v_{2i}) \in \{(w_i,0), (w_i-1,1), \ldots, (1,w_i-1),(0,w_i)\}$). 
+Further $M_w \cap M_{w'} = \emptyset$ for $w \neq w'$ as the sum $v_{2i-1}+v_{2i}$ is uniquely determined for a vector $v \in \mathbb{R}^m$. Now consider for $r:=\lceil{(m-3)k/(m-2)}\rceil$
+\begin{align*}
+W:=&\Big\{w \in \{0, \ldots , k\}^{m/2} \mid w_i \in [r,k] \text{ for } i \in \{1,\ldots ,m/2-1\} \text{ and } w_{m/2}=k - \sum_{i=1}^{m/2-1} (w_i-r) \Big\}.
+\end{align*}
+Then we have that
+\begin{align*}
+w_1 + \ldots + w_{m/2} &= k+\sum_{i=1}^{m/2-1} r = k+(m/2-1)r
+\end{align*}
+implying $v_1+ \ldots + v_m = k+(m/2-1)r$ for every $v \in M_w$ where $w \in W$. 
+Consequently, two search points $x,y$ with $f(x)=u$ and $f(y)=v$ for $u \in M_{w_1}$ and $v \in M_{w_2}$ with distinct $w_1,w_2 \in W$ are incomparable: 
+If there is a dominance relation between $x$ and $y$ we have that $u_1+ \ldots + u_m > v_1 + \ldots + v_m$ or $u_1+ \ldots + u_m < v_1+ \ldots + v_m$, but these both sums are $k+(m/2-1)r$. There is also no weak dominace relation between $x$ and $y$ since $u \neq v$ (because $w_1$ and $w_2$ are distinct). Thus for
+\[
+V':=\{v \in \{0, \ldots, k\}^m \mid v \in M_w \text{ for a } w \in W\}
+\]
+there is a set $S'$ of mutually incomparable solutions with $f(S')=V'$. We show $\vert{V'}\vert\geq (2n/m+1)^{m-1}/(4(m-2)^{m/2-1})$ and obtain the result. Since $w_i$ is bounded from below by $r$ for $i \in \{1, \ldots , m/2-1\}$ if $w \in W$, we obtain
+\begin{align*}
+\lvert{V'}\rvert = \sum_{w \in W} \lvert{M_w}\rvert &= \sum_{w \in W}\prod_{i=1}^{m/2} (w_i+1)\\
+&\geq \sum_{w \in W}(r+1)^{m/2-1}(w_{m/2}+1) \\
+    &= (r+1)^{m/2-1}\sum_{w \in W}(w_{m/2}+1).
+     \end{align*}
+     Since we have $w_{m/2}=k-\sum_{i=1}^{m/2-1}(w_i-r)$ and $w_i$ has range in $r, \ldots ,k$ if $w \in W$, we obtain
+    \begin{align*}
+     \sum_{w \in W}(w_{m/2}+1) &= \sum_{w_1=r}^{k} \ldots \sum_{w_{m/2-1}=r}^{k} \left(k+1-\sum_{i=1}^{m/2-1} (w_i-r) \right)\\
+    &= \sum_{w_1=0}^{k-r} \ldots \sum_{w_{m/2-1}=0}^{k-r} \left(k+1-\sum_{i=1}^{m/2-1} w_i \right)
+     \end{align*}
+     and for every $j \in \{1,\ldots , m/2-1\}$
+     \begin{align*}
+     \sum_{w_1=0}^{k-r} \ldots \sum_{w_{m/2-1}=0}^{k-r} w_j &= (k-r+1)^{m/2-2} \cdot \sum_{w_j=0}^{k-r}w_j\\
+     &= \frac{k-r}{2}(k-r+1)^{m/2-1} =:q
+     \end{align*}
+     where the latter equality is due to the Gaussian sum. Since $r=\lceil{(m-3)k/(m-2)}\rceil$, we see $k - r \leq k-(m-3)k/(m-2) = k/(m-2)$
+     and we obtain
+     \begin{align*}
+     \sum_{w \in W}(&w_{m/2}+1) = (k+1) \cdot (k-r+1)^{m/2-1} - (m/2-1)q \\ &= (k-r+1)^{m/2-1}\left(k+1 - \frac{(m/2-1)(k-r)}{2}\right) \\
+     &\geq (k-r+1)^{m/2-1} \left(k+1 - \frac{(m/2-1) k}{4(m/2-1)}\right) \\
+     &\geq (k-r+1)^{m/2-1}(k+1 - k/4) \\
+     &\geq k/2 \cdot (k-r+1)^{m/2-1}
+     \end{align*}
+     and consequently due to $\lceil{x}\rceil \geq x$ and $-x \leq -\lceil{x}\rceil+1$
+     \begin{align*}
+     \lvert{V'}\rvert & \geq \frac{k}{2} \cdot (r+1)^{m/2-1} \cdot (k-r+1)^{m/2-1}\\
+     &\geq \frac{k}{2} \cdot \left(\frac{m-3}{m-2} \cdot k + 1\right)^{m/2-1} \cdot \left(k-\frac{m-3}{m-2} \cdot k\right)^{m/2-1}\\
+     &\geq \frac{k}{2} \cdot \left(\frac{m-3}{m-2} \cdot k\right)^{m/2-1} \cdot \left(\frac{k}{m-2}\right)^{m/2-1}\\
+     &= \frac{k^{m-1}}{2} \left(1-\frac{1}{m-2}\right)^{(m-2)/2}\left(\frac{1}{m-2}\right)^{m/2-1}\\
+     &\geq \frac{k^{m-1}}{4(m-2)^{m/2-1}} = \frac{(2n/m+1)^{m-1}}{4(m-2)^{m/2-1}}
+     \end{align*}
+    where the last inequality holds, as $(1-1/\ell)^{\ell/2} \geq 1/2$ for every $\ell \geq 2$ and $m \geq 4$.
+\end{proof}
+
+\end{document}

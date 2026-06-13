@@ -1,0 +1,265 @@
+\usepackage[utf8]{inputenc}
+
+\ifarxiv
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[numbers,longnamesfirst]{natbib}
+\usepackage{amsthm,amsthm,amssymb}
+\usepackage{authblk}
+\else
+\citestyle{acmauthoryear} % required by ACM journals
+\fi
+
+\usepackage{amsmath,mathtools} % amssymb?
+\usepackage{dsfont}
+%\usepackage{upgreek}
+
+\usepackage{booktabs} % spacing and styling
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{xspace}
+\usepackage{url}
+%\usepackage{enumerate}
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\textup{(\roman*)}}
+
+\usepackage{caption} % captions ans subfigures
+\usepackage{subcaption}
+
+\usepackage[algo2e,ruled,vlined,linesnumbered]{algorithm2e} % algorithm type setting
+\SetAlgoSkip{}
+
+%\usepackage{balance} % balancing the last page
+
+\allowdisplaybreaks[3] % break equations between pages
+
+%% -- drawing and plotting library support
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{decorations}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{calc}
+\usetikzlibrary{mindmap}
+\usetikzlibrary{shadows}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shapes.symbols}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{statistics}
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=figures/]
+\pgfplotsset{compat=1.18}
+
+%% -- customise the theorem environments
+
+%\newtheorem{theorem}{Theorem}
+\newtheorem{algorithm}{Algorithm}
+%\newtheorem{remark}[theorem]{Remark}
+\newtheorem{remark}{Remark}
+%\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{openproblem}{Open Problem}
+
+\ifarxiv
+\newtheorem{theorem}             {Theorem}
+\newtheorem{lemma}      [theorem]{Lemma}
+\newtheorem{corollary}  [theorem]{Corollary}
+\newtheorem{conjecture} [theorem]{Conjecture}
+\newtheorem{definition} [theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\fi
+
+\usepackage{tabularx,colortbl}
+\newcommand{\myc}{\cellcolor{orange!30}}
+
+\makeatletter
+\g@addto@macro\bfseries{\boldmath}
+\makeatother
+
+
+%% -- English/Latin abbreviations
+
+\newcommand{\ie}{i.\,e.\xspace}
+\newcommand{\wrt}{w.\,r.\,t.\xspace}
+\newcommand{\eg}{e.\,g.\xspace}
+\newcommand{\whp}{w.\,h.\,p.\xspace}
+\newcommand{\Wlog}{W.\,l.\,o.\,g.\xspace}
+\newcommand{\wlo}{w.\,l.\,o.\,g.\xspace}
+
+%% -- mathematical symbols and notations
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\filt}{\mathcal{F}}
+\newcommand{\filtt}{\mathcal{F}_t}
+
+\DeclareMathOperator{\XOR}{\oplus} % XOR
+\DeclareMathOperator*{\hdist}{H}   % Hamming distance
+
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+
+\DeclareMathOperator{\Unif}{Unif}                         % uniform distribution
+\DeclareMathOperator{\Bin}{Bin}                           % binomial distribution
+\DeclareMathOperator{\Poi}{Poi}                           % Poisson distribution
+\DeclareMathOperator{\Nor}{\ensuremath{\mathcal{N}}}      % Normal distribution
+
+\newcommand*{\smallO}{\mathrm{o}}
+\newcommand*{\bigO}{\mathcal{O}}
+\newcommand*{\eulerE}{\mathrm{e}}
+
+\DeclareMathOperator{\poly}{poly}                         % polynomial
+
+\DeclareMathOperator*{\convhull}{ConvHull}
+
+\newcommand{\prob}[1]{\Pr\left(#1\right)}                 % probability
+\newcommand{\Prob}[1]{\Pr\left(#1\right)}                 % probability
+\newcommand{\expect}[1]{\mathrm{E}\left[#1\right]}        % expectation
+\newcommand{\E}[1]{\mathrm{E}\left[#1\right]}        % expectation
+\newcommand{\var}[1]{\mathbf{Var}\left[#1\right]}         % variance
+
+\newcommand{\ind}[1]{\mathds{1}_{#1}}                     % indicator of an event
+\newcommand{\indc}[1]{\mathds{1}_{\{#1\}}}                % indicator of a condition
+
+\newcommand{\xmin}{x_{\min}}
+\newcommand{\xmax}{x_{\max}}
+
+\newcommand{\vecone}{\vec{1}}
+
+\newcommand{\ndom}[2]{\ensuremath{\mathrm{ND}_{#1}\left(#2\right)}} % non-dominated set
+\newcommand{\Popt}[1]{\ensuremath{\mathcal{P}_{#1}}}                % set of all Pareto optimal points
+\newcommand{\ineff}[2]{(#1,#2)-Pareto-sparse}                       % (eps,l)-sparsity
+\newcommand{\ineffg}[2]{(#1,#2)-Pareto-isolated}                         % (eps,l)-gap
+
+
+%\newcommand{\filtcond}[1]{\,;\,{#1}\mid\filt_t}
+%\newcommand{\filtzero}{\mathcal{F}_0}
+
+%\newcommand*{\potentialFunction}{g}
+%\newcommand*{\potentialSum}{Y}
+%\newcommand*{\differenceInPotential}{\Delta}
+
+%\newcommand{\card}[1]{\left|#1\right|}
+%\newcommand{\indic}[1]{\mathds{1}\{#1\}}
+
+%%% -- function, operator, and algorithm names
+\newcommand{\RRRMO}{\ensuremath{\textsc{RR}_{\mathrm{MO}}}\xspace}  % the Real Royal Road function
+\newcommand{\lRRRMO}{\ensuremath{\textsc{RRR-MO}'}\xspace}% the local version without the global front
+
+\newcommand{\posFit}{\ensuremath{G}\xspace}               % set of strictly positive fitness (f1>0,f2>0)
+\newcommand{\frontP}{\ensuremath{F}\xspace}               % Pareto optimal set of RRRMO
+\newcommand{\lfrontP}{\ensuremath{F'}\xspace}             % Pareto optimal set of lRRRMO
+
+\newcommand{\hv}{\ensuremath{\mathrm{HV}}\xspace}         % hypervolume
+\newcommand{\deltahv}{\ensuremath{\mathrm{HV}^+}\xspace}  % contribution of hypervolume
+
+\newcommand{\nadir}{\ensuremath{\mathrm{nad}}\xspace}      % nadir point
+\newcommand{\ideal}{\ensuremath{\min}\xspace}              % ideal point
+
+\newcommand{\tree}{\mathcal{T}}
+
+\newcommand{\LZ}{\textsc{LZ}\xspace}                      % # of leading zeroes
+\newcommand{\TZ}{\textsc{TZ}\xspace}                      % # of trailing zeroes
+\newcommand{\LO}{\textsc{LO}\xspace}                      % # of leading ones
+
+\newcommand{\ones}[1]{|#1|_1}                             % # of ones
+\newcommand{\zeroes}[1]{|#1|_0}                           % # of zeroes
+\newcommand{\OM}{\textsc{OneMax}\xspace}                           % OneMax function
+\newcommand{\ZM}{\textsc{ZeroMax}\xspace}                          % ZeroMax function
+
+\newcommand{\JUMP}{\textsc{Jump}\xspace}                           % Jump function
+\newcommand{\TRAP}{\textsc{Trap}\xspace}                           % Trap function
+\newcommand{\ONEMAX}{\textsc{OneMax}\xspace}                       % OneMax function
+\newcommand{\TWOMAX}{\textsc{TwoMax}\xspace}                       % TwoMax function
+\newcommand{\SAT}{\textsc{Sat}\xspace}                             % Sat decision problem
+\newcommand{\MAXSAT}{\textsc{MaxSat}\xspace}                       % MaxSat problem
+\newcommand{\COUNTSAT}{\textsc{CountSat}\xspace}                   % CountSat function
+\newcommand{\OZBinval}{\textsc{OZSoftBinVal}\xspace}
+\newcommand{\Binval}{\textsc{BinVal}\xspace}
+\newcommand{\BV}{\textsc{OZBinVal}\xspace}
+
+
+\newcommand{\RRRfull}{\textsc{RealRoyalRoad}\xspace}               % RRR full name
+
+\newcommand{\OZCSAT}{\textsc{OZCSat}\xspace}               % OZCOUNTSAT function
+\newcommand{\BICOUNTSAT}{\textsc{OZCSat}\xspace}               % another name 
+\newcommand{\OZCSATfull}{\textsc{OneZeroCountSat}\xspace}      % OZCOUNTSAT full name
+
+\newcommand{\COCZ}{\textsc{COCZ}\xspace}                           % COCZ function
+\newcommand{\COCZfull}{\textsc{CountingOnesCountingZeroes}\xspace} % COCZ full name
+
+\newcommand{\OMM}{\textsc{OMM}\xspace}                             % OMM function
+\newcommand{\OMMfull}{\textsc{OneMinMax}\xspace}                   % OMM full name
+
+\newcommand{\LOTZ}{\textsc{LOTZ}\xspace}                           % LOTZ function
+\newcommand{\LOTZfull}{\textsc{LeadingOnesTrailingZeroes}\xspace}  % LOTZ full name
+
+\newcommand{\OJZJ}{\textsc{OJZJ}\xspace}                           % OJZJ function
+\newcommand{\OJZJfull}{\textsc{OneJumpZeroJump}\xspace}            % OJZJ full name
+
+\newcommand{\OTZT}{\textsc{OTZT}\xspace}                           % OTZT function
+\newcommand{\OTZTfull}{\textsc{OneTrapZeroTrap}\xspace}            % OTZT full name
+
+\newcommand{\ZOmonotone}{0/1-monotone\xspace}                      % 0/1-monotone
+\newcommand{\LOLZmonotone}{LO/LZ-monotone\xspace}                  % LO/TZ-monotone
+
+\newcommand{\cdist}{\ensuremath{\textsc{cDist}}\xspace}   % crowding distance
+\DeclareMathOperator{\BinTour}{\textsc{BinaryTournament}} % binary tournament
+
+\newcommand{\muplusga}{($\mu$+$\lambda$)~GA\xspace}       % (mu+lambda) GA algorithm
+
+\newcommand{\Pdouble}{P^{\mathrm{double}}}
+\newcommand{\pot}[1]{\varphi_{#1}}
+\newcommand{\multisetminus}{\mathrel{-}}
+%\newcommand{\COUNTSAT}{\textsc{CountSat}\xspace}
+%\newcommand{\BICOUNTSAT}{\textsc{OneZeroCountSat}\xspace}
+%\newcommand{\MAXSAT}{\textsc{MaxSat}\xspace}
+%\newcommand{\SAT}{\textsc{Sat}\xspace}
+
+\newcommand{\nsga}{NSGA\nobreakdash-II\xspace}
+\newcommand{\nsgaiii}{NSGA\nobreakdash-III\xspace}
+\newcommand{\refer}{\mathcal{R}}
+
+\newcommand{\alggsemo}{GSEMO\xspace}
+\newcommand{\algnsga}{NSGA\nobreakdash-II\xspace}
+\newcommand{\algnsgaiiidef}{NSGA\nobreakdash-III$_{\mathrm{def}}$\xspace}
+\newcommand{\algsmsdef}{SMS-EMOA$_{\mathrm{def}}$\xspace}
+\newcommand{\algnsgaiii}{NSGA\nobreakdash-III\xspace}
+\newcommand{\algsms}{SMS-EMOA\xspace}
+
+% squish some space
+\ifarxiv\else 
+\setlength{\textfloatsep}{1ex}
+\setlength{\floatsep}{1ex}
+\setlength{\intextsep}{2ex}
+%\setlength{\dbltextfloatsep}{0pt}
+%\setlength{\dblfloatsep}{0pt}
+\setlength{\abovecaptionskip}{1ex}
+\setlength{\belowcaptionskip}{0ex}
+\fi
+
+%% -- other macros
+
+%use the following command to switch the plots on (first line) or off (second line)
+%\newcommand{\toggleplot}[1]{#1}
+\newcommand{\toggleplot}[1]{{\textcolor{red}{Plots removed to increase compilation speed. Use command $\backslash$toggleplot in preamble to reinsert them.}}}
+
+\iffinal
+\newcommand{\andre}[1]{\textcolor{green!50!black}{}}
+\newcommand{\dirk}[1]{\textcolor{purple}{}}
+\newcommand{\cuong}[1]{\textcolor{orange}{}}
+\newcommand{\newedit}[1]{\textcolor{black}{#1}}
+\newcommand{\neweditx}[1]{\textcolor{black}{#1}}
+\newcommand*{\todo}[1]{\textcolor{red}{}}
+\else
+\newcommand{\andre}[1]{\textcolor{green!50!black}{[(Andre) #1]}}
+\newcommand{\dirk}[1]{\textcolor{purple}{[(Dirk) #1]}}
+\newcommand{\cuong}[1]{\textcolor{orange}{[(Cuong) #1]}}
+\newcommand{\newedit}[1]{\textcolor{blue}{#1}}
+\newcommand{\neweditx}[1]{\textcolor{blue!20!white}{#1}}
+\newcommand*{\todo}[1]{\textcolor{red}{\textrm{(TODO: #1)}}}
+\fi

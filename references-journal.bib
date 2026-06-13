@@ -1,0 +1,1984 @@
+@inproceedings{DangL2024,
+  author       = {Duc{-}Cuong Dang and
+                  Per Kristian Lehre},
+  noeditor       = {Xiaodong Li and
+                  Julia Handl},
+  title        = {The {SLO} Hierarchy of Pseudo-Boolean Functions and Runtime of Evolutionary
+                  Algorithms},
+  booktitle    = {Proceedings of the Genetic and Evolutionary Computation Conference ({GECCO} 2024)},
+  publisher    = {{ACM} Press},
+  address      = {USA},  
+  year         = {2024},
+  pages        = {1551--1559},
+  nourl          = {https://doi.org/10.1145/3638529.3654221},
+  nodoi          = {10.1145/3638529.3654221}
+}
+
+@inproceedings{DangEL2021,
+  author       = {Duc{-}Cuong Dang and
+                  Anton V. Eremeev and
+                  Per Kristian Lehre},
+  noeditor       = {Francisco Chicano and
+                  Krzysztof Krawiec},
+  title        = {Non-Elitist Evolutionary Algorithms Excel in Fitness Landscapes With
+                  Sparse Deceptive Regions And Dense Valleys},
+  booktitle    = {Proceedings of the Genetic and Evolutionary Computation Conference ({GECCO} 2021)},
+  pages        = {1133--1141},
+  publisher    = {{ACM} Press},
+  address      = {USA},  
+  year         = {2021},
+  nourl          = {https://doi.org/10.1145/3449639.3459398},
+  nodoi          = {10.1145/3449639.3459398}
+}
+
+@InProceedings{NearTight2024,
+author="Wietheger, Simon
+and Doerr, Benjamin",
+title="Near-Tight Runtime Guarantees for Many-Objective Evolutionary Algorithms",
+booktitle="Parallel Problem Solving from Nature ({PPSN}~'24)",
+year="2024",
+publisher="Springer Nature",
+address="Switzerland",
+pages="153--168",
+abstract="Despite significant progress in the field of mathematical runtime analysis of multi-objective evolutionary algorithms (MOEAs), the performance of MOEAs on discrete many-objective problems is little understood. In particular, the few existing bounds for the SEMO, global SEMO, and SMS-EMOA algorithms on classic benchmarks are all roughly quadratic in the size of the Pareto front.",
+isbn="978-3-031-70085-9"
+}
+
+
+
+@article{LiZZ2016,
+    author       = {Yuan{-}Long Li and
+    Yuren Zhou and
+    Zhi{-}Hui Zhan and
+    Jun Zhang},
+    title        = {A Primary Theoretical Study on Decomposition-Based Multiobjective
+    Evolutionary Algorithms},
+    journal      = {{IEEE} Transactions on Evolutionary Computation},
+    volume       = {20},
+    number       = {4},
+    pages        = {563--576},
+    year         = {2016},
+    nourl          = {https://doi.org/10.1109/TEVC.2015.2501315},
+    nodoi          = {10.1109/TEVC.2015.2501315}
+}
+
+@article{HuangZCHLX2021,
+    author       = {Zhengxin Huang and
+    Yuren Zhou and
+    Zefeng Chen and
+    Xiaoyu He and
+    Xinsheng Lai and
+    Xiaoyun Xia},
+    title        = {Running Time Analysis of {MOEA/D} on Pseudo-Boolean Functions},
+    journal      = {{IEEE} Transactions on Cybernetics},
+    volume       = {51},
+    number       = {10},
+    pages        = {5130--5141},
+    year         = {2021},
+    nourl          = {https://doi.org/10.1109/TCYB.2019.2930979},
+    nodoi          = {10.1109/TCYB.2019.2930979}
+}
+
+
+
+@inproceedings{DoNNS2023,
+    author       = {Anh Viet Do and
+    Aneta Neumann and
+    Frank Neumann and
+    Andrew M. Sutton},
+    noeditor       = {Alice Oh and
+    Tristan Naumann and
+    Amir Globerson and
+    Kate Saenko and
+    Moritz Hardt and
+    Sergey Levine},
+    title        = {Rigorous Runtime Analysis of {MOEA/D} for Solving Multi-Objective
+    Minimum Weight Base Problems},
+    booktitle    = {Proceedings of the Annual Conference
+    on Neural Information Processing Systems ({NeurIPS}~2023)},
+    year         = {2023},
+    publisher = {Curran Associates Inc.},
+    address = {USA},
+    articleno = {1581},
+    numpages = {15},
+    nourl          = {http://papers.nips.cc/paper\_files/paper/2023/hash/72416ded78a439907ff72165ac9c56e0-Abstract-Conference.html}
+}
+
+
+
+@InProceedings{MOEA/D2024,
+author="Doerr, Benjamin
+and Krejca, Martin S.
+and Weeks, No{\'e}",
+title="Proven Runtime Guarantees for How the MOEA/D: Computes the Pareto Front from the Subproblem Solutions",
+booktitle="Parallel Problem Solving from Nature ({PPSN}~'24))",
+year="2024",
+publisher="Springer Nature",
+address="Switzerland",
+pages="197--212",
+abstract="The decomposition-based multi-objective evolutionary algorithm (MOEA/D) does not directly optimize a given multi-objective function f, but instead optimizes {\$}{\$}N + 1{\$}{\$}N+1single-objective subproblems of f in a co-evolutionary manner. It maintains an archive of all non-dominated solutions found and outputs it as approximation to the Pareto front. Once the MOEA/D found all optima of the subproblems (the g-optima), it may still miss Pareto optima of f. The algorithm is then tasked to find the remaining Pareto optima directly by mutating the g-optima.",
+isbn="978-3-031-70071-2"
+}
+
+@InProceedings{Subset2024,
+author="Deng, Renzhong
+and Zheng, Weijie
+and Li, Mingfeng
+and Liu, Jie
+and Doerr, Benjamin",
+title="Runtime Analysis for State-of-the-Art Multi-objective Evolutionary Algorithms on the Subset Selection Problem",
+booktitle="Parallel Problem Solving from Nature ({PPSN}'24)",
+year="2024",
+publisher="Springer Nature",
+address="Switzerland",
+pages="264--279",
+abstract="In the last few years, the mathematical runtime analysis of randomized search heuristics has made a huge step forward by developing the methods to analyze the most prominent multi-objective evolutionary algorithms (MOEAs) as opposed to previously only simplistic algorithms. These results confirmed that many previous results extend to state-of-the-art MOEAs, but also showed that algorithms like the NSGA-II can have unexpected difficulties on problems easily solved by simple MOEAs. We continue this line of research by analyzing how the NSGA-II and the SMS-EMOA (also with a recently proposed stochastic population update) solve the NP-hard subset selection problem. For these two state-of-the-art algorithms, we prove performance guarantees that agree with those previously shown for the POSS algorithm, a variant of the simplistic GSEMO, namely that they compute {\$}{\$}(1-e^{\{}-{\backslash}gamma {\}}){\$}{\$}(1-e-$\gamma$)-approximate solutions in expected time {\$}{\$}O(k^2n){\$}{\$}O(k2n). Our experiments confirm these findings. This work is the first runtime analysis of state-of-the-art MOEAs for the subset selection problem, and also the first runtime analysis of SMS-EMOA on a combinatorial problem.",
+isbn="978-3-031-70071-2"
+}
+
+
+@article{Bian2022,
+  author    = {Chao Bian and Chao Qian},
+  title     = {Running Time Analysis of the Non-dominated Sorting Genetic Algorithm
+               {II} {(NSGA-II)} using Binary or Stochastic Tournament Selection},
+  journal   = {CoRR},
+  volume    = {abs/2203.11550},
+  year      = {2022},
+  eprinttype = {arXiv},
+  eprint    = {2203.11550},
+}
+
+@book{NPcomplete,
+author = {Garey, Michael R. and Johnson, David S.},
+title = {Computers and Intractability; A Guide to the Theory of NP-Completeness},
+year = {1990},
+noisbn = {0716710455},
+publisher = {W. H. Freeman \& Co.},
+address = {USA}
+}
+
+@book{Papadimitriou1994,
+    author       = {Christos H. Papadimitriou},
+    title        = {Computational complexity},
+    publisher    = {Addison-Wesley},
+    address      = {USA},
+    year         = {1994},
+    noisbn         = {978-0-201-53082-7}
+}
+
+@InProceedings{LevelBasedMOEAs,
+author="Dang, Duc-Cuong
+and Opris, Andre
+and Sudholt, Dirk",
+title="Level-Based Theorems for Runtime Analysis of Multi-objective Evolutionary Algorithms",
+booktitle="Parallel Problem Solving from Nature ({PPSN}~'24)",
+year="2024",
+publisher="Springer Nature",
+address="Switzerland",
+pages="246--263",
+}
+
+@InProceedings{SPEA22024,
+author="Ren, Shengjie
+and Bian, Chao
+and Li, Miqing
+and Qian, Chao",
+title="A First Running Time Analysis of the Strength Pareto Evolutionary Algorithm 2 (SPEA2)",
+booktitle="Parallel Problem Solving from Nature ({PPSN}~'24)",
+year="2024",
+publisher="Springer Nature",
+address="Switzerland",
+pages="295--312",
+abstract="Evolutionary algorithms (EAs) have emerged as a predominant approach for addressing multi-objective optimization problems. However, the theoretical foundation of multi-objective EAs (MOEAs), particularly the fundamental aspects like running time analysis, remains largely underexplored. Existing theoretical studies mainly focus on basic MOEAs, with little attention given to practical MOEAs. In this paper, we present a running time analysis of strength Pareto evolutionary algorithm 2 (SPEA2) for the first time. Specifically, we prove that the expected running time of SPEA2 for solving three commonly used multi-objective problems, i.e., mOneMinMax, mLeadingOnesTrailingZeroes, and m-OneJumpZeroJump, is {\$}{\$}O({\backslash}mu n{\backslash}cdot {\backslash}min {\backslash}{\{}m{\backslash}log n, n{\backslash}{\}}){\$}{\$}O($\mu$n{\textperiodcentered}min{\{}mlogn,n{\}}), {\$}{\$}O({\backslash}mu n^2){\$}{\$}O($\mu$n2), and {\$}{\$}O({\backslash}mu n^k {\backslash}cdot {\backslash}min {\backslash}{\{}mn, 3^{\{}m/2{\}}{\backslash}{\}}){\$}{\$}O($\mu$nk{\textperiodcentered}min{\{}mn,3m/2{\}}), respectively. Here m denotes the number of objectives, and the population size {\$}{\$}{\backslash}mu {\$}{\$}$\mu$is required to be at least {\$}{\$}(2n/m+1)^{\{}m/2{\}}{\$}{\$}(2n/m+1)m/2, {\$}{\$}(2n/m+1)^{\{}m-1{\}}{\$}{\$}(2n/m+1)m-1and {\$}{\$}(2n/m-2k+3)^{\{}m/2{\}}{\$}{\$}(2n/m-2k+3)m/2, respectively. The proofs are accomplished through general theorems which are also applicable for analyzing the expected running time of other MOEAs on these problems, and thus can be helpful for future theoretical analysis of MOEAs.",
+isbn="978-3-031-70071-2"
+}
+
+@inproceedings{Bian2022PPSN,
+  author    = {Chao Bian and Chao Qian},
+  title     = {Better Running Time of the Non-dominated Sorting Genetic Algorithm {II} ({NSGA-II}) by Using Stochastic Tournament Selection},
+  booktitle = {Proceedings of the International Conference on Parallel Problem Solving from Nature ({PPSN}~'22)},
+  noseries    = {LNCS},
+  novolume    = {13399},
+  pages     = {428--441},
+  publisher = {Springer},
+  address   = {Switzerland},
+  year      = {2022}
+}
+
+@article{WITT201438,
+title = {Fitness levels with tail bounds for the analysis of randomized search heuristics},
+journal = {Information Processing Letters},
+volume = {114},
+number = {1},
+pages = {38-41},
+year = {2014},
+noissn = {0020-0190},
+nodoi = {https://doi.org/10.1016/j.ipl.2013.09.013},
+nourl = {https://www.sciencedirect.com/science/article/pii/S0020019013002500},
+author = {Carsten Witt},
+keywords = {Randomized algorithms, Randomized search heuristics, Running time analysis, Fitness-level method, Tail bounds},
+abstract = {The fitness-level method, also called the method of f-based partitions, is an intuitive and widely used technique for the running time analysis of randomized search heuristics. It was originally defined to prove upper and lower bounds on the expected running time. Recently, upper tail bounds were added to the technique; however, these tail bounds only apply to running times that are at least twice as large as the expectation. We remove this restriction and supplement the fitness-level method with sharp tail bounds, including lower tails. As an exemplary application, we prove that the running time of randomized local search on OneMax is sharply concentrated around nlnn−0.1159...n.}
+}
+
+@article{Covantes2020,
+  author    = {Covantes Osuna, Edgar and Gao, Wanru and Neumann, Frank and Sudholt, Dirk},
+  title     = {Design and Analysis of Diversity-Based Parent Selection Schemes for
+              Speeding Up Evolutionary Multi-objective Optimisation},
+  journal   = {Theoretical Computer Science},
+  year      = {2020},
+  volume    ={832},
+  pages     ={123-142},
+}
+
+@inproceedings{WiethegerD23,
+  author       = {Simon Wietheger and
+                  Benjamin Doerr},
+  title        = {A Mathematical Runtime Analysis of the Non-dominated Sorting Genetic
+                  Algorithm {III} {(NSGA-III)}},
+  booktitle    = {Proceedings of the Thirty-Second International Joint Conference on
+                  Artificial Intelligence ({IJCAI} '23)},
+  pages        = {5657--5665},
+  publisher    = {ijcai.org},
+  address      = {USA},  
+  year         = {2023},
+  nourl          = {https://doi.org/10.24963/ijcai.2023/628},
+  nodoi          = {10.24963/IJCAI.2023/628},
+  timestamp    = {Mon, 28 Aug 2023 17:23:07 +0200},
+  biburl       = {https://dblp.org/rec/conf/ijcai/WiethegerD23.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{Jun2004,
+  author    = {Jun He and Xin Yao},
+  title     = {A study of drift analysis for estimating
+              computation time of evolutionary algorithms},
+  journal   = {Natural Computing},
+  year      = {2004},
+  volume    ={3},
+  pages     ={21-35},
+}
+
+@inproceedings{Mitchell1992,
+  author    = {M. Mitchell and S. Forrest and J. H. Holland},
+  title     = {The royal road function for genetic algorithms: fitness landscapes and {GA} performance},
+  noeditors   = {F. J. Varela and P. Bourgine},
+  booktitle = {Proceedings of the First European Conference on Artificial Life},
+  pages     = {245-254},
+  publisher = {MIT Press},
+  year      = {1992},
+}
+
+% Proc.\ of FOGA 2
+@inproceedings{Forrest1993,
+  author    = {S. Forrest and M. Mitchell},
+  title     = {Relative building block fitness and the building block hypotheses},
+  noeditors   = {L.D. Whitley},
+  booktitle = {Proceedings of the Foundations of Genetic Algorithms (FOGA'2)},
+  pages     = {109-126},
+  publisher = {Morgan Kaufmann},
+  year      = {1993},
+}
+
+@inproceedings{Mitchell1994,
+  author    = {M. Mitchell and J. H. Holland and S. Forrest},
+  title     = {When will a genetic algorithm outperform hill climbing?},
+  noeditors   = {J. D. Cowan, G. Tesauro, and J. Alspector},
+  booktitle = {Advances in Neural Information Processing Systems 6},
+  pages     = {51-58},
+  publisher = {Morgan Kaufmann},
+  year      = {1994},
+}
+
+@ARTICLE{Jansen2005c,
+  author    = {Thomas Jansen and Ingo Wegener},
+  title     = {Real royal road functions---where crossover provably is essential},
+  journal   = {Discrete Applied Mathematics},
+  year      = {2005},
+  volume    = {149},
+  pages     = {111-125},
+  language  = {english},
+  owner     = {sudholt},
+  timestamp = {2008.04.09}
+}
+
+@ARTICLE{Storch2004,
+  author    = {Tobias Storch and Ingo Wegener},
+  title     = {Real royal road functions for constant population size},
+  journal   = {Theoretical Computer Science},
+  year      = {2004},
+  volume    = {320},
+  pages     = {123-134},
+  owner     = {sudholt},
+  timestamp = {2008.04.09}
+}
+
+@inproceedings{Brockhoff2008,
+  author    = {Dimo Brockhoff and
+               Tobias Friedrich and
+               Frank Neumann},
+  noeditor    = {G{\"{u}}nter Rudolph and
+               Thomas Jansen and
+               Nicola Beume and
+               Simon M. Lucas and
+               Carlo Poloni},
+  title     = {Analyzing Hypervolume Indicator Based Algorithms},
+  booktitle = {Proceedings of the International Conference on Parallel Problem Solving from Nature ({PPSN}~'08)},
+  series    = {LNCS},
+  volume    = {5199},
+  pages     = {651-660},
+  publisher = {Springer},
+  address   = {Switzerland},
+  year      = {2008}
+}
+
+@inproceedings{Doerr2016,
+  author    = {Benjamin Doerr and
+               Wanru Gao and
+               Frank Neumann},
+  noeditor    = {Tobias Friedrich and
+               Frank Neumann and
+               Andrew M. Sutton},
+  title     = {Runtime Analysis of Evolutionary Diversity Maximization for OneMinMax},
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference (GECCO~'16)},
+  pages     = {557-564},
+  publisher = {{ACM} Press},
+  address   = {USA},  
+  year      = {2016}
+}
+
+@inproceedings{Doerr2021,
+  author    = {Benjamin Doerr and
+               Weijie Zheng},
+  title     = {Theoretical Analyses of Multi-Objective Evolutionary Algorithms on
+               Multi-Modal Objectives},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence, {AAAI}~2021},
+  pages     = {12293-12301},
+  publisher = {{AAAI} Press},
+  address   = {USA},  
+  year      = {2021}
+}
+
+@inproceedings{Giel2003,
+  author    = {Oliver Giel},
+  title     = {Expected runtimes of a simple multi-objective evolutionary algorithm},
+  booktitle = {Proceedings of the {IEEE} Congress on Evolutionary Computation ({CEC}~'03)},
+  pages     = {1918-1925},
+  publisher = {{IEEE} Press},
+  year      = {2003}
+}
+
+@article{Laumanns2004,
+  author    = {Marco Laumanns and
+               Lothar Thiele and
+               Eckart Zitzler},
+  title     = {Running Time Analysis of Multiobjective Evolutionary Algorithms 
+               on Pseudo-Boolean Functions},
+  journal   = {{IEEE} Transactions on Evolutionary Computation},
+  volume    = {8},
+  number    = {2},
+  pages     = {170-182},
+  year      = {2004}
+}
+
+@article{Giel2010,
+  author    = {Oliver Giel and
+               Per Kristian Lehre},
+  title     = {On the Effect of Populations in Evolutionary Multi-Objective Optimisation},
+  journal   = {Evolutionary Computation},
+  volume    = {18},
+  number    = {3},
+  pages     = {335-356},
+  year      = {2010}
+}
+
+@incollection{Neumann2008,
+  author    = {Frank Neumann and
+               Ingo Wegener},
+  noeditor    = {Joshua D. Knowles and
+               David Corne and
+               Kalyanmoy Deb},
+  title     = {Can Single-Objective Optimization Profit from Multiobjective Optimization?},
+  booktitle = {Multiobjective Problem Solving from Nature},
+  series    = {Natural Computing Series},
+  pages     = {115-130},
+  publisher = {Springer},
+  address   = {Switzerland},  
+  year      = {2008},
+  timestamp = {Wed, 17 Jul 2019 14:27:02 +0200}
+}
+
+
+@article{Friedrich2010,
+  author    = {Tobias Friedrich and
+               Nils Hebbinghaus and
+               Frank Neumann},
+  title     = {Plateaus can be harder in multi-objective optimization},
+  journal   = {Theoretical Computer Science},
+  volume    = {411},
+  number    = {6},
+  pages     = {854-864},
+  year      = {2010}
+}
+
+@article{Qian2013,
+  author    = {Chao Qian and
+               Yang Yu and
+               Zhi{-}Hua Zhou},
+  title     = {An analysis on recombination in multi-objective evolutionary optimization},
+  journal   = {Artificial Intelligence},
+  volume    = {204},
+  pages     = {99-119},
+  year      = {2013},
+  doi       = {10.1016/j.artint.2013.09.002}
+}
+
+@article{Li2016,
+  author    = {Yuan{-}Long Li and
+               Yu{-}Ren Zhou and
+               Zhi{-}Hui Zhan and
+               Jun Zhang},
+  title     = {A Primary Theoretical Study on Decomposition-Based Multiobjective
+               Evolutionary Algorithms},
+  journal   = {{IEEE} Transactions on Evolutionary Computation},
+  volume    = {20},
+  number    = {4},
+  pages     = {563-576},
+  year      = {2016},
+  doi       = {10.1109/TEVC.2015.2501315}
+}
+
+@inproceedings{Wagner2013,
+  author    = {Markus Wagner and
+               Tobias Friedrich},
+  title     = {Efficient parent selection for Approximation-Guided Evolutionary multi-objective
+               optimization},
+  booktitle = {Proceedings of the {IEEE} Congress on Evolutionary Computation ({CEC}~'13)},
+  pages     = {1846-1853},
+  publisher = {{IEEE}},
+  year      = {2013},
+  doi       = {10.1109/CEC.2013.6557784}
+}
+
+@inproceedings{Huang2019,
+  author    = {Zhengxin Huang and
+               Yuren Zhou and
+               Zefeng Chen and
+               Xiaoyu He},
+  title     = {Running Time Analysis of {MOEA/D} with Crossover on Discrete Optimization
+               Problem},
+  booktitle = {Proceedings of the {AAAI} Conference on Artificial Intelligence, {AAAI}~2019},
+  pages     = {2296-2303},
+  publisher = {{AAAI} Press},
+  year      = {2019},
+  doi       = {10.1609/aaai.v33i01.33012296}
+}
+
+@inproceedings{Huang2020,
+  author    = {Zhengxin Huang and
+               Yuren Zhou},
+  title     = {Runtime Analysis of Somatic Contiguous Hypermutation Operators in
+               {MOEA/D} Framework},
+  booktitle = {Proceedings of the {AAAI} Conference on Artificial Intelligence, {AAAI}~2020},
+  pages     = {2359-2366},
+  publisher = {{AAAI} Press},
+  year      = {2020}
+}
+
+@article{Huang2021a,
+  author    = {Zhengxin Huang and
+               Yuren Zhou and
+               Zefeng Chen and
+               Xiaoyu He and
+               Xinsheng Lai and
+               Xiaoyun Xia},
+  title     = {Running Time Analysis of {MOEA/D} on Pseudo-Boolean Functions},
+  journal   = {{IEEE} Transactions on Cybernetics},
+  volume    = {51},
+  number    = {10},
+  pages     = {5130-5141},
+  year      = {2021},
+  doi       = {10.1109/TCYB.2019.2930979}
+}
+
+@article{Huang2021b,
+  author    = {Zhengxin Huang and
+               Yuren Zhou},
+  title     = {Runtime analysis of immune-inspired hypermutation operators in evolutionary
+               multi-objective optimization},
+  journal   = {Swarm and Evolutionary Computation},
+  volume    = {65},
+  pages     = {100934},
+  year      = {2021},
+  doi       = {10.1016/j.swevo.2021.100934}
+}
+
+@inproceedings{Zheng2022,
+  author    = {Weijie Zheng and
+               Benjamin Doerr},
+  noeditor    = {Jonathan E. Fieldsend and
+               Markus Wagner},
+  title     = {Better Approximation Guarantees for the {NSGA-II} by Using the Current
+               Crowding Distance},
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference (GECCO~'22)},
+  pages     = {611--619},
+  publisher = {{ACM} Press},
+  address   = {USA},  
+  year      = {2022}
+}
+
+@inproceedings{Qu2022PPSN,
+  author    = {Benjamin Doerr and Zhongdi Qu},
+  title     = {A First Runtime Analysis of the {NSGA-II} on a Multimodal Problem},
+  booktitle = {Proceedings of the International Conference on Parallel Problem Solving from Nature ({PPSN}~'22)},
+  series    = {LNCS},
+  volume    = {13399},
+  pages     = {399--412},
+  publisher = {Springer},
+  address   = {Switzerland},  
+  year      = {2022}
+}
+
+@inproceedings{Doerr2022,
+  author    = {Benjamin Doerr and
+               Omar El Hadri and
+               Adrien Pinard},
+  noeditor    = {Jonathan E. Fieldsend and
+               Markus Wagner},
+  title     = {The {(1} + ({\(\lambda\)}, {\(\lambda\)})) global {SEMO} algorithm},
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference (GECCO~'22)},
+  pages     = {520-528},
+  publisher = {{ACM} Press},
+  address   = {USA},  
+  year      = {2022}
+}
+
+@InProceedings{Blank2019,
+  author    = {Blank, Julian
+               and Deb, Kalyanmoy
+               and Roy, Proteek Chandan},
+  noeditor  = {Deb, Kalyanmoy
+               and Goodman, Erik
+               and Coello Coello, Carlos A.
+               and Klamroth, Kathrin
+               and Miettinen, Kaisa
+               and Mostaghim, Sanaz
+               and Reed, Patrick},
+  title     = {Investigating the Normalization Procedure of {NSGA-III}},
+  booktitle = {Evolutionary Multi-Criterion Optimization},
+  year      = {2019},
+  publisher = {Springer International Publishing},
+  address   = {Switzerland},
+  pages     = {229--240}
+}
+
+@article{Deb2002,
+  author    = {Kalyanmoy Deb and
+               Amrit Pratap and
+               Sameer Agarwal and
+               T. Meyarivan},
+  title     = {A Fast and Elitist Multiobjective Genetic Algorithm: {NSGA-II}},
+  journal   = {{IEEE} Transactions on Evolutionary Computation},
+  volume    = {6},
+  number    = {2},
+  pages     = {182-197},
+  year      = {2002}
+}
+
+@inproceedings{NSGAIISpanning2023,
+author = {Cerf, Sacha and Doerr, Benjamin and Hebras, Benjamin and Kahane, Yakob and Wietheger, Simon},
+title = {The First Proven Performance Guarantees for the Non-Dominated Sorting Genetic Algorithm II (NSGA-II) on a Combinatorial Optimization Problem},
+year = {2023},
+noisbn = {978-1-956792-03-4},
+nourl = {https://doi.org/10.24963/ijcai.2023/613},
+nodoi = {10.24963/ijcai.2023/613},
+booktitle = {Proceedings of the Thirty-Second International Joint Conference on Artificial Intelligence},
+articleno = {613},
+numpages = {9},
+nolocation = {Macao, P.R.China},
+series = {IJCAI '23},
+publisher = {ijcai.org},
+address      = {USA}
+}
+
+@misc{NSGAIICode2011,
+  author    = {Kalyanmoy Deb},
+  title     = {{NSGA-II} Source Code in {C}, version 1.1.6},
+  howpublished = {\url{https://www.egr.msu.edu/~kdeb/codes/nsga2/nsga2-gnuplot-v1.1.6.tar.gz}},
+  year      = {2011},
+  note      = {Accessed: 2022-08-15}
+}
+@article{Doerr2017,
+  author    = {Carola Doerr and
+               Johannes Lengler},
+  title     = {Introducing Elitist Black-Box Models: When Does Elitist Behavior Weaken
+               the Performance of Evolutionary Algorithms?},
+  journal   = {Evolutionary Computation},
+  volume    = {25},
+  number    = {4},
+  year      = {2017},
+  pages     = {587-606}
+}
+
+@article{Doerr2020,
+  author    = {Benjamin Doerr and
+               Carola Doerr and
+               Jing Yang},
+  title     = {Optimal parameter choices via precise black-box analysis},
+  journal   = {Theoretical Computer Science},
+  volume    = {801},
+  pages     = {1-34},
+  year      = {2020}
+}
+
+@inproceedings{Qian_Bian_Feng_2020,
+  author    = {Qian, Chao and Bian, Chao and Feng, Chao},
+  title     = {Subset Selection by Pareto Optimization with Recombination},
+  noAbstract= {&lt;p&gt;Subset selection, i.e., to select a limited number of items optimizing some given objective function,
+               is a fundamental problem with various applications such as unsupervised feature selection and sparse regression.
+               By employing a multi-objective evolutionary algorithm (EA) with mutation only to optimize the given objective function
+               and   minimize the number of selected items simultaneously, the recently proposed POSS algorithm achieves
+               state-of-the-art performance for subset selection. In this paper, we propose the PORSS algorithm by incorporating
+               recombination, a characterizing feature of EAs, into POSS. We prove that PORSS can achieve the optimal
+               polynomial-time approximation guarantee as POSS when the objective function is monotone, and can find an
+               optimal solution efficiently in some cases whereas POSS cannot. Extensive experiments on unsupervised
+               feature selection and sparse regression show the superiority of PORSS over POSS. Our analysis also theoretically
+               discloses that recombination from diverse solutions can be more likely than mutation alone to generate various
+               variations, thereby leading to better exploration; this may be of independent interest for understanding the
+               influence of recombination.&lt;/p&gt;},
+  booktitle = {Proceedings of the {AAAI} Conference on Artificial Intelligence, {AAAI}~2020},
+  publisher = {{AAAI} Press},
+  year      = {2020},
+  pages     = {2408-2415}
+}
+
+@inproceedings{Badkobeh2015,
+  author    = {Golnaz Badkobeh and
+               Per Kristian Lehre and
+               Dirk Sudholt},
+  noeditor    = {Jun He and
+               Thomas Jansen and
+               Gabriela Ochoa and
+               Christine Zarges},
+  title     = {Black-box Complexity of Parallel Search with Distributed Populations},
+  booktitle = {Proceedings of the Foundations of Genetic Algorithms (FOGA'15)},
+  pages     = {3-15},
+  publisher = {{ACM} Press},
+  address   = {USA},
+  year      = {2015}
+}
+
+@article{Chu2018,
+  author    = {Xiangxiang Chu and
+               Xinjie Yu},
+  title     = {Improved Crowding Distance for {NSGA-II}},
+  journal   = {CoRR},
+  volume    = {abs/1811.12667},
+  year      = {2018},
+  eprinttype = {arXiv},
+  eprint    = {1811.12667}
+}
+
+@inproceedings{ZhengLuiDoerrAAAI22,
+  author    = {Weijie Zheng and
+               Yufei Liu and
+               Benjamin Doerr},
+  title     = {A First Mathematical Runtime Analysis of the Non-dominated Sorting
+               Genetic Algorithm {II} {(NSGA-II)}},
+  booktitle = {Proceedings of the {AAAI} Conference on Artificial Intelligence, {AAAI}~2022},
+  pages     = {10408-10416},
+  publisher = {{AAAI} Press},
+  address      = {USA},
+  year      = {2022},
+  timestamp = {Tue, 12 Jul 2022 14:14:21 +0200}
+}
+
+@article{Doerr2019opl,
+  author    = {Benjamin Doerr and
+               Christian Gie{\ss}en and
+               Carsten Witt and
+               Jing Yang},
+  title     = {The {(1+$\lambda$)} {Evolutionary} {Algorithm} with Self-Adjusting Mutation
+               Rate},
+  journal   = {Algorithmica},
+  volume    = {81},
+  number    = {2},
+  pages     = {593-631},
+  year      = {2019}
+}
+
+ @inproceedings{Doerr2017-fastGA,
+  author    = {Doerr, Benjamin and Le, Huu Phuoc and Makhmara, R{\'e}gis and Nguyen, Ta Duy},
+  title     = {Fast Genetic Algorithms},
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference (GECCO~'17)},
+  year      = {2017},
+  pages     = {777-784},
+  numpages  = {8},
+  noacmid   = {3071301},
+  publisher = {{ACM} Press},
+  address   = {USA}  
+}
+
+@article{CorusLOW21,
+  author    = {Dogan Corus and
+               Andrei Lissovoi and
+               Pietro S. Oliveto and
+               Carsten Witt},
+  title     = {On Steady-State Evolutionary Algorithms and Selective Pressure: Why
+               Inverse Rank-Based Allocation of Reproductive Trials Is Best},
+  journal   = {{ACM} Transactions on Evolutionary Learning and Optimization},
+  volume    = {1},
+  number    = {1},
+  pages     = {1-38},
+  year      = {2021},
+}
+
+@inproceedings{CorusDEL14,
+    author       = {Dogan Corus and
+    Duc{-}Cuong Dang and
+    Anton V. Eremeev and
+    Per Kristian Lehre},
+    noeditor       = {Thomas Bartz{-}Beielstein and
+    J{\"{u}}rgen Branke and
+    Bogdan Filipic and
+    Jim Smith},
+    title        = {Level-Based Analysis of Genetic Algorithms and Other Search Processes},
+    booktitle    = {Proceedings of Parallel Problem Solving from Nature ({PPSN~'14})},
+    noseries       = {Lecture Notes in Computer Science},
+    novolume       = {8672},
+    pages        = {912--921},
+    publisher    = {Springer},
+    address   = {Switzerland},    
+    year         = {2014},
+    nourl          = {https://doi.org/10.1007/978-3-319-10762-2\_90},
+    nodoi          = {10.1007/978-3-319-10762-2\_90}
+}
+
+@article{Corus2018x,
+  author       = {Dogan Corus and
+                  Duc{-}Cuong Dang and
+                  Anton V. Eremeev and
+                  Per Kristian Lehre},
+  title        = {Level-Based Analysis of Genetic Algorithms and Other Search Processes},
+  journal      = {{IEEE} Transaction on Evolutionary Computation},
+  volume       = {22},
+  number       = {5},
+  pages        = {707--719},
+  year         = {2018},
+  nourl          = {https://doi.org/10.1109/TEVC.2017.2753538},
+  nodoi          = {10.1109/TEVC.2017.2753538}
+}
+
+@article{Doerr2015,
+  author    = {Doerr, Benjamin and Doerr, Carola and Ebel, Franziska },
+  title     = {From Black-Box Complexity to Designing New Genetic Algorithms},
+  journal   = {Theoretical Computer Science},
+  keywords  = {black box complexity},
+  volume    = {567},
+  pages     = {87-104},
+  year      = {2015},
+}
+
+@article{PruegelBennett2010,
+  author    = {A. Prugel-Bennett},
+  title     = {Benefits of a population: five mechanisms that advantage population-based algorithms},
+  journal   = {IEEE Transactions on Evolutionary Computation},
+  volume    = {14},
+  number    = {4},
+  publisher = {IEEE},
+  year      = {2010},
+  pages     = {500-517},
+  abstract  = {This paper identifies five distinct mechanisms by which a population-based algorithm might have an
+            advantage over a solo-search algorithm in classical optimization. These mechanisms are illustrated
+            through a number of toy problems. Simulations are presented comparing different search algorithms on
+            these problems. The plausibility of these mechanisms occurring in classical optimization problems is
+            discussed. The first mechanism we consider relies on putting together building blocks from different
+            solutions. This is extended to include problems containing critical variables. The second mechanism is
+            the result of focusing of the search caused by crossover. Also discussed in this context is strong focusing
+            produced by averaging many solutions. The next mechanism to be examined is the ability of a population to
+            act as a low-pass filter of the landscape, ignoring local distractions. The fourth mechanism is a population's
+            ability to search different parts of the fitness landscape, thus hedging against bad luck in the initial
+            position or the decisions it makes. The final mechanism is the opportunity of learning useful parameter
+            values to balance exploration against exploitation.}
+}
+
+@incollection{Sudholt2018,
+  author    = {{Sudholt}, D.},
+  title     = {The Benefits of Population Diversity in Evolutionary Algorithms: A Survey of Rigorous Runtime Analyses},
+  bookTitle = {Theory of Evolutionary Computation: Recent Developments in Discrete Optimization},
+  noeditor    = {Benjamin Doerr and Frank Neumann},
+  publisher = {Springer},
+  address   = {Switzerland},  
+  year = {2020},
+  pages = {359-404}
+}
+
+@article{Doerr2012,
+  author    = {Benjamin Doerr and Edda Happ and Christian Klein},
+  title     = {Crossover can provably be useful in evolutionary computation},
+  journal   = {Theoretical Computer Science},
+  year      = {2012},
+  volume    = {425},
+  pages     = {17-33},
+}
+
+@inproceedings{Koetzing2011,
+  author    = {Timo K{\"o}tzing and Dirk Sudholt and Madeleine Theile},
+  title     = {How Crossover Helps in Pseudo-Boolean Optimization},
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference (GECCO~'11)},
+  year      = {2011},
+  pages     = {989-996},
+  publisher = {{ACM} Press},
+  address   = {USA}
+}
+
+@article{Dang2017,
+  author    = {Dang, Duc-Cuong and
+              Friedrich, Tobias and
+              K{\"o}tzing, Timo and
+              Krejca, Martin S. and
+              Lehre, Per Kristian and
+              Oliveto, Pietro S. and
+              Sudholt, Dirk and
+              Sutton, Andrew M.},
+  title     = {Escaping Local Optima Using Crossover with Emergent Diversity},
+  journal   = {IEEE Transactions on Evolutionary Computation},
+  year      = {2017},
+  publisher = {IEEE},
+  volume    = {22},
+  issue     = {3},
+  pages     = {484-497},
+}
+
+@article{Sutton21,
+  author    = {Andrew M. Sutton},
+  title     = {Fixed-Parameter Tractability of Crossover: Steady-State GAs on the
+               Closest String Problem},
+  journal   = {Algorithmica},
+  volume    = {83},
+  number    = {4},
+  pages     = {1138-1163},
+  year      = {2021}
+}
+
+@article{Sudholt2016,
+  author    = {Dirk Sudholt},
+  title     = {How Crossover Speeds Up Building-Block Assembly in Genetic Algorithms},
+  journal   = {Evolutionary Computation},
+  volume    = {25},
+  number    = {2},
+  pages     = {237-274},
+  year      = {2017},
+}
+
+@inproceedings{Corus2018,
+  author    = {Corus, Dogan and Oliveto, Pietro S.},
+  title     = {Standard Steady State Genetic Algorithms Can Hillclimb Faster than Evolutionary Algorithms Using Standard Bit Mutation},
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference (GECCO~'18)},
+  year      = {2018},
+  noisbn      = {9781450357647},
+  publisher = {{ACM} Press},
+  address   = {USA},
+  abstract  = {Genetic Algorithms (GAs) use principles of natural selection to evolve a population of candidate
+            solutions obtained by the recombination of individuals of the current generation. Albeit their huge
+            popularity, providing natural examples where standard GAs provably outperform more traditional mutation-based
+            heuristics has turned out to be a tedious task. In this paper we rigorously prove that a standard
+            steady state (+1) GA outperforms any evolutionary algorithm, that relies only on standard bit mutation (SBM)
+            as variation operator, for hillclimbing the classical OneMax benchmark function.
+            In particular, we show that the GA is 25% faster by providing an upper bound of (3/4)en ln n on its expected
+            runtime versus the en ln n expected function evaluations required by any algorithm using only SBM.
+            To achieve the result, we devise a mathematical framework which extends the classical artificial fitness
+            levels method by coupling each level with a Markov chain.
+            This Markov chain allows to bound the improvement probabilities of the current population based on its diversity.
+            In turn it can be appreciated how larger populations sustain diversity for a longer time,
+            effectively giving crossover more chances of finding improved solutions.
+            Since diversity is created via mutation, higher rates than the standard 1/n mutation rate, lead to
+            better upper bounds on the expected runtime. This paper  summarises the work that appeared in [1]1.},
+  pages     = {11-12},
+  numpages  = {2},
+  keywords  = {latex, ACM proceedings, text tagging},
+  location  = {Kyoto, Japan},
+  series    = {GECCO~'18}
+}
+
+@article{Corus2018a,
+  author    = {Corus, Dogan and Oliveto, Pietro S.},
+  title     = {Standard Steady State Genetic Algorithms Can Hillclimb Faster Than Mutation-Only Evolutionary Algorithms},
+  journal   = {IEEE Transactions on Evolutionary Computation},
+  year      = {2018},
+  issue_date = {Oct. 2018},
+  publisher = {{IEEE}},
+  volume    = {22},
+  number    = {5},
+  abstract  = {Explaining to what extent the real power of genetic algorithms (GAs) lies in the ability of crossover
+            to recombine individuals into higher quality solutions is an important problem in evolutionary computation.
+            In this paper we show how the interplay between mutation and crossover can make GAs hillclimb faster than
+            their mutation-only counterparts. We devise a Markov chain framework that allows to rigorously prove an
+            upper bound on the runtime of standard steady state GAs to hillclimb the OneMax function. The bound establishes
+            that the steady-state GAs are 25% faster than all standard bit mutation-only evolutionary algorithms with
+            static mutation rate up to lower order terms for moderate population sizes. The analysis also suggests that
+            larger populations may be faster than populations of size 2. We present a lower bound for a greedy (2 + 1) GA that
+            matches the upper bound for populations larger than 2, rigorously proving that two individuals cannot outperform
+            larger population sizes under greedy selection and greedy crossover up to lower order terms.
+            In complementary experiments the best population size is greater than 2 and the greedy GAs are faster than
+            standard ones, further suggesting that the derived lower bound also holds for the standard steady state (2 + 1) GA.},
+  pages     = {720-732},
+  numpages  = {13}
+}
+
+@INPROCEEDINGS{Sudholt2005,
+  author    = {Dirk Sudholt},
+  title     = {Crossover is Provably Essential for the {Ising} Model on Trees},
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference (GECCO~'05)},
+  year      = {2005},
+  pages     = {1161-1167},
+  publisher = {{ACM} Press},
+  address   = {USA},  
+  owner     = {sudholt},
+  timestamp = {2008.04.09}
+}
+
+@ARTICLE{Fischer2005,
+  author    = {Fischer, Simon and Wegener, Ingo},
+  title     = {The One-dimensional {I}sing Model: {M}utation versus Recombination},
+  journal   = {Theoretical Computer Science},
+  year      = {2005},
+  volume    = {344},
+  pages     = {208-225},
+  number    = {2--3},
+  doi       = {10.1016/j.tcs.2005.04.002},
+  owner     = {sudholt},
+  timestamp = {2008.04.09}
+}
+
+@INCOLLECTION{Wegener2002,
+  author    = {Ingo Wegener},
+  title     = {Methods for the analysis of evolutionary algorithms on pseudo-{Boolean} functions},
+  booktitle = {Evolutionary Optimization},
+  publisher = {Kluwer},
+  year      = {2002},
+  noeditor    = {R. Sarker and X. Yao and M. Mohammadian},
+  pages     = {349-369},
+  owner     = {sudholt},
+  timestamp = {2008.04.09}
+}
+
+@ARTICLE{Jansen2002,
+  author    = {Thomas Jansen and Ingo Wegener},
+  title     = {On the Analysis of Evolutionary Algorithms---A Proof That Crossover Really Can Help},
+  journal   = {Algorithmica},
+  year      = {2002},
+  volume    = {34},
+  pages     = {47-66},
+  number    = {1},
+  owner     = {sudholt},
+  timestamp = {2008.04.09}
+}
+
+@Article{Doerr2018,
+  author    = {Doerr, Benjamin and Doerr, Carola},
+  title     = {Optimal Static and Self-Adjusting Parameter Choices for the (1+($\lambda$,$\lambda$)) Genetic Algorithm},
+  journal   = {Algorithmica},
+  year      = {2018},
+  volume    = {80},
+  number    = {5},
+  pages     = {1658-1709},
+}
+
+@ARTICLE{Lengler2020,
+  author    = {Lengler, Johannes},
+  title     = {A General Dichotomy of Evolutionary Algorithms on Monotone Functions},
+  journal   = {IEEE Transactions on Evolutionary Computation},
+  year      = {2020},
+  volume    = {24},
+  number    = {6},
+  pages     = {995-1009},
+  nodoi       = {10.1109/TEVC.2019.2917014}
+}
+
+@inproceedings{Qian2011,
+  author    = {Qian, Chao and Yu, Yang and Zhou, Zhi-Hua},
+  title     = {An Analysis on Recombination in Multi-Objective Evolutionary Optimization},
+  year      = {2011},
+  noisbn    = {9781450305570},
+  publisher = {{ACM} Press},
+  address   = {USA},  
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference (GECCO~'11)},
+  pages     = {2051-2058},
+  numpages  = {8},
+  keywords  = {multi-objective optimization, recombination, crossover, evolutionary algorithms},
+  location  = {Dublin, Ireland},
+  noseries    = {{GECCO} 2011}
+}
+
+@article{paixao_unified_2015,
+  title     = {A Unified Model of Evolutionary Processes},
+  author    = {{Paix\~{a}o}, Tiago and
+              Badkobeh, Golnaz and
+              Barton, Nick and
+              Corus, Dogan and
+              Dang, Duc-Cuong and
+              Friedrich, Tobias and
+              Lehre, Per Kristian and
+              Sudholt, Dirk and
+              Sutton, Andrew M. and
+              Trubenova, Barbora},
+  journal   = {Journal of Theoretical Biology},
+  year      = {2015},
+  volume    = {383},
+  pages     = {28-43},
+}
+
+@book{Jansen2013,
+  author    = {Thomas Jansen},
+  title     = {Analyzing Evolutionary Algorithms - The Computer Science Perspective},
+  series    = {Natural Computing Series},
+  publisher = {Springer},
+  address   = {Switzerland},  
+  year      = {2013},
+  isbn      = {978-3-642-17338-7}
+}
+
+@article{Dang2023,
+title={A Proof That Using Crossover Can Guarantee Exponential Speed-Ups in Evolutionary Multi-Objective Optimisation}, 
+volume={37}, 
+nourl={https://ojs.aaai.org/index.php/AAAI/article/view/26460}, 
+nodoi={10.1609/aaai.v37i10.26460}, 
+abstractNote={Evolutionary algorithms are popular algorithms for multiobjective optimisation (also called Pareto optimisation) as they use a population to store trade-offs between different objectives. Despite their popularity, the theoretical foundation of multiobjective evolutionary optimisation (EMO) is still in its early development. Fundamental questions such as the benefits of the crossover operator are still not fully understood. We provide a theoretical analysis of well-known EMO algorithms GSEMO and NSGA-II to showcase the possible advantages of crossover. We propose a class of problems on which these EMO algorithms using crossover find the Pareto set in expected polynomial time. In sharp contrast, they and many other EMO algorithms without crossover require exponential time to even find a single Pareto-optimal point. This is the first example of an exponential performance gap through the use of crossover for the widely used NSGA-II algorithm.}, number={10}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, author={Dang, Duc-Cuong and Opris, Andre and Salehi, Bahare and Sudholt, Dirk}, 
+year={2023}, 
+pages={12390-12398}}
+
+@article{Dang2024,
+    title = {Crossover can Guarantee Exponential Speed-ups in Evolutionary Multi-Objective Optimisation},
+    journal = {Artificial Intelligence},
+    volume = {330},
+    pages = {104098},
+    year = {2024},
+    issn = {0004-3702},
+    nodoi = {https://doi.org/10.1016/j.artint.2024.104098},
+    nourl = {https://www.sciencedirect.com/science/article/pii/S0004370224000341},
+    author = {Duc-Cuong Dang and Andre Opris and Dirk Sudholt},
+    keywords = {Evolutionary computation, Runtime analysis, Recombination, Multi-objective optimisation, Unbiased black-box algorithms, Hypermutation},
+    abstract = {Evolutionary algorithms are popular algorithms for multi-objective optimisation (also called Pareto optimisation) as they use a population to store trade-offs between different objectives. Despite their popularity, the theoretical foundation of multi-objective evolutionary optimisation (EMO) is still in its early development. Fundamental questions such as the benefits of the crossover operator are still not fully understood. We provide a theoretical analysis of the well-known EMO algorithms GSEMO and NSGA-II to showcase the possible advantages of crossover: we propose classes of “royal road” functions on which these algorithms cover the whole Pareto front in expected polynomial time if crossover is being used. But when disabling crossover, they require exponential time in expectation to cover the Pareto front. The latter even holds for a large class of black-box algorithms using any elitist selection and any unbiased mutation operator. Moreover, even the expected time to create a single Pareto-optimal search point is exponential. We provide two different function classes, one tailored for one-point crossover and another one tailored for uniform crossover, and we show that some immune-inspired hypermutations cannot avoid exponential optimisation times. Our work shows the first example of an exponential performance gap through the use of crossover for the widely used NSGA-II algorithm and contributes to a deeper understanding of its limitations and capabilities.}
+}
+
+@inproceedings{Dang2014,
+    author    = {Duc{-}Cuong Dang and Per Kristian Lehre},
+    noeditor  = {Dirk V. Arnold},
+    title     = {Evolution under Partial Information},
+    booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference {GECCO}~'14},
+    pages     = {1359--1366},
+    publisher = {{ACM} Press},
+    address   = {USA},
+    year      = {2014}
+}
+
+@article{Dang2016,
+    author    = {Duc{-}Cuong Dang and Per Kristian Lehre},
+    title     = {Runtime Analysis of Non-elitist Populations: From Classical Optimisation
+                 to Partial Information},
+    journal   = {Algorithmica},
+    volume    = {75},
+    number    = {3},
+    pages     = {428--461},
+    year      = {2016}
+}
+
+@article{DoerrNegativeMultiplicativeDrift,
+    author = {Doerr, Benjamin},
+    title = "{Lower Bounds for Non-elitist Evolutionary Algorithms via Negative
+                    Multiplicative Drift}",
+    journal = {Evolutionary Computation},
+    volume = {29},
+    number = {2},
+    pages = {305-329},
+    year = {2021},
+    month = {06},
+    abstract = "{A decent number of lower bounds for non-elitist population-based evolutionary
+                    algorithms has been shown by now. Most of them are technically demanding due to
+                    the (hard to avoid) use of negative drift theorems—general results which
+                    translate an expected movement away from the target into a high hitting time. We
+                    propose a simple negative drift theorem for multiplicative drift scenarios and
+                    show that it can simplify existing analyses. We discuss in more detail
+                    Lehre's (2010) negative
+                        drift in populations method, one of the most general tools to prove
+                    lower bounds on the runtime of non-elitist mutation-based evolutionary
+                    algorithms for discrete search spaces. Together with other arguments, we obtain
+                    an alternative and simpler proof of this result, which also strengthens and
+                    simplifies this method. In particular, now only three of the five technical
+                    conditions of the previous result have to be verified. The lower bounds we
+                    obtain are explicit instead of only asymptotic. This allows us to compute
+                    concrete lower bounds for concrete algorithms, but also enables us to show that
+                    super-polynomial runtimes appear already when the reproduction rate is only a (1-ω(n-1/2)) factor below the threshold. For the special case of algorithms using standard
+                    bit mutation with a random mutation rate (called uniform mixing in the language
+                    of hyper-heuristics), we prove the result stated by Dang and Lehre (2016b) and extend it to mutation rates other
+                    than Θ(1/n),
+                    which includes the heavy-tailed mutation operator proposed by Doerr et al.
+                        (2017). We finally use our method and
+                    a novel domination argument to show an exponential lower bound for the runtime
+                    of the mutation-only simple genetic algorithm on OneMax for arbitrary
+                    population size.}",
+    issn = {1063-6560},
+}
+
+@book{Forman2001,
+  author={Ernest H Forman and Mary Ann Selly},
+  title={Decision by Objectives: {H}ow to Convince Others That You are Right},
+  publisher={World Scientific Publishing},
+  year={2001},
+  keywords={Decision-Making; Resource Allocation; Executive Decision-Making; Multi-Objective Decision-Making},
+}
+
+@inproceedings{Ravi1993,
+  author    = {R. Ravi and
+               Madhav V. Marathe and
+               S. S. Ravi and
+               Daniel J. Rosenkrantz and
+               Harry B. Hunt III},
+  noeditor  = {S. Rao Kosaraju and
+               David S. Johnson and
+               Alok Aggarwal},
+  title     = {Many Birds With One Stone: Multi-Objective Approximation Algorithms},
+  booktitle = {Proceedings of the Annual {ACM} Symposium on Theory of Computing ({STOC}~'93)},
+  pages     = {438--447},
+  publisher = {{ACM} Press},
+  address   = {USA},  
+  year      = {1993}
+}
+
+@book{Birge2011,
+  author    = {Birge, John R. and Louveaux, Francois},
+  publisher = {Springer},
+  address   = {Switzerland},  
+  title     = {Introduction to Stochastic Programming},
+  year      = {2011},
+  file      = {:/home/bibirox/Desktop/Reading/ZTMP/Introduction to Stochastic Programming [JRBirge+FLouveaux] [ed2011].pdf:PDF},
+  keywords  = {Management Science, Operations Research, Mathematics, Mathematical Programming, News Vendor Problem, Financial Planning and Control, Capacity Expansion, Design for Manifacturing Quality, Routing Problems, Probability Spaces, Decisions and Stages, Two-Stage Program with Fixed Recourse, Risk Aversion, Probabilistic Programming, Alternative Characterizations, Robust Formulations, Statistical Decision Theory, Decision Analysis, Dynamic Programming and Markov Decision Processes, Online Optimization and Machine Learning, Optimal Stochastic Control, Probabilistic and Chance Constraints, Stochastic Integer Programs, Multistage Stochastic Programs with Recourse, Stochastic Nonlinear Programs with Recourse, Value of Information, EVPI and VSS, L-Shaped Method, Regularized Decomposition, Basis Factorization, Interior Point Methods, Inner Linearization Methods, Nested Decomposition Procedures, Quadratic Nested Decomposition, Block Separability, Lagrangian-based Methods, Optimality Cuts, Space of Tenders, Discontinuity Points, Disjunctive Cuts, Feasibility Cuts, Approximation and Sampling, Approximating Expectation, Monte Carlo Methods, Sample Average Approximation (SAA), Importance Sampling, Stochastic Decomposition, Stochastic Quasi-Gradient Methods, Sequential Sampling, Jensen's Inequality, Edmundson-Madansky Inequality, Bounded-based Aggregation, Scenario Generation, Distribution Fitting, Approximate Dynamic Programming},
+}
+
+@book{Ben2009,
+  title={Robust Optimization},
+  author={Ben-Tal, Aharon and El Ghaoui, Laurent and Nemirovski, Arkadi},
+  year={2009},
+  publisher={Princeton University Press}
+}
+
+@book{Tan2005,
+  author    = {Kay Chen Tan and
+               Eik Fun Khor and
+               Tong Heng Lee},
+  title     = {Multiobjective Evolutionary Algorithms and Applications},
+  series    = {Advanced Information and Knowledge Processing},
+  publisher = {Springer},
+  address   = {Switzerland},
+  year      = {2005},
+  isbn      = {978-1-85233-836-7},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@book{Goh2009,
+  author    = {Chi Keong Goh and
+               Kay Chen Tan},
+  title     = {Evolutionary Multi-objective Optimization in Uncertain Environments
+               - Issues and Algorithms},
+  series    = {Studies in Computational Intelligence},
+  volume    = {186},
+  publisher = {Springer},
+  address   = {Switzerland},  
+  year      = {2009},
+  isbn      = {978-3-540-95975-5}
+}
+
+@BOOK{Cormen2009,
+  title = {Introduction to Algorithms},
+  publisher = {The MIT Press},
+  address = {USA},  
+  year = {2009},
+  author = {Thomas H. Cormen and Charles E. Leiserson and Ronald L. Rivest and
+	Clifford Stein},
+  edition = {3rd},
+}
+
+@book{Dubhashi2009,
+  author       = {Devdatt P. Dubhashi and
+                  Alessandro Panconesi},
+  title        = {Concentration of Measure for the Analysis of Randomized Algorithms},
+  publisher    = {Cambridge University Press},
+  year         = {2009},
+  nourl          = {http://www.cambridge.org/gb/knowledge/isbn/item2327542/},
+  noisbn         = {978-0-521-88427-3},
+}
+
+@incollection{doerr-theory-chapter,
+author="Doerr, Benjamin",
+editor="Doerr, Benjamin
+and Neumann, Frank",
+title="Probabilistic Tools for the Analysis of Randomized Optimization Heuristics",
+bookTitle="Theory of Evolutionary Computation: Recent Developments in Discrete Optimization",
+year="2020",
+publisher="Springer",
+address="Switzerland",
+pages="1--87",
+}
+
+@misc{ZhengArXiv2022,
+  author = {Zheng, Weijie and Doerr, Benjamin},
+  keywords = {Neural and Evolutionary Computing (cs.NE), Artificial Intelligence (cs.AI), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title = {Runtime Analysis for the NSGA-II: Proving, Quantifying, and Explaining the Inefficiency For Many Objectives},
+  nopublisher = {arXiv},
+  year = {2024},
+  url = {https://arxiv.org/abs/2211.13084},
+  copyright = {arXiv.org perpetual, non-exclusive license},
+}
+
+@article{Bian00T21,
+  author    = {Chao Bian and
+               Chao Qian and
+               Yang Yu and
+               Ke Tang},
+  title     = {On the Robustness of Median Sampling in Noisy Evolutionary Optimization},
+  journal   = {Science China Information Sciences},
+  volume    = {64},
+  number    = {5},
+  year      = {2021}
+}
+
+@article{GiessenK16,
+  author    = {Christian Gie{\ss}en and
+               Timo K{\"{o}}tzing},
+  title     = {Robustness of Populations in Stochastic Environments},
+  journal   = {Algorithmica},
+  volume    = {75},
+  number    = {3},
+  pages     = {462--489},
+  year      = {2016}
+}
+
+@article{QianBYTY21,
+  author    = {Chao Qian and
+               Chao Bian and
+               Yang Yu and
+               Ke Tang and
+               Xin Yao},
+  title     = {Analysis of Noisy Evolutionary Optimization When Sampling Fails},
+  journal   = {Algorithmica},
+  volume    = {83},
+  number    = {4},
+  pages     = {940--975},
+  year      = {2021}
+}
+
+@article{Rowe2013,
+    author  = {Jonathan E. Rowe and Dirk Sudholt},
+    title   = {The Choice of the Offspring Population Size in the (1,$\lambda$) Evolutionary Algorithm},
+    journal = {Theoretical Computer Science},
+    volume  = {545},
+    pages   = {20--38},
+    year    = {2014}
+}
+
+@InProceedings{Lehre2010a,
+  author =    {Per Kristian Lehre},
+  title =     {Negative Drift in Populations},
+  booktitle = {Proceedings of the International Conference on Parallel Problem Solving from Nature ({PPSN}~'10)},
+  year =      {2011},
+  pages =     {244--253},
+  volume =    {6238},
+  noseries =    {LNCS},
+  publisher = {Springer},
+  address   = {Switzerland}
+}
+
+@article{Doerr2012c,
+  author = {Benjamin Doerr and Thomas Jansen and Dirk Sudholt and Carola Winzen and Christine Zarges},
+  title = {Mutation Rate Matters Even When Optimizing Monotonic Functions},
+  journal = {Evolutionary Computation},
+  volume = {21},
+  number = {1},
+  pages = {1--21},
+  year = {2013},
+}
+
+@article{LenglerS18,
+  author    = {Johannes Lengler and
+               Angelika Steger},
+  title     = {Drift Analysis and Evolutionary Algorithms Revisited},
+  journal   = {Combinatorics, Probability and Computing},
+  volume    = {27},
+  number    = {4},
+  pages     = {643--666},
+  year      = {2018}
+}
+
+@inproceedings{DoerrQu22,
+  author    = {Benjamin Doerr and
+               Zhongdi Qu},
+  noeditor    = {G{\"{u}}nter Rudolph and
+               Anna V. Kononova and
+               Hern{\'{a}}n E. Aguirre and
+               Pascal Kerschke and
+               Gabriela Ochoa and
+               Tea Tusar},
+  title     = {A First Runtime Analysis of the {NSGA-II} on a Multimodal Problem},
+  booktitle = {Proceedings of the International Conference on Parallel Problem Solving from Nature ({PPSN}~'22)},
+  noseries    = {LNCS},
+  novolume    = {13399},
+  pages     = {399--412},
+  publisher = {Springer},
+  address   = {Switzerland},  
+  year      = {2022}
+}
+
+@inproceedings{Opris2025,
+  author    = {Andre Opris},
+  title     = {A Many-Objective Problem Where Crossover is Provable Indispensable},
+  booktitle = {Proceedings of the {AAAI} Conference on Artificial Intelligence, {AAAI}~2025},
+  pages     = {27108-27116},
+  publisher = {{AAAI} Press},
+  address   = {USA},
+  year      = {2025},
+  nodoi       = {10.1609/aaai.v39i25.34918}
+}
+
+@inproceedings{DoerrQu2022,
+  author    = {Benjamin Doerr and
+               Zhongdi Qu},
+  title     = {From Understanding the Population Dynamics of the {NSGA-II} to the
+               First Proven Lower Bounds},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence, {AAAI}~2023},
+  publisher = {{AAAI} Press},
+  address   = {USA},
+  pages     = {12408--12416},
+  year      = {2023}
+}
+
+@article{Goh2007,
+    author    = {Chi Keong Goh and
+    Kay Chen Tan},
+    title     = {An Investigation on Noisy Environments in Evolutionary Multiobjective
+    Optimization},
+    journal   = {{IEEE} Transactions on Evolutionary Computation},
+    volume    = {11},
+    number    = {3},
+    pages     = {354--381},
+    year      = {2007},
+    nourl       = {https://doi.org/10.1109/TEVC.2006.882428},
+    nodoi       = {10.1109/TEVC.2006.882428},
+    timestamp = {Thu, 14 Oct 2021 09:23:02 +0200},
+    biburl    = {https://dblp.org/rec/journals/tec/GohT07.bib},
+    bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Teich2001,
+    author    = {J{\"{u}}rgen Teich},
+    noeditor    = {Eckart Zitzler and
+    Kalyanmoy Deb and
+    Lothar Thiele and
+    Carlos A. Coello Coello and
+    David Corne},
+    title     = {Pareto-Front Exploration with Uncertain Objectives},
+    booktitle = {Proceedings of the First International Conference on Evolutionary Multi-Criterion Optimization ({EMO}~2001)},
+    series    = {LNCS},
+    volume    = {1993},
+    pages     = {314--328},
+    publisher = {Springer},
+    address   = {Switzerland},    
+    year      = {2001},
+    nourl       = {https://doi.org/10.1007/3-540-44719-9\_22},
+    nodoi       = {10.1007/3-540-44719-9\_22},
+    timestamp = {Tue, 14 May 2019 10:00:47 +0200},
+    biburl    = {https://dblp.org/rec/conf/emo/Teich01.bib},
+    bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Hughes2001,
+    author    = {Evan J. Hughes},
+    noeditor    = {Eckart Zitzler and
+    Kalyanmoy Deb and
+    Lothar Thiele and
+    Carlos A. Coello Coello and
+    David Corne},
+    title     = {Evolutionary Multi-objective Ranking with Uncertainty and Noise},
+    booktitle = {Proceedings of the First International Conference on Evolutionary Multi-Criterion Optimization ({EMO}~2001)},
+    series    = {LNCS},
+    volume    = {1993},
+    pages     = {329--343},
+    publisher = {Springer},
+    address   = {Switzerland},    
+    year      = {2001},
+    nourl       = {https://doi.org/10.1007/3-540-44719-9\_23},
+    nodoi       = {10.1007/3-540-44719-9\_23},
+    timestamp = {Tue, 14 May 2019 10:00:47 +0200},
+    biburl    = {https://dblp.org/rec/conf/emo/Hughes01.bib},
+    bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{Llora2003,
+    author    = {Xavier Llor{\`{a}} and David E. Goldberg},
+    title     = {Bounding the Effect of Noise in Multiobjective Learning Classifier Systems},
+    journal   = {Evolutionary Computation},
+    volume    = {11},
+    number    = {3},
+    pages     = {278--297},
+    year      = {2003},
+    nourl       = {https://doi.org/10.1162/106365603322365306},
+    nodoi       = {10.1162/106365603322365306},
+    timestamp = {Fri, 13 Mar 2020 14:35:17 +0100},
+    biburl    = {https://dblp.org/rec/journals/ec/LloraG03.bib},
+    bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Dang2015,
+    author    = {Duc{-}Cuong Dang and Per Kristian Lehre},
+    noeditor  = {Jun He and Thomas Jansen and Gabriela Ochoa and Christine Zarges},
+    title     = {Efficient Optimisation of Noisy Fitness Functions with Population-based
+                 Evolutionary Algorithms},
+    booktitle = {Proceedings of the Foundations of Genetic Algorithms ({FOGA}~'15)},
+    pages     = {62--68},
+    publisher = {{ACM} Press},
+    address   = {USA},
+    year      = {2015},
+    nourl       = {https://doi.org/10.1145/2725494.2725508},
+    nodoi       = {10.1145/2725494.2725508},
+    biburl    = {https://dblp.org/rec/conf/foga/DangL15.bib},
+    bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{LehreQ21,
+    author    = {Per Kristian Lehre and
+    Xiaoyu Qin},
+    noeditor    = {Francisco Chicano and
+    Krzysztof Krawiec},
+    title     = {More Precise Runtime Analyses of Non-elitist {EA}s in Uncertain Environments},
+    booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference ({GECCO}~'21)},
+    pages     = {1160--1168},
+    publisher = {{ACM} Press},
+    address   = {USA},
+    year      = {2021},
+    nourl       = {https://doi.org/10.1145/3449639.3459312},
+    nodoi       = {10.1145/3449639.3459312}
+}
+
+@inproceedings{DangELQ22,
+    author    = {Duc{-}Cuong Dang and
+    Anton V. Eremeev and
+    Per Kristian Lehre and
+    Xiaoyu Qin},
+    noeditor    = {Jonathan E. Fieldsend and
+    Markus Wagner},
+    title     = {Fast Non-elitist Evolutionary Algorithms With Power-Law Ranking Selection},
+    booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference (GECCO~'22)},
+    pages     = {1372--1380},
+    publisher = {{ACM} Press},
+    address   = {USA},
+    year      = {2022},
+    nourl       = {https://doi.org/10.1145/3512290.3528873},
+    nodoi       = {10.1145/3512290.3528873}
+}
+
+@inproceedings{LehreQ22,
+    author    = {Per Kristian Lehre and Xiaoyu Qin},
+    noeditor    = {Jonathan E. Fieldsend and Markus Wagner},
+    title     = {Self-Adaptation via Multi-Objectivisation: A Theoretical Study},
+    booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference (GECCO~'22)},
+    pages     = {1417--1425},
+    publisher = {{ACM} Press},
+    address   = {USA}, 
+    year      = {2022},
+    nourl       = {https://doi.org/10.1145/3512290.3528836},
+    nodoi       = {10.1145/3512290.3528836},
+    timestamp = {Sun, 02 Oct 2022 16:01:46 +0200},
+    biburl    = {https://dblp.org/rec/conf/gecco/LehreQ22.bib},
+    bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{QinL22,
+    author    = {Xiaoyu Qin and
+    Per Kristian Lehre},
+    noeditor    = {G{\"{u}}nter Rudolph and
+    Anna V. Kononova and
+    Hern{\'{a}}n E. Aguirre and
+    Pascal Kerschke and
+    Gabriela Ochoa and
+    Tea Tusar},
+    title     = {Self-Adaptation via Multi-objectivisation: An Empirical Study},
+    booktitle = {Proceedings of the International Conference on Parallel Problem Solving from Nature ({PPSN}~'22)},
+    noseries    = {LNCS},
+    novolume    = {13398},
+    pages     = {308--323},
+    publisher = {Springer},
+    address   = {Switzerland},    
+    year      = {2022},
+    nourl       = {https://doi.org/10.1007/978-3-031-14714-2\_22},
+    nodoi       = {10.1007/978-3-031-14714-2\_22},
+    timestamp = {Thu, 25 Aug 2022 08:35:33 +0200},
+    biburl    = {https://dblp.org/rec/conf/ppsn/QinL22.bib},
+    bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{FriedrichKKS17,
+  author    = {Tobias Friedrich and
+               Timo K{\"{o}}tzing and
+               Martin S. Krejca and
+               Andrew M. Sutton},
+  title     = {The Compact Genetic Algorithm is Efficient Under Extreme Gaussian
+               Noise},
+  journal   = {{IEEE} Transactions on Evolutionary Computation},
+  volume    = {21},
+  number    = {3},
+  pages     = {477--490},
+  year      = {2017},
+  nourl       = {https://doi.org/10.1109/TEVC.2016.2613739},
+  nodoi       = {10.1109/TEVC.2016.2613739},
+  timestamp = {Fri, 21 Jan 2022 22:00:59 +0100},
+  biburl    = {https://dblp.org/rec/journals/tec/0001KKS17.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Lengler2023,
+    author    = {Joost Jorritsma and Johannes Lengler and Dirk Sudholt},
+    title     = {Comma Selection Outperform Plus Selection on OneMax with Randomly Planted Optima},
+    booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference (GECCO~'23)},
+    year      = {2023},
+    pages     = {to appear},
+    publisher = {{ACM} Press},
+    address   = {USA}    
+}
+
+@inproceedings{FriedrichKNR22,
+  author    = {Tobias Friedrich and
+               Timo K{\"{o}}tzing and
+               Frank Neumann and
+               Aishwarya Radhakrishnan},
+  editor    = {G{\"{u}}nter Rudolph and
+               Anna V. Kononova and
+               Hern{\'{a}}n E. Aguirre and
+               Pascal Kerschke and
+               Gabriela Ochoa and
+               Tea Tusar},
+  title     = {Theoretical Study of Optimizing Rugged Landscapes with the cGA},
+  booktitle = {Proceedings of the International Conference on Parallel Problem Solving from Nature ({PPSN}~'22)},
+  series    = {LNCS},
+  volume    = {13399},
+  pages     = {586--599},
+  publisher = {Springer},
+  address   = {Switzerland},  
+  year      = {2022},
+  url       = {https://doi.org/10.1007/978-3-031-14721-0\_41},
+  doi       = {10.1007/978-3-031-14721-0\_41},
+  timestamp = {Tue, 16 Aug 2022 16:15:42 +0200},
+  biburl    = {https://dblp.org/rec/conf/ppsn/FriedrichKNR22.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{Droste2002,
+  author       = {Stefan Droste and
+                  Thomas Jansen and
+                  Ingo Wegener},
+  title        = {On the Analysis of the {(1+1)}~Evolutionary Algorithm},
+  journal      = {Theoretical Computer Science},
+  volume       = {276},
+  number       = {1-2},
+  pages        = {51--81},
+  year         = {2002},
+  nourl          = {https://doi.org/10.1016/S0304-3975(01)00182-7},
+  nodoi          = {10.1016/S0304-3975(01)00182-7}
+}
+
+@inproceedings{Droste2004,
+  author    = {Droste, Stefan},
+  title     = {Analysis of the (1+1)~{EA} for a Noisy {OneMax}},
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference ({GECCO}~'04)},
+  year      = {2004},
+  publisher = {Springer},
+  address   = {Switzerland},  
+  pages     = {1088--1099}
+}
+
+@inproceedings{Droste2000,
+  author    = {Droste, Stefan and Jansen, Thomas and Wegener, Ingo}, 
+  booktitle = {Annual Conference of the IEEE Industrial Electronics Society ({IECON} 2000)}, 
+  title     = {A Natural and Simple Function Which is Hard for All Evolutionary Algorithms}, 
+  year      = {2000}, 
+  volume    = {4}, 
+  pages     = {2704--2709}, 
+  keywords  = {Evolutionary computation;Polynomials;Collaborative work;Computational intelligence;Genetic mutations;Hardware},
+  publisher = {{IEEE}},
+  address   = {USA},  
+  nodoi     = {10.1109/IECON.2000.972425} 
+}
+
+@article{Akimoto2015,
+  author    = {Akimoto, Youhei and Astete-Morales, Sandra and Teytaud, Olivier},
+  title     = {Analysis of Runtime of Optimization Algorithms for Noisy Functions over Discrete Codomains},
+  journal   = {Theoretical Computer Science},
+  volume    = {605},
+  year      = {2015},
+  pages     = {42--50},
+  keywords  = {Additive noise, Discrete optimization, Runtime analysis}
+}
+
+@article{Doerr2023,
+  author       = {Weijie Zheng and
+                  Benjamin Doerr},
+  title        = {Runtime Analysis for the {NSGA-II:} Proving, Quantifying, and Explaining
+                  the Inefficiency for Many Objectives},
+  journal      = {{IEEE} Transactions on Evolutionary Computation},
+  volume       = {28},
+  number       = {5},
+  pages        = {1442--1454},
+  year         = {2024},
+  nourl          = {https://doi.org/10.1109/TEVC.2023.3320278},
+  nodoi          = {10.1109/TEVC.2023.3320278}
+}
+
+@article{Friedrich2009,
+  author       = {Tobias Friedrich and
+                  Pietro S. Oliveto and
+                  Dirk Sudholt and
+                  Carsten Witt},
+  title        = {Analysis of Diversity-Preserving Mechanisms for Global Exploration},
+  journal      = {Evolutionary Computation},
+  volume       = {17},
+  number       = {4},
+  pages        = {455--476},
+  year         = {2009},
+  nourl        = {https://doi.org/10.1162/evco.2009.17.4.17401},
+  nodoi        = {10.1162/EVCO.2009.17.4.17401}
+}
+
+@inproceedings{Dang2023a,
+  author       = {Duc{-}Cuong Dang and
+                  Andre Opris and
+                  Bahare Salehi and
+                  Dirk Sudholt},
+  noeditor       = {Sara Silva and
+                  Lu{\'{\i}}s Paquete},
+  title        = {Analysing the Robustness of {NSGA-II} under Noise},
+  booktitle    = {Proceedings of the Genetic and Evolutionary Computation Conference ({GECCO} '23)},
+  pages        = {642--651},
+  publisher    = {{ACM} Press},
+  address      = {USA},  
+  year         = {2023},
+  nourl          = {https://doi.org/10.1145/3583131.3590421},
+  nodoi          = {10.1145/3583131.3590421}
+}
+
+@article{Beume2007,
+  author       = {Nicola Beume and
+                  Boris Naujoks and
+                  Michael T. M. Emmerich},
+  title        = {{SMS-EMOA:} Multiobjective Selection Based on Dominated Hypervolume},
+  journal      = {European Journal of Operational Research},
+  volume       = {181},
+  number       = {3},
+  pages        = {1653--1669},
+  year         = {2007},
+  nourl          = {https://doi.org/10.1016/j.ejor.2006.08.008},
+  nodoi          = {10.1016/J.EJOR.2006.08.008}
+}
+
+@article{Deb2020,
+  author       = {Julian Blank and
+                  Kalyanmoy Deb},
+  title        = {Pymoo: Multi-Objective Optimization in Python},
+  journal      = {{IEEE} Access},
+  volume       = {8},
+  pages        = {89497--89509},
+  year         = {2020},
+  nourl          = {https://doi.org/10.1109/ACCESS.2020.2990567},
+  nodoi          = {10.1109/ACCESS.2020.2990567}
+}
+
+@article{Lassig2014,
+	title = {Analysis of speedups in parallel evolutionary algorithms and (1+$\lambda$)~{EAs} for combinatorial optimization},
+	volume = {551},
+	noissn = {0304-3975},
+	url = {http://www.sciencedirect.com/science/article/pii/S0304397514004976},
+	doi = {10.1016/j.tcs.2014.06.037},
+	abstract = {Evolutionary algorithms are popular heuristics for solving various combinatorial problems as they are easy to apply and often produce good results. Island models parallelize evolution by using different populations, called islands, which are connected by a graph structure as communication topology. Each island periodically communicates copies of good solutions to neighboring islands in a process called migration. We consider the speedup gained by island models in terms of the parallel running time for problems from combinatorial optimization: sorting (as maximization of sortedness), shortest paths and Eulerian cycles. The results show in which settings and up to what degree evolutionary algorithms can be parallelized efficiently. Our results include offspring populations in ( 1 + $\lambda$ ) {EAs} as a special case. Potential speedups depend on many design choices such as the search operators, representations and fitness functions used on the islands, and also the parameters of the island model. In particular, we show that a natural instance for Eulerian cycles leads to exponential vs. logarithmic speedups, depending on the frequency of migration.},
+	urldate = {2014-08-28},
+	journal = {Theoretical Computer Science},
+	author = {L{\"a}ssig, J{\"o}rg and Sudholt, Dirk},
+	year = {2014},
+	keywords = {Combinatorial optimization, Island model, Offspring populations, Parallel evolutionary algorithms, runtime analysis, Spatial structures},
+	pages = {66--83},
+}
+
+@article{Deb2014,
+    author={Deb, Kalyanmoy and Jain, Himanshu},
+    journal={IEEE Transactions on Evolutionary Computation}, 
+    title={An Evolutionary Many-Objective Optimization Algorithm Using Reference-Point-Based Nondominated Sorting Approach, Part I: Solving Problems With Box Constraints}, 
+    year={2014},
+    volume={18},
+    number={4},
+    pages={577-601},
+    nodoi={10.1109/TEVC.2013.2281535}
+}
+
+@inproceedings{Zitzler1998,
+  author       = {Eckart Zitzler and
+                  Lothar Thiele},
+  noeditor       = {A. E. Eiben and
+                  Thomas B{\"{a}}ck and
+                  Marc Schoenauer and
+                  Hans{-}Paul Schwefel},
+  title        = {Multiobjective Optimization Using Evolutionary Algorithms - {A} Comparative
+                  Case Study},
+  booktitle    = {Parallel Problem Solving from Nature ({PPSN}~1998)},
+  noseries       = {Lecture Notes in Computer Science},
+  volume       = {1498},
+  pages        = {292--304},
+  publisher    = {Springer},
+  address   = {Switzerland},  
+  year         = {1998},
+  nourl          = {https://doi.org/10.1007/BFb0056872},
+  nodoi          = {10.1007/BFB0056872}
+}
+
+@inproceedings{Dang2016a,
+  author       = {Duc{-}Cuong Dang and
+                  Tobias Friedrich and
+                  Timo K{\"{o}}tzing and
+                  Martin S. Krejca and
+                  Per Kristian Lehre and
+                  Pietro S. Oliveto and
+                  Dirk Sudholt and
+                  Andrew M. Sutton},
+  noeditor       = {Tobias Friedrich and
+                  Frank Neumann and
+                  Andrew M. Sutton},
+  title        = {Escaping Local Optima with Diversity Mechanisms and Crossover},
+  booktitle    = {Proceedings of the Genetic and Evolutionary Computation Conference ({GECCO '16})},
+  pages        = {645--652},
+  publisher    = {{ACM} Press},
+  address      = {USA},  
+  year         = {2016},
+  nourl          = {https://doi.org/10.1145/2908812.2908956},
+  nodoi          = {10.1145/2908812.2908956}
+}
+
+@article{Oliveto2015,
+title = "Analysis of Diversity Mechanisms for Optimisation in Dynamic Environments with Low Frequencies of Change",
+journal = "Theoretical Computer Science",
+volume = "561",
+pages = "37--56",
+year = "2015",
+author = "Pietro S. Oliveto and Christine Zarges",
+}
+
+@book{doerr-neumann-book,
+editor="Doerr, Benjamin
+and Neumann, Frank",
+title="Theory of Evolutionary Computation: Recent Developments in Discrete Optimization",
+year="2020",
+publisher="Springer",
+address="Switzerland"
+}
+
+@book{BookNeuWit,
+title = {Bioinspired Computation in Combinatorial Optimization -- Algorithms and Their Computational Complexity},
+author = {Frank Neumann and Carsten Witt},
+publisher = {Springer},
+address   = {Switzerland},
+year = {2010}
+}
+
+@inproceedings{Doerr2023Qu,
+  author    = {Benjamin Doerr and
+               Zhongdi Qu},
+  title     = {Runtime Analysis for the {NSGA-II}: Provable Speed-Ups From Crossover},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence, {AAAI} 2023},
+  pages     = {12399-12407},
+  publisher = {{AAAI} Press},
+  address   = {USA},  
+  year      = {2023}
+}
+
+@article{Das1998,
+  author       = {Indraneel Das and
+                  John E. Dennis},
+  title        = {Normal-Boundary Intersection: {A} New Method for Generating the Pareto
+                  Surface in Nonlinear Multicriteria Optimization Problems},
+  journal      = {{SIAM} Journal of Optimization},
+  volume       = {8},
+  number       = {3},
+  pages        = {631--657},
+  year         = {1998},
+  nourl          = {https://doi.org/10.1137/S1052623496307510},
+  nodoi          = {10.1137/S1052623496307510},
+}
+
+@inproceedings{Bian2023,
+    author       = {Chao Bian and
+                    Yawen Zhou and
+                    Miqing Li and
+                    Chao Qian},
+    title        = {Stochastic Population Update Can Provably Be Helpful in Multi-Objective
+                    Evolutionary Algorithms},
+    booktitle    = {Proceedings of the Thirty-Second International Joint Conference on
+                    Artificial Intelligence ({IJCAI} '23)},
+    pages        = {5513--5521},
+    publisher    = {ijcai.org},
+    address      = {USA},
+    year         = {2023},
+    nourl          = {https://doi.org/10.24963/ijcai.2023/612},
+    nodoi          = {10.24963/IJCAI.2023/612},
+    timestamp    = {Sun, 12 Nov 2023 02:14:47 +0100},
+    biburl       = {https://dblp.org/rec/conf/ijcai/0002ZL023.bib},
+    bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Zheng2024,
+  author       = {Weijie Zheng and
+                  Benjamin Doerr},
+  title        = {Runtime Analysis of the {SMS-EMOA} for Many-Objective Optimization},
+  booktitle    = {Proceedings of the AAAI Conference on Artificial Intelligence, {AAAI}~2024},
+  pages        = {20874--20882},
+  publisher    = {{AAAI} Press},
+  address      = {USA},  
+  year         = {2024},
+  nourl          = {https://doi.org/10.1609/aaai.v38i18.30077},
+  nodoi          = {10.1609/AAAI.V38I18.30077}
+}
+
+
+@article{Witt2014,
+title = {Fitness levels with tail bounds for the analysis of randomized search heuristics},
+journal = {Information Processing Letters},
+volume = {114},
+number = {1},
+pages = {38-41},
+year = {2014},
+issn = {0020-0190},
+doi = {https://doi.org/10.1016/j.ipl.2013.09.013},
+url = {https://www.sciencedirect.com/science/article/pii/S0020019013002500},
+author = {Carsten Witt},
+keywords = {Randomized algorithms, Randomized search heuristics, Running time analysis, Fitness-level method, Tail bounds},
+abstract = {The fitness-level method, also called the method of f-based partitions, is an intuitive and widely used technique for the running time analysis of randomized search heuristics. It was originally defined to prove upper and lower bounds on the expected running time. Recently, upper tail bounds were added to the technique; however, these tail bounds only apply to running times that are at least twice as large as the expectation. We remove this restriction and supplement the fitness-level method with sharp tail bounds, including lower tails. As an exemplary application, we prove that the running time of randomized local search on OneMax is sharply concentrated around nlnn−0.1159...n.}
+}
+
+@inproceedings{Opris2024,
+  author       = {Opris, Andre and
+                  Dang, Duc-Cuong and
+                  Neumann, Frank and
+                  Sudholt, Dirk},
+  title        = {Runtime Analyses of NSGA-III on Many-Objective Problems},
+  booktitle    = {Proceedings of the Genetic and Evolutionary Computation Conference ({GECCO '24})},
+  pages        = {1596--1604},
+  publisher    = {{ACM} Press},
+  address      = {USA},  
+  year         = {2024}
+}
+
+@article{ZhengD2023,
+  author       = {Weijie Zheng and
+                  Benjamin Doerr},
+  title        = {Mathematical Runtime Analysis for the Non-Dominated Sorting Genetic Algorithm {II} {(NSGA-II)}},
+  journal      = {Artificial Intelligence},
+  volume       = {325},
+  pages        = {104016},
+  year         = {2023},
+  nourl          = {https://doi.org/10.1016/j.artint.2023.104016},
+  nodoi          = {10.1016/J.ARTINT.2023.104016}
+}
+
+@article{DoerrQ2023,
+  author       = {Benjamin Doerr and
+                  Zhongdi Qu},
+  title        = {A First Runtime Analysis of the {NSGA-II} on a Multimodal Problem},
+  journal      = {{IEEE} Transactions on Evolutionary Computation},
+  volume       = {27},
+  number       = {5},
+  pages        = {1288--1297},
+  year         = {2023},
+  nourl          = {https://doi.org/10.1109/TEVC.2023.3250552},
+  nodoi          = {10.1109/TEVC.2023.3250552}
+}
+
+@article{ZitzlerT1999,
+  author       = {Eckart Zitzler and
+                  Lothar Thiele},
+  title        = {Multiobjective Evolutionary Algorithms: a Comparative Case Study and
+                  the Strength Pareto Approach},
+  journal      = {{IEEE} Transactions on Evolutionary Computation},
+  volume       = {3},
+  number       = {4},
+  pages        = {257--271},
+  year         = {1999},
+  nourl          = {https://doi.org/10.1109/4235.797969},
+  nodoi          = {10.1109/4235.797969}
+}
+
+@ARTICLE{Sudholt2011VDS,
+  author = {Dirk Sudholt},
+  title = {Hybridizing Evolutionary Algorithms with Variable-Depth Search to
+	Overcome Local Optima},
+  journal = {Algorithmica},
+  year = {2011},
+  volume = {59},
+  number = {3},
+  pages = {343--368},
+}
+
+@book{Motwani1995,
+  author    = {Rajeev Motwani and
+               Prabhakar Raghavan},
+  title     = {Randomized Algorithms},
+  publisher = {Cambridge University Press},
+  year      = {1995},
+  url       = {https://doi.org/10.1017/cbo9780511814075},
+  nodoi       = {10.1017/cbo9780511814075},
+  noisbn      = {0-521-47465-5}
+}
+
+@ARTICLE{Witt2006,
+  author = {Carsten Witt},
+  title = {Runtime Analysis of the {($\mu$+1) EA} on Simple Pseudo-{Boolean}
+	Functions},
+  journal = {Evolutionary Computation},
+  year = {2006},
+  volume = {14},
+  pages = {65--86},
+  number = {1},
+  address = {Cambridge, MA, USA},
+  owner = {sudholt},
+  publisher = {MIT Press},
+  timestamp = {2008.04.09}
+}
+
+@article{Lehre2012,
+   author = {Lehre, Per~Kristian and Witt, Carsten},
+   title = {Black-Box Search by Unbiased Variation},
+   journal = {Algorithmica},
+   publisher = {Springer New York},
+   address = {USA},
+   year={2012},
+   volume={64},
+   number={4},
+   pages={623-642},
+}
+
+@inproceedings{Dang2024Illustrating,
+    title={Illustrating the Efficiency of Popular Evolutionary Multi-Objective Algorithms Using Runtime Analysis},
+    author={Duc-Cuong Dang and Andre Opris and Dirk Sudholt},
+    year={2024},
+    booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference ({GECCO}~'24)},
+    publisher = {{ACM} Press},
+    address   = {USA},
+    pages = {484-492},
+}
+
+@ARTICLE{Droste2006,
+  author = {Stefan Droste and Thomas Jansen and Ingo Wegener},
+  title = {Upper and Lower Bounds for Randomized Search Heuristics in Black-Box
+	Optimization},
+  journal = {Theory of Computing Systems},
+  year = {2006},
+  volume = {39},
+  pages = {525--544},
+  number = {4},
+  owner = {sudholt},
+  publisher = {Springer-Verlag New York, Inc.},
+  address = {USA}, 
+  timestamp = {2008.04.09}
+}

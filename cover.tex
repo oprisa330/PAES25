@@ -1,0 +1,79 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper,left=3cm,right=2cm,top=1.5cm,bottom=1cm]{geometry}
+%\usepackage[onehalfspacing]{setspace}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[pdfusetitle,hidelinks]{hyperref}
+
+\setlength{\parindent}{0cm}
+\setlength{\parsep}{0cm}
+\setlength{\parskip}{0.25cm}
+
+
+\begin{document}
+\thispagestyle{empty}
+
+% -- institution logo
+\begin{flushright}
+\includegraphics[width=0.4\textwidth]{cover_logo.png}
+\end{flushright}
+\vspace{1cm}
+
+% -- recipient info
+\begin{flushleft}
+Julia Handl and Xiaodong Li\\
+Editors of the Special Issue ``Best of GECCO 2024''\\
+ACM Transactions on Evolutionary Learning and Optimization 
+\end{flushleft}
+
+
+% -- main content 
+December 13, 2024
+
+Dear Editors
+
+Thank you for the invitation to the special issue, 
+% and for allowing us an extension of the deadline. 
+%
+and please find attached our manuscript.
+%the journal extension of our paper. 
+
+The highlight of our contributions is the following:
+\begin{enumerate}
+\item We propose several benchmark functions on which widely-used NSGA-II, NSGA-III and SMS-EMOA are proven to outperform the simple EMOA, (G)SEMO. As far as we know, such results have not been rigorously proven before. 
+\item We introduce a classification of all multi-objective fitness functions, denoted ($a$,$b$)-Pareto-sparse, on which functions with large $a$ and small $b$ are shown to be difficult for (G)SEMO.
+\item We provide a general lower bounds on the expected number of fitness evaluations for (G)SEMO to solve any ($a$,$b$)-Pareto-sparse functions, and this lower bound is exponential in $a$. Thus, the proposed benchmark functions are those with $a=\Omega(n)$, namely \textsc{OneTrapZeroTrap}, \textsc{OneJumpZeroJump}, and a class of instances of the \textsc{MaxSat} problem.
+\item Conversely, we show that \textsc{OneTrapZeroTrap} can be solved by NSGA-II, NSGA-III and SMS-EMOA efficienly in time $O(n\log{n})$ with a mild diversity mechanism of avoiding genotype duplications in the population. 
+\item In addition to our theoretical results, experiments conducted on \textsc{OneTrapZeroTrap} and the class of instances of the bi-objective \textsc{MaxSat} problem
+show that the success rate for (G)SEMO is zero, while it is $100\%$ for NSGA-II, NSGA-III, and SMS-EMOA.
+\end{enumerate}
+
+Our published conference paper only focused on \textsc{OneTrapZeroTrap}, thus only point (4) and partially (3). Points (1), (2), (5), and a large part of (3) are new contributions, and we hope these meet the requirements of the journal for an extension of a conference paper. 
+
+We look forward to hearing back from you and the reviewers.
+
+Yours sincerely
+
+% -- signature
+\begin{flushleft}
+\includegraphics[width=0.26\textwidth]{cover_sign.png} % hehe, just use Inkscape and a funky font
+\end{flushleft}
+
+% -- author info
+Dr Duc Cuong Dang
+
+Direct tel: +49(0)851/509-4483 \\
+Email: \href{mailto:duccuong.dang@uni-passau.de}{duccuong.dang@uni-passau.de}
+
+% -- footer information 
+\vfill
+\begin{flushleft}
+\small
+\textbf{Chair of Algorithms for Intelligent Systems}\\
+Faculty of Computer Science and Mathematics\\ 
+University of Passau, Innstr. 43, 94032 Passau, Germany
+\end{flushleft}
+
+\end{document}

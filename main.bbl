@@ -1,0 +1,662 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{52}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{} and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showURL}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showURL #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[Auger et~al\mbox{.}(2012)]%
+        {AUGER201275}
+\bibfield{author}{\bibinfo{person}{Anne Auger}, \bibinfo{person}{Johannes
+  Bader}, \bibinfo{person}{Dimo Brockhoff}, {and} \bibinfo{person}{Eckart
+  Zitzler}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Hypervolume-based multiobjective optimization:
+  Theoretical foundations and practical implications}.
+\newblock \bibinfo{journal}{\emph{Theoretical Computer Science}}
+  \bibinfo{volume}{425} (\bibinfo{year}{2012}), \bibinfo{pages}{75--103}.
+\newblock
+
+
+\bibitem[Bian et~al\mbox{.}(2018)]%
+        {BianQT18ijcaigeneral}
+\bibfield{author}{\bibinfo{person}{Chao Bian}, \bibinfo{person}{Chao Qian},
+  {and} \bibinfo{person}{Ke Tang}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{A general approach to running time analysis of
+  multi-objective evolutionary algorithms}. In
+  \bibinfo{booktitle}{\emph{International Joint Conference on Artificial
+  Intelligence}} \emph{(\bibinfo{series}{IJCAI 2018})}.
+  \bibinfo{publisher}{{ijcai.org}}, \bibinfo{pages}{1405--1411}.
+\newblock
+
+
+\bibitem[Bian et~al\mbox{.}(2024)]%
+        {ArchiveMOEAs}
+\bibfield{author}{\bibinfo{person}{Chao Bian}, \bibinfo{person}{Shengjie Ren},
+  \bibinfo{person}{Miqing Li}, {and} \bibinfo{person}{Chao Qian}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{An archive can bring provable speed-ups in
+  multi-objective evolutionary algorithms}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the Thirty-Third International Joint
+  Conference on Artificial Intelligence}} \emph{(\bibinfo{series}{IJCAI
+  2024})}. \bibinfo{publisher}{ijcai.org}, \bibinfo{pages}{6905 -- 6913}.
+\newblock
+
+
+\bibitem[Bian et~al\mbox{.}(2023)]%
+        {UpBian}
+\bibfield{author}{\bibinfo{person}{Chao Bian}, \bibinfo{person}{Yawen Zhou},
+  \bibinfo{person}{Miqing Li}, {and} \bibinfo{person}{Chao Qian}.}
+  \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Stochastic population update can provably be
+  helpful in multi-objective evolutionary algorithms}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the Thirty-Second International
+  Joint Conference on Artificial Intelligence}} \emph{(\bibinfo{series}{IJCAI
+  2023})}. \bibinfo{pages}{5513--5521}.
+\newblock
+
+
+\bibitem[Bringmann and Friedrich(2010)]%
+        {HYPERALGO}
+\bibfield{author}{\bibinfo{person}{Karl Bringmann} {and}
+  \bibinfo{person}{Tobias Friedrich}.} \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{An Efficient Algorithm for Computing Hypervolume
+  Contributions}.
+\newblock \bibinfo{journal}{\emph{Evolutionary Computation}}
+  \bibinfo{volume}{18}, \bibinfo{number}{3} (\bibinfo{year}{2010}),
+  \bibinfo{pages}{383--402}.
+\newblock
+
+
+\bibitem[Cerf et~al\mbox{.}(2023)]%
+        {DBLP:conf/ijcai/CerfDHKW23}
+\bibfield{author}{\bibinfo{person}{Sacha Cerf}, \bibinfo{person}{Benjamin
+  Doerr}, \bibinfo{person}{Benjamin Hebras}, \bibinfo{person}{Yakob Kahane},
+  {and} \bibinfo{person}{Simon Wietheger}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{The First Proven Performance Guarantees for the
+  Non-Dominated Sorting Genetic Algorithm {II} {(NSGA-II)} on a Combinatorial
+  Optimization Problem}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  International Joint Conference on Artificial Intelligence}}
+  \emph{(\bibinfo{series}{IJCAI~2023})}. \bibinfo{publisher}{ijcai.org},
+  \bibinfo{pages}{5522--5530}.
+\newblock
+
+
+\bibitem[Coello et~al\mbox{.}(2013)]%
+        {coello2013evolutionary}
+\bibfield{author}{\bibinfo{person}{C Coello}, \bibinfo{person}{D~Van
+  Veldhuizen}, {and} \bibinfo{person}{G Lamont}.}
+  \bibinfo{year}{2013}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Evolutionary Algorithms for Solving
+  Multi-Objective Problems}}.
+\newblock \bibinfo{publisher}{Springer US}.
+\newblock
+
+
+\bibitem[Dang et~al\mbox{.}(2023)]%
+        {DaOp2023}
+\bibfield{author}{\bibinfo{person}{Duc-Cuong Dang}, \bibinfo{person}{Andre
+  Opris}, \bibinfo{person}{Bahare Salehi}, {and} \bibinfo{person}{Dirk
+  Sudholt}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Analysing the Robustness of {NSGA-II} under Noise}.
+  In \bibinfo{booktitle}{\emph{Proceedings of the Genetic and Evolutionary
+  Computation Conference ({GECCO}'23)}}. \bibinfo{publisher}{{ACM} Press},
+  \bibinfo{pages}{642--651}.
+\newblock
+
+
+\bibitem[Dang et~al\mbox{.}(2024a)]%
+        {Dang2024}
+\bibfield{author}{\bibinfo{person}{Duc-Cuong Dang}, \bibinfo{person}{Andre
+  Opris}, {and} \bibinfo{person}{Dirk Sudholt}.}
+  \bibinfo{year}{2024}\natexlab{a}.
+\newblock \showarticletitle{Crossover can guarantee exponential speed-ups in
+  evolutionary multi-objective optimisation}.
+\newblock \bibinfo{journal}{\emph{Artificial Intelligence}}
+  \bibinfo{volume}{330} (\bibinfo{year}{2024}), \bibinfo{pages}{104098}.
+\newblock
+\showISSN{0004-3702}
+
+
+\bibitem[Dang et~al\mbox{.}(2024b)]%
+        {DangEfficient2024}
+\bibfield{author}{\bibinfo{person}{Duc-Cuong Dang}, \bibinfo{person}{Andre
+  Opris}, {and} \bibinfo{person}{Dirk Sudholt}.}
+  \bibinfo{year}{2024}\natexlab{b}.
+\newblock \showarticletitle{Illustrating the Efficiency of Popular Evolutionary
+  Multi-Objective Algorithms Using Runtime Analysis}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the Genetic and Evolutionary
+  Computation Conference}} \emph{(\bibinfo{series}{GECCO 2024})}.
+  \bibinfo{publisher}{ACM Press}, \bibinfo{pages}{484–492}.
+\newblock
+
+
+\bibitem[Dang et~al\mbox{.}(2024c)]%
+        {Dang-Levels}
+\bibfield{author}{\bibinfo{person}{Duc-Cuong Dang}, \bibinfo{person}{Andre
+  Opris}, {and} \bibinfo{person}{Dirk Sudholt}.}
+  \bibinfo{year}{2024}\natexlab{c}.
+\newblock \showarticletitle{Level-Based Theorems for Runtime Analysis of
+  Multi-objective Evolutionary Algorithms}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the International Conference on
+  Parallel Problem Solving from Nature}} \emph{(\bibinfo{series}{PPSN XVIII})}.
+  \bibinfo{publisher}{Springer}, \bibinfo{address}{Berlin, Heidelberg},
+  \bibinfo{pages}{246–263}.
+\newblock
+
+
+\bibitem[Deb(2001)]%
+        {kdeb01}
+\bibfield{author}{\bibinfo{person}{Kalyanmoy Deb}.}
+  \bibinfo{year}{2001}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Multi-Objective Optimization using
+  Evolutionary Algorithms}}.
+\newblock \bibinfo{publisher}{John Wiley \& Sons}.
+\newblock
+
+
+\bibitem[Deb et~al\mbox{.}(2002)]%
+        {DebPAM02}
+\bibfield{author}{\bibinfo{person}{Kalyanmoy Deb}, \bibinfo{person}{Amrit
+  Pratap}, \bibinfo{person}{Sameer Agarwal}, {and} \bibinfo{person}{T.
+  Meyarivan}.} \bibinfo{year}{2002}\natexlab{}.
+\newblock \showarticletitle{A fast and elitist multiobjective genetic
+  algorithm: {NSGA-II}}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Evolutionary
+  Computation}}  \bibinfo{volume}{6} (\bibinfo{year}{2002}),
+  \bibinfo{pages}{182--197}.
+\newblock
+
+
+\bibitem[Deng et~al\mbox{.}(2024)]%
+        {MOEASubset}
+\bibfield{author}{\bibinfo{person}{Renzhong Deng}, \bibinfo{person}{Weijie
+  Zheng}, \bibinfo{person}{Mingfeng Li}, \bibinfo{person}{Jie Liu}, {and}
+  \bibinfo{person}{Benjamin Doerr}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Runtime Analysis for State-of-the-Art
+  Multi-objective Evolutionary Algorithms on the Subset Selection Problem}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the International Conference on
+  Parallel Problem Solving from Nature}} \emph{(\bibinfo{series}{PPSN XVIII})}.
+  \bibinfo{publisher}{Springer}, \bibinfo{pages}{264–279}.
+\newblock
+
+
+\bibitem[Doerr et~al\mbox{.}(2025a)]%
+        {Krejca2025b}
+\bibfield{author}{\bibinfo{person}{Benjamin Doerr}, \bibinfo{person}{Tudor
+  Ivan}, {and} \bibinfo{person}{Martin~S. Krejca}.}
+  \bibinfo{year}{2025}\natexlab{a}.
+\newblock \showarticletitle{Speeding Up the {NSGA-II} With a Simple
+  Tie-Breaking Rule}. In \bibinfo{booktitle}{\emph{Proceedings of the {AAAI}
+  Conference on Artificial Intelligence}} \emph{(\bibinfo{series}{AAAI~2025})}.
+  \bibinfo{publisher}{{AAAI} Press}, \bibinfo{pages}{26964--26972}.
+\newblock
+
+
+\bibitem[Doerr et~al\mbox{.}(2025b)]%
+        {doerr2025tightruntimeguaranteesunderstanding}
+\bibfield{author}{\bibinfo{person}{Benjamin Doerr}, \bibinfo{person}{Martin
+  Krejca}, {and} \bibinfo{person}{Andre Opris}.}
+  \bibinfo{year}{2025}\natexlab{b}.
+\newblock \bibinfo{title}{Tight Runtime Guarantees From Understanding the
+  Population Dynamics of the GSEMO Multi-Objective Evolutionary Algorithm}.
+\newblock
+\showeprint[arxiv]{2505.01266}~[cs.NE]
+\newblock
+\shownote{to appear at IJCAI 2025}.
+
+
+\bibitem[Doerr et~al\mbox{.}(2025c)]%
+        {Doerr_Krejca_Rudolph_2025}
+\bibfield{author}{\bibinfo{person}{Benjamin Doerr}, \bibinfo{person}{Martin~S.
+  Krejca}, {and} \bibinfo{person}{Günter Rudolph}.}
+  \bibinfo{year}{2025}\natexlab{c}.
+\newblock \showarticletitle{Runtime Analysis for Multi-Objective Evolutionary
+  Algorithms in Unbounded Integer Spaces}.
+\newblock \bibinfo{journal}{\emph{Proceedings of the AAAI Conference on
+  Artificial Intelligence (AAAI 2025)}}, \bibinfo{pages}{26955--26963}.
+\newblock
+
+
+\bibitem[Doerr and Qu(2022)]%
+        {Qu2022PPSN}
+\bibfield{author}{\bibinfo{person}{Benjamin Doerr} {and}
+  \bibinfo{person}{Zhongdi Qu}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{A First Runtime Analysis of the {NSGA-II} on a
+  Multimodal Problem}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  International Conference on Parallel Problem Solving from Nature}}
+  \emph{(\bibinfo{series}{PPSN XVII})}. \bibinfo{publisher}{Springer},
+  \bibinfo{pages}{399--412}.
+\newblock
+
+
+\bibitem[Doerr and Qu(2023a)]%
+        {DoerrQu2023a}
+\bibfield{author}{\bibinfo{person}{Benjamin Doerr} {and}
+  \bibinfo{person}{Zhongdi Qu}.} \bibinfo{year}{2023}\natexlab{a}.
+\newblock \showarticletitle{From Understanding the Population Dynamics of the
+  {NSGA-II} to the First Proven Lower Bounds}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the AAAI Conference on Artificial
+  Intelligence}} \emph{(\bibinfo{series}{AAAI 2023})}.
+  \bibinfo{publisher}{{AAAI} Press}, \bibinfo{pages}{12408--12416}.
+\newblock
+
+
+\bibitem[Doerr and Qu(2023b)]%
+        {DoerrQu2022}
+\bibfield{author}{\bibinfo{person}{Benjamin Doerr} {and}
+  \bibinfo{person}{Zhongdi Qu}.} \bibinfo{year}{2023}\natexlab{b}.
+\newblock \showarticletitle{Runtime Analysis for the {NSGA-II}: Provable
+  Speed-Ups From Crossover}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  AAAI Conference on Artificial Intelligence ({AAAI}~2023)}}.
+  \bibinfo{publisher}{{AAAI} Press}, \bibinfo{pages}{12399--12407}.
+\newblock
+
+
+\bibitem[Giel(2003)]%
+        {Giel03}
+\bibfield{author}{\bibinfo{person}{Oliver Giel}.}
+  \bibinfo{year}{2003}\natexlab{}.
+\newblock \showarticletitle{Expected runtimes of a simple multi-objective
+  evolutionary algorithm}. In \bibinfo{booktitle}{\emph{Congress on
+  Evolutionary Computation, {CEC} 2003}}. \bibinfo{publisher}{{IEEE}},
+  \bibinfo{pages}{1918--1925}.
+\newblock
+
+
+\bibitem[Giel and Lehre(2010)]%
+        {Giel2010}
+\bibfield{author}{\bibinfo{person}{Oliver Giel} {and}
+  \bibinfo{person}{Per~Kristian Lehre}.} \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{On the Effect of Populations in Evolutionary
+  Multi-Objective Optimisation}.
+\newblock \bibinfo{journal}{\emph{Evolutionary Computation}}
+  \bibinfo{volume}{18}, \bibinfo{number}{3} (\bibinfo{year}{2010}),
+  \bibinfo{pages}{335--356}.
+\newblock
+
+
+\bibitem[Ikeda et~al\mbox{.}(2009)]%
+        {IKEDA200994}
+\bibfield{author}{\bibinfo{person}{Satoshi Ikeda}, \bibinfo{person}{Izumi
+  Kubo}, {and} \bibinfo{person}{Masafumi Yamashita}.}
+  \bibinfo{year}{2009}\natexlab{}.
+\newblock \showarticletitle{The hitting and cover times of random walks on
+  finite graphs using local degree information}.
+\newblock \bibinfo{journal}{\emph{Theoretical Computer Science}}
+  (\bibinfo{year}{2009}), \bibinfo{pages}{94--100}.
+\newblock
+
+
+\bibitem[Jonasson(2000)]%
+        {JONASSON2000181}
+\bibfield{author}{\bibinfo{person}{Johan Jonasson}.}
+  \bibinfo{year}{2000}\natexlab{}.
+\newblock \showarticletitle{An upper bound on the cover time for powers of
+  graphs}.
+\newblock \bibinfo{journal}{\emph{Discrete Mathematics}} \bibinfo{volume}{222},
+  \bibinfo{number}{1} (\bibinfo{year}{2000}), \bibinfo{pages}{181--190}.
+\newblock
+
+
+\bibitem[Knowles(2002)]%
+        {KnowlesPhD}
+\bibfield{author}{\bibinfo{person}{Joshua Knowles}.}
+  \bibinfo{year}{2002}\natexlab{}.
+\newblock \emph{\bibinfo{title}{Local-Search and Hybrid Evolutionary Algorithms
+  for Pareto Optimization}}.
+\newblock \bibinfo{thesistype}{Ph.\,D. Dissertation}. \bibinfo{school}{The
+  University of Reading}, \bibinfo{address}{United Kingdom}.
+\newblock
+
+
+\bibitem[Knowles and Corne(1999)]%
+        {781913}
+\bibfield{author}{\bibinfo{person}{Joshua Knowles} {and} \bibinfo{person}{David
+  Corne}.} \bibinfo{year}{1999}\natexlab{}.
+\newblock \showarticletitle{The Pareto archived evolution strategy: a new
+  baseline algorithm for Pareto multiobjective optimisation}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 1999 Congress on Evolutionary
+  Computation-CEC99}}. \bibinfo{pages}{98--105}.
+\newblock
+
+
+\bibitem[Knowles and Corne(2000)]%
+        {Knowles2000}
+\bibfield{author}{\bibinfo{person}{Joshua Knowles} {and} \bibinfo{person}{David
+  Corne}.} \bibinfo{year}{2000}\natexlab{}.
+\newblock \showarticletitle{Approximating the Nondominated Front Using the
+  Pareto Archived Evolution Strategy}.
+\newblock \bibinfo{journal}{\emph{Evolutionary Computation}}
+  \bibinfo{volume}{8}, \bibinfo{number}{2} (\bibinfo{year}{2000}),
+  \bibinfo{pages}{149--172}.
+\newblock
+
+
+\bibitem[Knowles and Corne(2003)]%
+        {10.1109/TEVC.2003.810755}
+\bibfield{author}{\bibinfo{person}{Joshua Knowles} {and} \bibinfo{person}{David
+  Corne}.} \bibinfo{year}{2003}\natexlab{}.
+\newblock \showarticletitle{Properties of an adaptive archiving algorithm for
+  storing nondominated vectors}.
+\newblock \bibinfo{journal}{\emph{Transactions of Evolutionary Computation}}
+  (\bibinfo{year}{2003}), \bibinfo{pages}{100–116}.
+\newblock
+
+
+\bibitem[Knowles and Liefooghe(2025)]%
+        {Knowles2025}
+\bibfield{author}{\bibinfo{person}{Joshua Knowles} {and}
+  \bibinfo{person}{Arnaud Liefooghe}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{PAES-25: Local Search, Archiving, and
+  Multi/Many-Objective Pseudo-Boolean Functions}. In
+  \bibinfo{booktitle}{\emph{Evolutionary Multi-Criterion Optimization}}.
+  \bibinfo{publisher}{Springer}, \bibinfo{pages}{60--73}.
+\newblock
+
+
+\bibitem[Kötzing(2024)]%
+        {kötzing2024theorystochasticdrift}
+\bibfield{author}{\bibinfo{person}{Timo Kötzing}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \bibinfo{title}{Theory of Stochastic Drift}.
+\newblock
+\showeprint[arxiv]{2406.14589}~[math.PR]
+
+
+\bibitem[Laumanns et~al\mbox{.}(2004a)]%
+        {Laumanns2004}
+\bibfield{author}{\bibinfo{person}{Marco Laumanns}, \bibinfo{person}{Lothar
+  Thiele}, {and} \bibinfo{person}{Eckart Zitzler}.}
+  \bibinfo{year}{2004}\natexlab{a}.
+\newblock \showarticletitle{Running Time Analysis of Multiobjective
+  Evolutionary Algorithms on Pseudo-Boolean Functions}.
+\newblock \bibinfo{journal}{\emph{{IEEE} Transactions on Evolutionary
+  Computation}} \bibinfo{volume}{8}, \bibinfo{number}{2}
+  (\bibinfo{year}{2004}), \bibinfo{pages}{170--182}.
+\newblock
+
+
+\bibitem[Laumanns et~al\mbox{.}(2004b)]%
+        {LaumannsTZ04}
+\bibfield{author}{\bibinfo{person}{Marco Laumanns}, \bibinfo{person}{Lothar
+  Thiele}, {and} \bibinfo{person}{Eckart Zitzler}.}
+  \bibinfo{year}{2004}\natexlab{b}.
+\newblock \showarticletitle{Running time analysis of multiobjective
+  evolutionary algorithms on pseudo-{B}oolean functions}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Evolutionary
+  Computation}}  \bibinfo{volume}{8} (\bibinfo{year}{2004}),
+  \bibinfo{pages}{170--182}.
+\newblock
+
+
+\bibitem[Laumanns et~al\mbox{.}(2002)]%
+        {LaumannsTZWD02}
+\bibfield{author}{\bibinfo{person}{Marco Laumanns}, \bibinfo{person}{Lothar
+  Thiele}, \bibinfo{person}{Eckart Zitzler}, \bibinfo{person}{Emo Welzl}, {and}
+  \bibinfo{person}{Kalyanmoy Deb}.} \bibinfo{year}{2002}\natexlab{}.
+\newblock \showarticletitle{Running time analysis of multi-objective
+  evolutionary algorithms on a simple discrete optimization problem}. In
+  \bibinfo{booktitle}{\emph{Parallel Problem Solving from Nature, {PPSN}
+  2002}}. \bibinfo{publisher}{Springer}, \bibinfo{pages}{44--53}.
+\newblock
+
+
+\bibitem[Laumanns and Zenklusen(2011)]%
+        {LAUMANNS2011414}
+\bibfield{author}{\bibinfo{person}{Marco Laumanns} {and} \bibinfo{person}{Rico
+  Zenklusen}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Stochastic convergence of random search methods to
+  fixed size Pareto front approximations}.
+\newblock \bibinfo{journal}{\emph{European Journal of Operational Research}}
+  \bibinfo{volume}{213}, \bibinfo{number}{2} (\bibinfo{year}{2011}),
+  \bibinfo{pages}{414--421}.
+\newblock
+
+
+\bibitem[Lengler(2020a)]%
+        {Lengler2020Drift}
+\bibfield{author}{\bibinfo{person}{Johannes Lengler}.}
+  \bibinfo{year}{2020}\natexlab{a}.
+\newblock \showarticletitle{Drift Analysis}.
+\newblock In \bibinfo{booktitle}{\emph{Theory of Evolutionary Computation:
+  Recent Developments in Discrete Optimization}}.
+  \bibinfo{publisher}{Springer}, \bibinfo{pages}{89--131}.
+\newblock
+
+
+\bibitem[Lengler(2020b)]%
+        {Lengler2020}
+\bibfield{author}{\bibinfo{person}{Johannes Lengler}.}
+  \bibinfo{year}{2020}\natexlab{b}.
+\newblock \showarticletitle{A General Dichotomy of Evolutionary Algorithms on
+  Monotone Functions}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Evolutionary
+  Computation}} \bibinfo{volume}{24}, \bibinfo{number}{6}
+  (\bibinfo{year}{2020}), \bibinfo{pages}{995--1009}.
+\newblock
+
+
+\bibitem[L{\'o}pez-Ib{\'a}{\~{n}}ez et~al\mbox{.}(2011)]%
+        {Archiver2011}
+\bibfield{author}{\bibinfo{person}{Manuel L{\'o}pez-Ib{\'a}{\~{n}}ez},
+  \bibinfo{person}{Joshua Knowles}, {and} \bibinfo{person}{Marco Laumanns}.}
+  \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{On Sequential Online Archiving of Objective
+  Vectors}. In \bibinfo{booktitle}{\emph{Evolutionary Multi-Criterion
+  Optimization}}. \bibinfo{publisher}{Springer Berlin Heidelberg},
+  \bibinfo{pages}{46--60}.
+\newblock
+
+
+\bibitem[L{\'o}pez-Ib{\'a}{\~n}ez et~al\mbox{.}(2011)]%
+        {LAUMANNS2011415}
+\bibfield{author}{\bibinfo{person}{Manuel L{\'o}pez-Ib{\'a}{\~n}ez},
+  \bibinfo{person}{Joshua Knowles}, {and} \bibinfo{person}{Marco Laumanns}.}
+  \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{On sequential online archiving of objective
+  vectors}. In \bibinfo{booktitle}{\emph{Lecture Notes in Computer Science
+  (including subseries Lecture Notes in Artificial Intelligence and Lecture
+  Notes in Bioinformatics)}}. \bibinfo{publisher}{Springer Nature},
+  \bibinfo{pages}{46--60}.
+\newblock
+
+
+\bibitem[Opris(2025a)]%
+        {opris2025multimodal}
+\bibfield{author}{\bibinfo{person}{Andre Opris}.}
+  \bibinfo{year}{2025}\natexlab{a}.
+\newblock \bibinfo{title}{A First Runtime Analysis of NSGA-III on a
+  Many-Objective Multimodal Problem: Provable Exponential Speedup via
+  Stochastic Population Update}.
+\newblock
+\showeprint[arxiv]{2505.01256}~[cs.NE]
+\newblock
+\shownote{to appear at IJCAI~2025}.
+
+
+\bibitem[Opris(2025b)]%
+        {Opris2025}
+\bibfield{author}{\bibinfo{person}{Andre Opris}.}
+  \bibinfo{year}{2025}\natexlab{b}.
+\newblock \showarticletitle{A Many Objective Problem Where Crossover is
+  Provably Indispensable}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  International Joint Conference on Artificial Intelligence}}
+  \emph{(\bibinfo{series}{{AAAI} 2025})}. \bibinfo{publisher}{AAAI Press},
+  \bibinfo{pages}{27108--27116}.
+\newblock
+
+
+\bibitem[Opris et~al\mbox{.}(2024)]%
+        {OprisNSGAIII}
+\bibfield{author}{\bibinfo{person}{Andre Opris}, \bibinfo{person}{Duc-Cuong
+  Dang}, \bibinfo{person}{Frank Neumann}, {and} \bibinfo{person}{Dirk
+  Sudholt}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Runtime Analyses of NSGA-III on Many-Objective
+  Problems}. In \bibinfo{booktitle}{\emph{Proceedings of the Genetic and
+  Evolutionary Computation Conference ({GECCO}'24)}}. \bibinfo{publisher}{{ACM}
+  Press}, \bibinfo{pages}{1596–1604}.
+\newblock
+
+
+\bibitem[Peng et~al\mbox{.}(2018)]%
+        {PAESFIRST}
+\bibfield{author}{\bibinfo{person}{Xue Peng}, \bibinfo{person}{Xiaoyun Xia},
+  \bibinfo{person}{Weizhi Liao}, {and} \bibinfo{person}{Zhanwei Guo}.}
+  \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Running time analysis of the Pareto archived
+  evolution strategy on pseudo-Boolean functions}.
+\newblock \bibinfo{journal}{\emph{Multimedia Tools Application}}
+  \bibinfo{volume}{77}, \bibinfo{number}{9} (\bibinfo{year}{2018}),
+  \bibinfo{pages}{11203–11217}.
+\newblock
+
+
+\bibitem[Qian et~al\mbox{.}(2019)]%
+        {QianYTYZ19}
+\bibfield{author}{\bibinfo{person}{Chao Qian}, \bibinfo{person}{Yang Yu},
+  \bibinfo{person}{Ke Tang}, \bibinfo{person}{Xin Yao}, {and}
+  \bibinfo{person}{Zhi{-}Hua Zhou}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Maximizing submodular or monotone approximately
+  submodular functions by multi-objective evolutionary algorithms}.
+\newblock \bibinfo{journal}{\emph{Artificial Intelligence}}
+  \bibinfo{volume}{275} (\bibinfo{year}{2019}), \bibinfo{pages}{279--294}.
+\newblock
+
+
+\bibitem[Ren et~al\mbox{.}(2024)]%
+        {RenBLQ24}
+\bibfield{author}{\bibinfo{person}{Shengjie Ren}, \bibinfo{person}{Chao Bian},
+  \bibinfo{person}{Miqing Li}, {and} \bibinfo{person}{Chao Qian}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{A first running time analysis of the {S}trength
+  {P}areto {E}volutionary {A}lgorithm~2 {(SPEA2)}}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the International Conference of
+  Parallel Problem Solving from Nature}} \emph{(\bibinfo{series}{{PPSN}
+  XVIII})}. \bibinfo{publisher}{Springer}, \bibinfo{pages}{295--312}.
+\newblock
+
+
+\bibitem[Thierens(2003)]%
+        {Thierens03}
+\bibfield{author}{\bibinfo{person}{Dirk Thierens}.}
+  \bibinfo{year}{2003}\natexlab{}.
+\newblock \showarticletitle{Convergence time analysis for the multi-objective
+  counting ones problem}. In \bibinfo{booktitle}{\emph{Evolutionary
+  Multi-Criterion Optimization, {EMO} 2003}}. \bibinfo{publisher}{Springer},
+  \bibinfo{pages}{355--364}.
+\newblock
+
+
+\bibitem[Wietheger and Doerr(2023)]%
+        {WiethegerD23}
+\bibfield{author}{\bibinfo{person}{Simon Wietheger} {and}
+  \bibinfo{person}{Benjamin Doerr}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{A Mathematical Runtime Analysis of the
+  Non-dominated Sorting Genetic Algorithm {III} {(NSGA-III)}}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the International Joint Conference
+  on Artificial Intelligence, {IJCAI}~2023}}. \bibinfo{publisher}{ijcai.org},
+  \bibinfo{pages}{5657--5665}.
+\newblock
+
+
+\bibitem[Wietheger and Doerr(2024)]%
+        {DoerrNearTight}
+\bibfield{author}{\bibinfo{person}{Simon Wietheger} {and}
+  \bibinfo{person}{Benjamin Doerr}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Near-Tight Runtime Guarantees for Many-Objective
+  Evolutionary Algorithms}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  International Conference of Parallel Problem Solving from Nature}}
+  \emph{(\bibinfo{series}{PPSN XVIII})}. \bibinfo{publisher}{Springer},
+  \bibinfo{pages}{153–168}.
+\newblock
+
+
+\bibitem[Zheng and Doerr(2022)]%
+        {DoerrApprox}
+\bibfield{author}{\bibinfo{person}{Weijie Zheng} {and}
+  \bibinfo{person}{Benjamin Doerr}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{Better approximation guarantees for the NSGA-II by
+  using the current crowding distance}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the Genetic and Evolutionary
+  Computation Conference}} \emph{(\bibinfo{series}{GECCO 2022})}.
+  \bibinfo{publisher}{ACM Press}, \bibinfo{pages}{611–619}.
+\newblock
+
+
+\bibitem[Zheng and Doerr(2024a)]%
+        {Zheng2023Inefficiency}
+\bibfield{author}{\bibinfo{person}{Weijie Zheng} {and}
+  \bibinfo{person}{Benjamin Doerr}.} \bibinfo{year}{2024}\natexlab{a}.
+\newblock \showarticletitle{Runtime Analysis for the NSGA-II: Proving,
+  Quantifying, and Explaining the Inefficiency for Many Objectives}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Evolutionary
+  Computation}} \bibinfo{volume}{28}, \bibinfo{number}{5}
+  (\bibinfo{year}{2024}), \bibinfo{pages}{1442--1454}.
+\newblock
+
+
+\bibitem[Zheng and Doerr(2024b)]%
+        {Zheng_Doerr_2024}
+\bibfield{author}{\bibinfo{person}{Weijie Zheng} {and}
+  \bibinfo{person}{Benjamin Doerr}.} \bibinfo{year}{2024}\natexlab{b}.
+\newblock \showarticletitle{Runtime Analysis of the SMS-EMOA for Many-Objective
+  Optimization}. In \bibinfo{booktitle}{\emph{Proceedings of the AAAI
+  Conference on Artificial Intelligence}} \emph{(\bibinfo{series}{AAAI 2024})}.
+  \bibinfo{publisher}{AAAI press}, \bibinfo{pages}{20874--20882}.
+\newblock
+
+
+\bibitem[Zheng et~al\mbox{.}(2022)]%
+        {ZhengLuiDoerrAAAI22}
+\bibfield{author}{\bibinfo{person}{Weijie Zheng}, \bibinfo{person}{Yufei Liu},
+  {and} \bibinfo{person}{Benjamin Doerr}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{A First Mathematical Runtime Analysis of the
+  Non-dominated Sorting Genetic Algorithm {II} {(NSGA-II)}}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the {AAAI} Conference on Artificial
+  Intelligence}} \emph{(\bibinfo{series}{AAAI 2022})}.
+  \bibinfo{publisher}{{AAAI} Press}, \bibinfo{pages}{10408--10416}.
+\newblock
+
+
+\bibitem[Zitzler(1999)]%
+        {ZitzlerPhD}
+\bibfield{author}{\bibinfo{person}{Eckart Zitzler}.}
+  \bibinfo{year}{1999}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Evolutionary Algorithms for Multiobjective
+  Optimization: Methods and Applications}}.
+\newblock \bibinfo{publisher}{Shaker Verlag GmbH}, \bibinfo{address}{Germany}.
+\newblock
+
+
+\end{thebibliography}

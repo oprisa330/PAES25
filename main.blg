@@ -1,0 +1,101 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 21 items.
+The style file: ACM-Reference-Format.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Reallocating 'name_of_file' (item size: 1) to 16 items.
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Reallocating 'name_of_file' (item size: 1) to 7 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Database file #1: references.bib
+Warning--I'm ignoring MOEASubset's extra "year" field
+--line 5965 of file references.bib
+Database file #2: alles_ea_master.bib
+Database file #3: ich_master.bib
+Database file #4: aaai25.bib
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 9000 items.
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 4000000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Warning--empty address in BianQT18ijcaigeneral
+Warning--empty address in ArchiveMOEAs
+Warning--empty publisher in UpBian
+Warning--empty address in UpBian
+Warning--empty address in DBLP:conf/ijcai/CerfDHKW23
+Warning--empty address in coello2013evolutionary
+Warning--empty address in DaOp2023
+Warning--empty address in DangEfficient2024
+Warning--empty address in kdeb01
+Warning--empty address in MOEASubset
+Warning--empty address in Krejca2025b
+Warning--empty booktitle in Doerr_Krejca_Rudolph_2025
+Warning--no number and no volume in Doerr_Krejca_Rudolph_2025
+Warning--empty address in Qu2022PPSN
+Warning--empty address in DoerrQu2023a
+Warning--empty address in DoerrQu2022
+Warning--empty address in Giel03
+Warning--no number and no volume in IKEDA200994
+Warning--empty publisher in 781913
+Warning--empty address in 781913
+Warning--no number and no volume in 10.1109/TEVC.2003.810755
+Warning--empty address in Knowles2025
+Warning--empty address in LaumannsTZWD02
+Warning--empty address in Lengler2020Drift
+Warning--empty address in Archiver2011
+Warning--empty address in LAUMANNS2011415
+Warning--empty address in Opris2025
+Warning--empty address in OprisNSGAIII
+Warning--empty address in RenBLQ24
+Warning--empty address in Thierens03
+Warning--empty address in WiethegerD23
+Warning--empty address in DoerrNearTight
+Warning--empty address in DoerrApprox
+Warning--empty address in Zheng_Doerr_2024
+Warning--empty address in ZhengLuiDoerrAAAI22
+You've used 52 entries,
+            6273 wiz_defined-function locations,
+            1886 strings with 28814 characters,
+and the built_in function-call counts, 61161 in all, are:
+= -- 7828
+> -- 1571
+< -- 0
++ -- 554
+- -- 563
+* -- 3899
+:= -- 5561
+add.period$ -- 264
+call.type$ -- 52
+change.case$ -- 346
+chr.to.int$ -- 43
+cite$ -- 87
+duplicate$ -- 5839
+empty$ -- 4011
+format.name$ -- 720
+if$ -- 15289
+int.to.chr$ -- 11
+int.to.str$ -- 1
+missing$ -- 211
+newline$ -- 433
+num.names$ -- 355
+pop$ -- 2196
+preamble$ -- 1
+purify$ -- 741
+quote$ -- 0
+skip$ -- 2300
+stack$ -- 0
+substring$ -- 4854
+swap$ -- 755
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1244
+warning$ -- 35
+while$ -- 354
+width$ -- 0
+write$ -- 1043
+(There were 36 warnings)
