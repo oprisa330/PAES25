@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.14)  15 JUN 2026 12:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.14)  15 JUN 2026 18:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1975,24 +1975,33 @@ pdfTeX warning (ext4): destination with the same identifier (name{lemma.3}) has
                    \relax 
 l.730 C
        onsider \PAES with standard bit mutation and archive size at least $n...
-[18.18] [19.19] [20.20]
+[18.18] [19.19]
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/it' will be
+(Font)              scaled to size 10.0pt on input line 790.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/it' in size <10> not av
+ailable
+(Font)              Font shape `T1/LinuxBiolinumT-TLF/b/sl' tried instead on in
+put line 790.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/sl' will be
+(Font)              scaled to size 10.0pt on input line 790.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/it' in size <7> not ava
+ilable
+(Font)              Font shape `T1/LinuxBiolinumT-TLF/b/sl' tried instead on in
+put line 790.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/sl' will be
+(Font)              scaled to size 7.0pt on input line 790.
+ [20.20]
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.1}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.804     C
+l.807     C
            onsider \PAES with standard bit mutation or one-bit mutation and ...
-[21.21] (main.bbl
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [22.22]
+[21.21] [22.22] (main.bbl
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 8.0pt on input line 46.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [23.23]
-Underfull \vbox (badness 6396) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [24.24])
 [25.25] [26.26
@@ -2025,11 +2034,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: ABD6E2F44A4845F10D25082FF395931B;1832.
  ) 
 Here is how much of TeX's memory you used:
- 40071 strings out of 467871
- 775046 string characters out of 5417407
- 1231479 words of memory out of 5000000
- 66942 multiletter control sequences out of 15000+600000
- 941465 words of font info for 754 fonts, out of 8000000 for 9000
+ 40107 strings out of 467871
+ 775976 string characters out of 5417407
+ 1231568 words of memory out of 5000000
+ 66951 multiletter control sequences out of 15000+600000
+ 958356 words of font info for 768 fonts, out of 8000000 for 9000
  1304 hyphenation exceptions out of 8191
  90i,21n,131p,2762b,868s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/opris01/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/Libe
@@ -2040,19 +2049,20 @@ rograms/MiKTeX/fonts/type1/public/newtx/LibertineMathRM.pfb><C:/Users/opris01/A
 ppData/Local/Programs/MiKTeX/fonts/type1/public/libertine/LinBiolinumT.pfb><C:/
 Users/opris01/AppData/Local/Programs/MiKTeX/fonts/type1/public/libertine/LinBio
 linumTB.pfb><C:/Users/opris01/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-libertine/LinBiolinumTI.pfb><C:/Users/opris01/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/libertine/LinLibertineT.pfb><C:/Users/opris01/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/libertine/LinLibertineTB.pfb><C:/Users/opris01/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><
-C:/Users/opris01/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI
-.pfb><C:/Users/opris01/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/t
-xexs.pfb><C:/Users/opris01/AppData/Local/Programs/MiKTeX/fonts/type1/public/new
-tx/txmiaX.pfb><C:/Users/opris01/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/newtx/txsym.pfb><C:/Users/opris01/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/newtx/txsys.pfb>
-Output written on main.pdf (29 pages, 793287 bytes).
+libertine/LinBiolinumTBO.pfb><C:/Users/opris01/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/libertine/LinBiolinumTI.pfb><C:/Users/opris01/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/libertine/LinLibertineT.pfb><C:/Users/opris01/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/libertine/LinLibertineTB.pfb><
+C:/Users/opris01/AppData/Local/Programs/MiKTeX/fonts/type1/public/libertine/Lin
+LibertineTI.pfb><C:/Users/opris01/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/newtx/NewTXMI.pfb><C:/Users/opris01/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/newtx/txexs.pfb><C:/Users/opris01/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/newtx/txmiaX.pfb><C:/Users/opris01/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/newtx/txsym.pfb><C:/Users/opris01/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/newtx/txsys.pfb>
+Output written on main.pdf (29 pages, 840054 bytes).
 PDF statistics:
- 627 PDF objects out of 1000 (max. 8388607)
- 162 named destinations out of 1000 (max. 500000)
- 149706 words of extra memory for PDF output out of 154059 (max. 10000000)
+ 635 PDF objects out of 1000 (max. 8388607)
+ 164 named destinations out of 1000 (max. 500000)
+ 157898 words of extra memory for PDF output out of 184870 (max. 10000000)
 

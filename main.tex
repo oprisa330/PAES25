@@ -742,7 +742,7 @@ Consider \PAES with standard bit mutation and archive size at least $n+1$ optimi
 \end{lemma}
 
 \begin{proof}
-Note that each Pareto-optimal search point $y$ has the form $y=b^{\ell}(0^p)^{n/p-\ell}$ where $b \in \{0,1\}^\ell$. 
+Note that each Pareto-optimal search point $y$ has the form $y=b^{\ell}(0^p)^{n/p-\ell}$ where $b \in \{0,1\}^p$. 
 So one may generate a new Pareto-optimal search point by creating $0^n$ in the first step as a current solution $s$, and finally to create the desired $y$ by successively increasing the number of blocks $b$. %Let the current solution $s$ be $s=a^{\ell^*}(0^p)^{n/p-\ell^*}$ for a given $\ell^* \in [n/p]$. Then we may assume that all Pareto optimal search points of the form $a^{j}(0^p)^{n/p-j}$ for $j < \ell^*$ and $b^{i}(0^p)^{n/p-j}$ for $i < \ell^*$ have already been found, since otherwise, the path the current solution has to put back to evolve a Pareto optimal solution only becomes smaller, and all the arguments below can be directly applied to this shorter path. \andre{besser: Mit oder argumentieren?}
 Let $k$ be the binary value of $b$. We determine the desired expected runtime by proving several claims in a row. Further, we assume that $f_m$ does only change by at most three in one iteration. \andre{define precisely what a failure is!} 
 
@@ -771,26 +771,29 @@ Let $k$ be the binary value of $b$. We determine the desired expected runtime by
 \andre{exchange $b$ above by a different variable!}
 
 \begin{claim}
-	\label{cl:reachfirsttwo-b-remaining-zero}
-	Suppose that $f_m(s_{t_0}) =0^n$. After $O((n+m) \cdot 2^p)$ iterations in expectation, the current solution $s_t$ is non Pareto-optimal, or satisfies $f_m(s_t) = n/p-1$ and $f_k(s_t)=1$ which means that $s_t=b0^{n-p}$. 
+	\label{cl:reachfirst-b-remaining-zero}
+	Suppose that $f_m(s_{t_0}) =0^n$. After $O(n/p \cdot n^p)$ iterations in expectation, the current solution $s_t$ is non Pareto-optimal, or satisfies $f_m(s_t) = n/p-1$ and $f_k(s_t)=1$ which means that $s_t=b0^{n-p}$. 
 \end{claim}
 
 \begin{proofofclaim}
-	As in the proof of the claims before, we may assume that always a Pareto optimal solution is created. At first we show that after $2n$ iterations, the probability that $(s_t)_i=1$ , unless a Pareto optimal solution $z$ is created with $z=a^\ell0^{n/p-\ell}$ with $a \in \{0,1\}^p$ and $\ell \in \{2, \ldots , n/p\}$. Then the first block in $s_t$ changes randomly, as only solutions of the form $c0^{n-p}$ for $c \in \{0,1\}^p$ are created, and also accepted. For a bit position $i \in [p]$, and $t \geq t_0$ denote by $q_i^{(t)}$ the probability that $(s_t)_i=1$. Then $q_i^{(t)}=(1-1/n) \cdot q_i^{{(t-1)}} + (1-q_i^{(t-1)})/n = 1/n + (1-2/n)q_i^{(t-1)}$ since flipping one specific bit happens with probability $1/n$. Note that this recursive equation has its equilibrium at $\hat{q}_i= 1/2$. By an easy induction, one sees that $q_i^{(t)} = 1/2 \cdot (1-(1-2/n)^t)$ (since $q_i^{(t_0)}=0$, and for $t>0$ we have $q_i^{(t)} = 1/n + (1-2/n)q_i^{(t-1)} = 1/n + (1-2/n) \cdot 1/2 \cdot (1-(1-2/n)^t) = 1/n + (1-2/n) \cdot 1/2 \cdot (1-(1-2/n)^t) = 1/n + (1-2/n)/2 - (1-2/n)^{t+1}/2 = 1/2-(1-2/n)^{t+1}/2 = 1/2(1-(1-2/n)^{t+1})$). So one sees that $q_i^{(t)} \in [0,1/2]$ and strictly monotone decreasing. For $t=t_0+n^2$ we have $q_i^{(t)} = 1/2(1-(1-2/n)^{n^2}) \geq 1/2(1-1/e^{2n}) \geq 1/2-1/(2e^{2n})$ due to $1+x \leq e^x$. Since we can consider all first $p$ bit positions as independent, and after $n$ iterations we see that $p_i^{(t)} \geq 1/2-1/(2e^{2n})$, we see that after $e(n^2+2^p) = e(n+m^2)$ iterations (provided that the second position does not coincide with the first) we created the desired $z=b0^{n-p}$.      
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	Denote an iteration $t$ as \emph{profitable} if a candidate solution $c_t$ is created with $f_m(c_t)>f_m(s_t)$. To create $s_t=0^n$, it is sufficient that the next $n/p - f_m(s_t) \leq 3$ iterations where the fitness of $s_t$ changes are profitable. We estimate the probability that an iteration where the fitness of $s_t$ changes is profitable. Let $q^*$ be the probability that one creates $0^{n/p}$ from $b \in \{0,1\}^{n/p}$ via standard bit mutation. Note that this also corresponds to the probability to create $b$ from $0^p$, and that $1/n^p \leq q^* \leq 1/n$. Then the probability that the fitness of $s_t$ changes is at most $2/n^p$ since it is required to either flip the first block $b$ from the left to $0^p$ (to increase $f_m(s_t)$ but decrease $f_k(s_t)$) or the last one from the left (to decrease $f_m(s_t)$ but increase $f_k(s_t)$). The probability 
-	to change the rightmost block $b$ to $0^{n/p}$ while keeping the other blocks unchanged is at least $(1-1/n)^{n-p} \cdot p^* \geq p^*/e$ (to push $s_t$ towards $0^n$). Hence, an iteration where the fitness changes is profitable with probability at least $1/(2e) = \Omega(1)$. So the  next $j \leq 3$ iterations where the fitness changes are profitable with probability $\Omega(1)$. If this happens, $s_t=0^n$. The expected waiting time for a fitness change is $O(1/q^*)$. So in time $O(1/q^*)$, either $s_t=0^n$, or one of the first $n/p-f_m(s_t)$ iterations where the fitness changes is non-profitable (happening with probability $1-O(1)$). If the latter occurs, we repeat all the arguments from above, including those from Claim~\ref{cl:reachalmostzero}. The expected number of repetitions is $O(1)$, leading to an expected runtime of $O(n/p \cdot n^p + 1/p^*) = O(n/p \cdot n^p)$. This proves Claim~\ref{cl:reachfirsttwo-b-remaining-zero}. 
+	As in the proof of the claims before, we may assume that always a Pareto optimal solution is created. At first we show that after $2n$ iterations, the probability that $(s_t)_i=1$ is at least $1/4$, unless a Pareto optimal solution $z$ is created with $z=a^\ell0^{n/p-\ell}$ with $a \in \{0,1\}^p$ and $\ell \in \{2, \ldots , n/p\}$. Then the first block in $s_t$ changes randomly, as only solutions of the form $c0^{n-p}$ for $c \in \{0,1\}^p$ are created, and also accepted. For a bit position $i \in [p]$, and $t \geq t_0$ denote by $q_i^{(t)}$ the probability that $(s_t)_i=1$. Then $q_i^{(t)}=(1-1/n) \cdot q_i^{{(t-1)}} + (1-q_i^{(t-1)})/n = 1/n + (1-2/n)q_i^{(t-1)}$ since flipping one specific bit happens with probability $1/n$. Note that this recursive equation has its equilibrium at $\hat{q}_i= 1/2$. By an easy induction, one sees that $q_i^{(t)} = 1/2 \cdot (1-(1-2/n)^t)$: One sees $q_i^{(t_0)}=0$, and for $t>0$ we have
+	\begin{align*}
+	 q_i^{(t)} &= 1/n + (1-2/n)q_i^{(t-1)} = 1/n + 1/2 \cdot (1-2/n) \cdot (1-(1-2/n)^t)\\
+	 &= 1/n + (1-2/n)/2 - (1-2/n)^{t+1}/2 = 1/2-(1-2/n)^{t+1}/2 = 1/2(1-(1-2/n)^{t+1}).
+	\end{align*}
+	So one sees that $q_i^{(t)} \in [0,1/2]$ and $(q_i^{(t)})_{t \geq t_0}$ is strictly monotone decreasing. For $t=t_0+2n$ we have $q_i^{(t)} = 1/2(1-(1-2/n)^{2n}) \geq 1/2(1-1/e^4) \geq 0.49$ due to $1+x \leq e^x$ for all $x \geq 0$. Denote the event $F$ that the second block from the left coincides with the first block as a \emph{failure}. Note that none of the blocks from the second onward are changed with probability at least $(1-1/n)^{n-p} \geq 1/e$. If no failure occurs, and such a block is changed, the current solution is either discarded or not Pareto optimal. We can also consider all first $p$ bit positions as independent. So we obtain that after at most $1/((1-1/n)^{n-p})(2n+(1/0.49)^p) \leq e(2n+4^p) = e(2n + m^2) = O(n)$ iterations in expectation, the desired $z=b0^{n-p}$ is created, or a failure occurs. Note that the probability of a failure in one iteration is at most $1/n$ since it requires to flip one specific bit (if the first block changes then the second block should have the same form as the first one). So the probability that no failure occurs is at least $c$ for a suitable constant $c>0$. If a failure occurs, we repeat the above arguments, also including those from Claim~\ref{cl:reachzero}. Note that at most $O(1)$ repetitions are necessary, proving 
+	Claim~\ref{cl:reachfirst-b-remaining-zero}. \andre{add the requirement that $m= O(\sqrt{n})$, which implies that $p=O(\log(n))$.} 
 \end{proofofclaim}
+
+\begin{claim}
+	\label{cl:reachfirstnumber-b-remaining-zero}
+	Suppose that $s_{t_0} =b^i0^{n-ip}$ for $i \in [\ell-1]$ and suppose that the expected number of iterations to evolve such an $s_{t_0}$ is $T_i$. After $O(n/p \cdot n^p)$ iterations in expectation, the current solution $s_t$ is non Pareto-optimal, or satisfies $f_m(s_t) = n/p-1$ and $f_k(s_t)=1$ which means that $s_t=b0^{n-p}$. \andre{Put in something for $T_i$!}
+\end{claim}
+
+\begin{proofofclaim}
+The following can happen when the current solution is changed. A non Pareto-optimal solution is created, or $b^i0^{n-ip}$ is changed to $b^{i+1}0^{n-ip-p}$, or to $b^{i-1}0^{n-ip+p}$, or to a solution of the form $a^j0^{n-jp}$ for $j \in [n/p]$ and $a \in \{0,1\}^p$ with $a \neq b$ and $a \neq 0$. The probability of generating a solution of the form $a^j0^{n-jp}$ is at most $p/n \cdot  1/n^{j-1}$. This is because, in the first block, changing $b$ to $a$ requires flipping one of the $p$ relevant bits, which happens with probability at most $p/n$, while the corresponding bit flip must be also conducted in each of the remaining $j-1$ blocks, each with probability at most $1/n$. Then, conditioning on the event that the current solution changes, while a non-Pareto optimal individual is not created, the probability is at most $2n^{-p} + p/n \cdot 1/n^{j-1}$ that the current solution changes. The probability is at least $n^{-p}$ to create $b^{i+1}0^{n-ip-i}$ from $b^i0^{n-ip}$. So the expected number of necessary changes of the fitness when $s_t=b^i0^{n-ip}$ for creating $s_{t+1}=b^{i+1}0^{n-ip-i}$ is $(2n^{-p} + p/n \cdot 1/n^{j-1})/n^{-p} = 2+pn^{p-j}$. If the fitness changes, we pessimistically have to pass again through all claims mentioned in this lemma to obtain that after $T_i$ iterations, we again have $s_t =b^i0^{n-ip}$. Note that the expected time until a fitness change occurs when $s_t =b^i0^{n-ip}$ is $O(\min\{n^p,n^j/p\})$. So we see that $T_{i+1} = T_i(2+pn^{p-j}) + (2+pn^{p-j}) \cdot O(\min\{n^p,n^j/p\}) = T_i(2+pn^{p-j}) + O(n^p)$.        
+\end{proofofclaim}
+
 
 \end{proof}
 
