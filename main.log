@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.14)  18 JUN 2026 18:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.14)  18 JUN 2026 18:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1994,22 +1994,27 @@ pdfTeX warning (ext4): destination with the same identifier (name{theorem.1}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.839     C
+l.857     C
            onsider \PAES with standard bit mutation or one-bit mutation and ...
-[23.23] (main.bbl
+[23.23]
+Underfull \vbox (badness 4479) has occurred while \output is active []
+
+ [24.24]
+(main.bbl
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 8.0pt on input line 46.
 
-Underfull \vbox (badness 5274) has occurred while \output is active []
+Underfull \vbox (badness 3701) has occurred while \output is active []
 
- [24.24]
-Underfull \vbox (badness 6396) has occurred while \output is active []
+ [25.25]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [25.25])
-[26.26] [27.27
+ [26.26])
+[27.27] [28.28
 
+] [29.29
 
-] [28.28]
+] [30.30]
 
 Class acmart Warning: Some images may lack descriptions.
 
@@ -2021,7 +2026,7 @@ File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 (C:\Users\opris01\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-utf8.d
 ef
 File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
-) [29.29] (main.aux)
+) [31.31] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
@@ -2035,11 +2040,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: ABD6E2F44A4845F10D25082FF395931B;1832.
  ) 
 Here is how much of TeX's memory you used:
- 40151 strings out of 467871
- 777036 string characters out of 5417407
- 1230619 words of memory out of 5000000
- 66952 multiletter control sequences out of 15000+600000
- 963978 words of font info for 796 fonts, out of 8000000 for 9000
+ 40165 strings out of 467871
+ 777302 string characters out of 5417407
+ 1230663 words of memory out of 5000000
+ 66954 multiletter control sequences out of 15000+600000
+ 964747 words of font info for 800 fonts, out of 8000000 for 9000
  1304 hyphenation exceptions out of 8191
  90i,21n,131p,2762b,868s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/opris01/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/Libe
@@ -2061,9 +2066,9 @@ e1/public/newtx/txexs.pfb><C:/Users/opris01/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/newtx/txmiaX.pfb><C:/Users/opris01/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/newtx/txsym.pfb><C:/Users/opris01/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (29 pages, 859341 bytes).
+Output written on main.pdf (31 pages, 862791 bytes).
 PDF statistics:
- 639 PDF objects out of 1000 (max. 8388607)
- 166 named destinations out of 1000 (max. 500000)
+ 653 PDF objects out of 1000 (max. 8388607)
+ 172 named destinations out of 1000 (max. 500000)
  159946 words of extra memory for PDF output out of 184870 (max. 10000000)
 

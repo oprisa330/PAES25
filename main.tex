@@ -818,6 +818,24 @@ The following can happen when the current solution is changed. A non Pareto-opti
 Without loss of generality, assume that $t_0=0$. Call an advanced iteration a \emph{reset} if the current solution is Pareto optimal, but does not satisfy $s_t=b^i0^{n-ip}$ for $i \geq p+3$. A reset can only happen if the fitness of the current solution changes (happening with probability at least $2\rho_b + pn^{-p-3}$) and under this condition only with probability $pn^{-p-4} / (2\rho_b + pn^{-p-4}) = O(1/n^3)$. We show that $s_t$ coincides with $b^r0^{n-pr}$ for an $r \geq \ell-4$ after $O(n^2/p^2)$ advanced iterations in expectation where the fitness changed, a reset occured, or a non-Pareto optimal solution is created \andre{explain that we consider this advanced generations happening in a row. If we reach the zero state, then we do all the iterations from before again, and start again in a state at least zero! So the zero drift becomes still at least zero. Argue that if the number of ones in the block is at least two, then we do only jumps of at most one (otherwise: repetition!) and hence, fall back only $n/p$ times in epectation, since we can see our problem as a fair random walk!}. We use the zero drift theorem. Let $X_t=\max\{\kappa_t-p-2,0\}$ where $\kappa_t$ is the number of blocks $b$ occuring in the Pareto optimal current solution. For now, assume that the state, where $X_t=0$, is absorbing. We also see that $E(X_{t+1}-X_t \mid \ell - \kappa_t \geq 4) = \sum_{j=-4}^4 j p_j \geq 0$ since $p_{-j} \leq p_j$ for all $j \in [4]$, as $f_m$ changes by at most $4$ \andre{justify it here! Is this valid in general? Otherwise a failure occurs!}, and $\text{Var}(X_{t+1}-X_t \mid \bar{B}_{t_0}, \ldots \bar{B}_t, X_{t_0}, \ldots , X_t) \geq \E((X_{t+1}-X_t)^2 \mid \bar{B}_{t_0}, \ldots \bar{B}_t, X_{t_0}, \ldots , X_t) \geq \sum_{j=1}^4 j^2 p_j =:\delta = \Omega(1)$. Let $T':=\inf\{t \in \mathbb{N} \mid t \geq t_0 \text{ and } X_t \geq \ell-4\}$. Since we have to pass $\Omega(n^p)$ iterations in expectation until a change in fitness occurs, we obtain with Theorem~\ref{thm:unbiased-random-walk} that $E(T') = O(n^2/p^2 \cdot n^p + n/p \cdot n^3p^{p-4} n^{(p^2+p)/2}) = O(n^4p^{p-5} n^{(p^2+p)/2})$ \andre{justify this!}. To finally generate the desired Pareto optimal solution $b^{n/q}$ from $s_t=b^{n/p-4}(0^p)^4$, one has to change the block $0^p$ next to $b^{n/p-4+i}$ to $b$ in the next $i$-th generation when the fitness changes, for $i \in [4]$ happening with probability $\Omega(1)$. By repeating this at most four times, we create the desired Pareto optimal point. If this does not happen, we repeat all the arguments from above. The expected number of repetitions is $O(1)$, concluding the proof of this claim.       
 \end{proofofclaim}
 
+\begin{claim}
+	\label{cl:small-way-back}
+	Suppose that $s_{t_0} =b^{i}0^{n-ip}$ for $i > \ell$. Then, after $O(n^4p^{p-5} n^{(p^2+p)/2})$ iterations in expectation, a failure occurs or the current solution satisfies $s_t =b^\ell 0^{n-p\ell}$. \andre{guide the reader with skethes through the whole process!}
+\end{claim}
+
+\begin{proofofclaim}
+
+\end{proofofclaim}
+
+\begin{claim}
+	\label{cl:climbing-to-front}
+	Suppose that $s_{t_0} =b^{i}0^{n-ip}$ for $i \geq p+4$, and $\ell > p+3$. Then, after $O(n^2/p^2 \cdot n^p)$ advanced iterations in expectation, either the current solution is not Pareto optimal, or satisfies $s_t =b^\ell 0^{n-p\ell}$. So after $O(n^4p^{p-5} n^{(p^2+p)/2})$ iterations, the desired Pareto optimal solution is found, or the current solution is not Pareto optimal.
+\end{claim}
+
+\begin{proofofclaim}
+	
+\end{proofofclaim}
+
 \begin{lemma}
 	\label{lem:LITZ-steps-current-solution-below}
 	Consider \PAES with standard bit mutation and archive size at least $m(n/p+1)/2$ optimizing $m$-LITZ. Suppose that the current solution is not Pareto-optimal \andre{Bindestrich?}. Then the expected number of iterations until the current solution evolves a new Pareto optimum and adds it to the archive is $O(mn^{3+\log(p)})$.
