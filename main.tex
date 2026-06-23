@@ -734,7 +734,7 @@ We will determine the expected time until \PAES covers the whole Pareto front of
 
 \begin{theorem}
 \label{lem:LITZ-Pareto-Front-Covering}
-Consider \PAES with standard bit mutation and archive size at least $(m-1)(n/p+2)(n/p+1)/2$ optimizing $m$-LITZ. Then the expected number of iterations to cover the whole Pareto front is $O(m n^2/p^2....)$. 
+Consider \PAES with standard bit mutation and archive size at least $m(n/p+1)/2$ optimizing $m$-LITZ. Suppose that the current solution is not Pareto-optimal \andre{Bindestrich?}. Then the expected number of iterations until the current solution evolves a new Pareto optimum and adds it to the archive is $O(n^4p^{p-5}n^{(p^2 + p)/2})$. So the expected number of iterations to cover the Pareto front is $O(mn^5p^{p-6}n^{(p^2 + p)/2})$. 
 \end{theorem}
 
 \begin{proof}
@@ -820,31 +820,33 @@ Without loss of generality, assume that $t_0=0$. Call an advanced iteration a \e
 
 \begin{claim}
 	\label{cl:small-way-back}
-	Suppose that $s_{t_0} =b^{i}0^{n-ip}$ for $i > \ell$. Then, after $O(n^4p^{p-5} n^{(p^2+p)/2})$ iterations in expectation, a failure occurs or the current solution satisfies $s_t =b^\ell 0^{n-p\ell}$. \andre{guide the reader with skethes through the whole process!}
+	Suppose that $s_{t_0} =b^{i}0^{n-ip}$ for $i > \ell$. Then, after $O(n^4p^{p-5} n^{(p^2+p)/2})$ iterations in expectation, a failure occurs or the current solution satisfies $s_t =b^\ell 0^{n-p\ell}$. \andre{guide the reader with sketches through the whole process!}
 \end{claim}
 
 \begin{proofofclaim}
-
+	We show that, after $O((n/p)^2 n^p)$ generations in expectation, either $s_t =b^i0^{n-ip}$ for $i < \ell$, or $s_t =a^j0^{n-jp}$ for $a \neq b$, or a failure occurs. To this end, we use the zero drift theorem. For $j \in \{-f_k(s_t), \ldots , n/p-f_k(s_t)\}$ denote by $p_j \geq 1/(en^{jp})$ the probability that $f_k(s_t)$ increases by $j$.
+	As in previous proofs, we may assume that $j \in \{-2,-1,0,1,2\}$. Note that all blocks in $s_t$ other than the $j$ blocks that should be changed remain unchanged with probability at least $(1-1/n)^{n-jp} \geq 1/e$. Let $X_t:=\min\{n/p-f_k(s_t),0\}$ where $s_t$ denotes the current solution in iteration $t$. Denote by $B_t$ the event that a failure occurs, $s_t=b^j 0^{n-pj}$ for $j < \ell$, or $s_t=a^i 0^{n-pi}$ for $i \in [n/p]$. Let $T=\inf\{t \geq 0 \mid B_t \text{ occurs or } X_t \geq n/p - \ell\}$. We also see $\E(X_{t+1}-X_t \mid \bar{B}_0, \ldots \bar{B}_t,X_0, \ldots , X_t) = \sum_{j=-2}^2 j p_j \geq 0$, as $f_m(s_t)$ changes by at most $2$, and $\text{Var}(X_{t+1}-X_t \mid \bar{B}_0, \ldots \bar{B}_t, X_0, \ldots , X_t) \geq \E((X_{t+1}-X_t)^2 \mid \bar{B}_0, \ldots \bar{B}_t, X_0, \ldots , X_t) = \sum_{j=1}^2 j^2 p_j =:\delta$. Note that $\delta = \Omega(n^p)$. Therefore, $\E(T) \leq (n^2/p^2-E(X_{t_0}^2))/\delta \leq n^2/(\delta p^2) = O(n^p n^2/p^2)$ with Theorem~\ref{thm:unbiased-random-walk}. If $B_t$ occurs for $1 \leq t \leq T$, then we apply all the claims before, to obtain that after further $O(n^4p^{p-5}n^{(p^2+p)/2})$ iterations in expectation, a failure occurs or a solution $c_t=b^i0^{n-ip}$ for $i \geq \ell$ is generated. Note that $b^\ell0^{n-\ell p}$ is created before $b^i0^{n-i p}$ with probability $1-o(1)$, concluding the proof of the claim by noting that at most $1+o(1)$ such periods for creating a solution $c_t=b^i0^{n-ip}$ for $i \geq \ell$ are necessary.   
 \end{proofofclaim}
 
 \begin{claim}
 	\label{cl:climbing-to-front}
-	Suppose that $s_{t_0} =b^{i}0^{n-ip}$ for $i \geq p+4$, and $\ell > p+3$. Then, after $O(n^2/p^2 \cdot n^p)$ advanced iterations in expectation, either the current solution is not Pareto optimal, or satisfies $s_t =b^\ell 0^{n-p\ell}$. So after $O(n^4p^{p-5} n^{(p^2+p)/2})$ iterations, the desired Pareto optimal solution is found, or the current solution is not Pareto optimal.
+	Suppose that $s_t$ is not Pareto optimal. Then, after $O(n^4p^{p-5}n^{(p^2+p)/2})$ iterations in expectation, a new Pareto optimal point is added to $A_t$.   
 \end{claim}
 
 \begin{proofofclaim}
-	
+	If $s_t$ is not Pareto optimal, then $N_t < (m-1)(n/p+2)(n/p+1)/2$. To increase $N_t$ in one iteration, then it suffices to correct one block while not changing the other ones which happens with probability at least $1/(en^p)$. So the expected number of iterations until the Pareto front is reached is $O(m (n/p)^2n^p)$. Then, after further $O(n^4p^{p-5}n^{(p^2+p)/2})$ iterations a failure occurs which means that $s_t$ becomes again non-Pareto optimal, or is a new Pareto optimal point. However, creating a new Pareto optimal point and adding it into $A_t$ under the latter condition happens with probability at least $\Omega(1)$, concluding the proof of this claim.  
 \end{proofofclaim}
+
+So in total the expected number of generations to add a Pareto optimal solution into $A_t$ which has not added before is $O(n^4p^{p-5}n^{(p^2 + p)/2})$. Multiplying this with the size of the Pareto front (which is $O(mn/p)$) gives the desired runtime bound.
+\end{proof}
 
 \begin{lemma}
 	\label{lem:LITZ-steps-current-solution-below}
-	Consider \PAES with standard bit mutation and archive size at least $m(n/p+1)/2$ optimizing $m$-LITZ. Suppose that the current solution is not Pareto-optimal \andre{Bindestrich?}. Then the expected number of iterations until the current solution evolves a new Pareto optimum and adds it to the archive is $O(mn^{3+\log(p)})$.
+	Consider \PAES with standard bit mutation and archive size at least $m(n/p+1)/2$ optimizing $m$-LITZ. Suppose that the current solution is not Pareto-optimal \andre{Bindestrich?}. Then the expected number of iterations until the current solution evolves a new Pareto optimum and adds it to the archive is $O(n^4p^{p-5}n^{(p^2 + p)/2})$. So the expected number of iterations to cover the Pareto front is $O(mn^5p^{p-6}n^{(p^2 + p)/2})$. 
 \end{lemma}
 
 \begin{proof}
 	Suppose that the current solution $s$ is not Pareto optimal. Fix a set $Z \subset [m-1]$ of $m-2$ objectives with $f_j(s)=0$ for all $j \in Z$. Note that $v_k+v_m < n/p$ for $k \in [m-1] \setminus Z$. Then, there is no search point $z \in A_t$ dominating $c$, meaning that $f_j(z)=0$ for all $j \in Z$ and $f_{i_1}(z)+f_{i_2}(z) > v_{i_1}+v_{i_2}$. This means that $N_t$ increases by either increasing $\sum_{i=1}^{n/p} \prod_{j=i}^{n/p} I_0(\text{bin}(s^j))$ or $\sum_{i=1}^{n/p} \prod_{j=1}^i I_k(\text{bin}(s^j))$. This happens by flipping at most $p$ bits in block $i_1:=f_k(z)+1$ (to create the binary value of $k$ there) and in block $i_2:=n/p-f_m(z)$ while not changing the corresponding bits in the remaining blocks which happens with probability at least $(1/n)^p \cdot (1-1/n)^{n-1} \geq 1/(en^p)$. So the expected number of iterations when the current solution is not Pareto optimal is $O(en^p \cdot m n^3) = O(mn^{3+\log(p)})$. \andre{$\log$ is with respect base $2$.} 
-\end{proof}
-
 \end{proof}
 
 
